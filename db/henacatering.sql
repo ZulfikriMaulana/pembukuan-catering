@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2023 at 06:48 PM
+-- Generation Time: Feb 12, 2023 at 09:08 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -24,18 +24,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Table structure for table `pesanan`
 --
 
-CREATE TABLE `transaksi` (
-  `transaksi_id` int(11) NOT NULL,
-  `transaksi_tanggal` date NOT NULL,
-  `transaksi_jenis` enum('Pengeluaran','Pemasukan') CHARACTER SET utf8 NOT NULL,
-  `transaksi_kategori` int(11) NOT NULL,
-  `transaksi_nominal` int(11) NOT NULL,
-  `transaksi_keterangan` text CHARACTER SET utf8 NOT NULL,
-  `transaksi_foto` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `transaksi_bank` int(11) NOT NULL
+CREATE TABLE `pesanan` (
+  `id_pesanan` int(11) NOT NULL,
+  `tanggal_pesanan` date NOT NULL,
+  `id_pelanggan` int(11) NOT NULL,
+  `alamat_pelanggan` text NOT NULL,
+  `nama_pelanggan` text NOT NULL,
+  `no_hp` int(11) NOT NULL,
+  `id_item_pesanan` int(11) NOT NULL,
+  `jumlah_pesanan` int(11) NOT NULL,
+  `catatan` text NOT NULL,
+  `subtotal_pesanan` int(11) NOT NULL,
+  `pajak_pesanan` int(11) NOT NULL,
+  `total_pesanan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -67,10 +71,10 @@ INSERT INTO `user` (`userid`, `email`, `password`, `role`) VALUES
 --
 
 --
--- Indexes for table `transaksi`
+-- Indexes for table `pesanan`
 --
-ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`transaksi_id`);
+ALTER TABLE `pesanan`
+  ADD PRIMARY KEY (`id_pesanan`);
 
 --
 -- Indexes for table `user`
@@ -83,10 +87,10 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `transaksi`
+-- AUTO_INCREMENT for table `pesanan`
 --
-ALTER TABLE `transaksi`
-  MODIFY `transaksi_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `pesanan`
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
