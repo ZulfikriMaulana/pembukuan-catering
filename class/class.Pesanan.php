@@ -1,124 +1,138 @@
 <?php
 
-class Pesanan extends Connection{
-	private $userid=0;
-	private $email='';
-	private $password='';	
-	private $role='';		
-	private $hasil= false;
-	private $message ='';
-	
-	public function __get($atribute) {
-	if (property_exists($this, $atribute)) {
-    	return $this->$atribute;
+class Pesanan extends Connection
+{
+	private $id_pesanan = 0;
+	private $tanggal_pesanan = '';
+	private $id_pelanggan = '';
+	private $alamat_pelanggan = '';
+	private $nama_pelanggan = '';
+	private $no_hp = '';
+	private $id_item_pesanan = '';
+	private $jumlah_pesanan = '';
+	private $catatan = '';
+	private $subtotal_pesanan = '';
+	private $pajak_pesanan = '';
+	private $total_pesanan = '';
+	//private $hasil = false;
+	private $message = '';
+
+	public function __get($atribute)
+	{
+		if (property_exists($this, $atribute)) {
+			return $this->$atribute;
 		}
 	}
 
-	public function __set($atribut, $value){
+	public function __set($atribut, $value)
+	{
 		if (property_exists($this, $atribut)) {
-					$this->$atribut = $value;
+			$this->$atribut = $value;
 		}
 	}
-	
-	function __construct() {						
 
+	function __construct()
+	{
 	}
 
-	public function TambahUser(){
+	public function TambahPesanan()
+	{
 		$this->connect();
-		
-		
-		$sql = "INSERT INTO user(email, password, role)
-				values ('$this->email', '$this->password', '$this->role')";				
+
+
+		$sql = "INSERT INTO pesanan(id_pesanan, tanggal_pesanan, id_pelanggan, alamat_pelanggan, nama_pelanggan, no_hp, id_item_pesanan, jumlah_pesanan, catatan, subtotal_pesanan, pajak_pesanan, total_pesanan)
+				values ('$this->id_pesanan', '$this->tanggal_pesanan', '$this->id_pelanggan', '$this->alamat_pelanggan', '$this->nama_pelanggan', '$this->no_hp', '$this->id_item_pesanan', '$this->jumlah_pesanan', '$this->catatan', '$this->subtotal_pesanan', '$this->pajak_pesanan', '$this->total_pesanan',)";
 		$this->hasil = mysqli_query($this->connection, $sql);
-		
-		if($this->hasil)
-		   $this->message ='Data berhasil ditambahkan!';					
-	    else
-		   $this->message ='Data gagal ditambahkan!';	
+
+		if ($this->hasil)
+			$this->message = 'Data berhasil ditambahkan!';
+		else
+			$this->message = 'Data gagal ditambahkan!';
 	}
-	
-		public function UbahUser(){
-			$this->connect();
-			$sql = "UPDATE user 
+
+	public function UbahUser()
+	{
+		$this->connect();
+		$sql = "UPDATE user 
 			        SET email = '$this->email',
                     password='$this->password',
 					role='$this->role'
-					WHERE userid = $this->userid";					
-			
-			$this->hasil = mysqli_query($this->connection, $sql);			
-			
-			if($this->hasil)
-				$this->message ='Data berhasil diubah!';								
-			else
-				$this->message ='Data gagal diubah!';								
-		}
-		
-		
-		public function HapusUser(){
-			$this->connect();
-			$sql = "DELETE FROM user WHERE userid=$this->userid";
-			$this->hasil = mysqli_query($this->connection, $sql);
-			if($this->hasil)
-				$this->message ='Data berhasil dihapus!';								
-			else
-				$this->message ='Data gagal dihapus!';
-		}
+					WHERE userid = $this->userid";
 
-	public function ValidateEmail($inputemail){
+		$this->hasil = mysqli_query($this->connection, $sql);
+
+		if ($this->hasil)
+			$this->message = 'Data berhasil diubah!';
+		else
+			$this->message = 'Data gagal diubah!';
+	}
+
+
+	public function HapusUser()
+	{
+		$this->connect();
+		$sql = "DELETE FROM user WHERE userid=$this->userid";
+		$this->hasil = mysqli_query($this->connection, $sql);
+		if ($this->hasil)
+			$this->message = 'Data berhasil dihapus!';
+		else
+			$this->message = 'Data gagal dihapus!';
+	}
+
+	public function ValidateEmail($inputemail)
+	{
 		$this->connect();
 		$sql = "SELECT * FROM user
 				WHERE email = '$inputemail'";
-		$result = mysqli_query($this->connection, $sql);	
-		if (mysqli_num_rows ($result) == 1){
-			$this->hasil = true;			
+		$result = mysqli_query($this->connection, $sql);
+		if (mysqli_num_rows($result) == 1) {
+			$this->hasil = true;
 			$data = mysqli_fetch_assoc($result);
-			$this->email = $data['email'];				
-			$this->userid = $data['userid'];				
-			$this->password = $data['password'];				
-			$this->role=$data['role'];	
+			$this->email = $data['email'];
+			$this->userid = $data['userid'];
+			$this->password = $data['password'];
+			$this->role = $data['role'];
 		}
-	}	
-	
-	
-	public function LihatSatuUser(){
+	}
+
+
+	public function LihatSatuUser()
+	{
 		$this->connect();
 		$sql = "SELECT * FROM user
 				WHERE userid = $this->userid";
-				
-		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));	
-		
-		if(mysqli_num_rows($resultOne) == 1){
+
+		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
+
+		if (mysqli_num_rows($resultOne) == 1) {
 			$this->hasil = true;
 			$data = mysqli_fetch_assoc($resultOne);
-			$this->userid = $data['userid'];				
-			$this->password = $data['password'];				
-			$this->email=$data['email'];
-			$this->role=$data['role'];			
-		}		
+			$this->userid = $data['userid'];
+			$this->password = $data['password'];
+			$this->email = $data['email'];
+			$this->role = $data['role'];
+		}
 	}
-	
-	public function LihatSemuaUser(){
+
+	public function LihatSemuaUser()
+	{
 		$this->connect();
 		$sql = "SELECT * FROM user order by userid";
-		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));	
-		
-		$arrResult = Array();
-		$i=0;
-		if(mysqli_num_rows($result)>0){
-			while($data = mysqli_fetch_array($result))
-			{
+		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
+
+		$arrResult = array();
+		$i = 0;
+		if (mysqli_num_rows($result) > 0) {
+			while ($data = mysqli_fetch_array($result)) {
 				$objUser = new User();
-				$objUser->userid=$data['userid'];
-				$objUser->email=$data['email'];
-				$objUser->password=$data['password'];
-				$objUser->role=$data['role'];
+				$objUser->userid = $data['userid'];
+				$objUser->email = $data['email'];
+				$objUser->password = $data['password'];
+				$objUser->role = $data['role'];
 				$arrResult[$i] = $objUser;
 				$i++;
 			}
 		}
 		return $arrResult;
 	}
-	
-	
 }

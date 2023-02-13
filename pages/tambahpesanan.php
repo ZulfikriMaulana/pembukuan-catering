@@ -5,24 +5,24 @@ $objPesanan = new Pesanan();
 
 if (isset($_POST['btnSubmit'])) {
   $objPesanan->id_pesanan = $_POST['id_pesanan'];
-  $tanggal_pesanan = $_POST['tanggal_pesanan'];
+  $objPesanan->tanggal_pesanan = $_POST['tanggal_pesanan'];
   $objPesanan->id_pelanggan = $_POST['id_pelanggan'];
-  $alamat_pelanggan = $_POST['alamat_pelanggan'];
-  $nama_pelanggan = $_POST['nama_pelanggan'];
-  $no_hp = $_POST['no_hp'];
+  $objPesanan->alamat_pelanggan = $_POST['alamat_pelanggan'];
+  $objPesanan->nama_pelanggan = $_POST['nama_pelanggan'];
+  $objPesanan->no_hp = $_POST['no_hp'];
   $objPesanan->id_item_pesanan = $_POST['id_item_pesanan'];
-  $jumlah_pesanan = $_POST['jumlah_pesanan'];
-  $catatan = $_POST['catatan'];
-  $subtotal_pesanan = $_POST['subtotal_pesanan'];
-  $pajak_pesanan = $_POST['pajak_pesanan'];
-  $total_pesanan = $_POST['total_pesanan'];
+  $objPesanan->jumlah_pesanan = $_POST['jumlah_pesanan'];
+  $objPesanan->catatan = $_POST['catatan'];
+  $objPesanan->subtotal_pesanan = $_POST['subtotal_pesanan'];
+  $objPesanan->pajak_pesanan = $_POST['pajak_pesanan'];
+  $objPesanan->total_pesanan = $_POST['total_pesanan'];
 
 
-  $objPesanan->TambahUser();
+  $objPesanan->TambahPesanan();
 
   echo "<script> alert('$objPesanan->message'); </script>";
   if ($objPesanan->hasil) {
-    echo '<script> window.location="index.php?p=laporan"; </script>';
+    echo '<script> window.location="index.php?p=lihatpesanan"; </script>'; //ganti jadi lihat pesanan
   }
 }
 ?>
