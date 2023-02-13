@@ -28,7 +28,7 @@ if (isset($_POST['btnSubmit'])) {
 ?>
 <div class="container">
   <div class="col-md-6">
-    <h3>Tambah User</h3>
+    <h3>Tambah Pesanan</h3>
     <form class="form-horizontal" action="" method="post">
       <div class="form-group">
         <label class="control-label col-sm-2" for="email">Email:</label>
