@@ -31,12 +31,13 @@ if (isset($_POST['btnSubmit'])) {
     <h3>Tambah User</h3>
     <form class="form-horizontal" action="" method="post">
       <div class="form-group">
-        <label class="control-label col-sm-2" for="email">Email:</label>
+        <label class="control-label col-sm-2" for="pesanan">pesanan:</label>
         <div class="col-sm-10">
-          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+          <input type="pesanan" class="form-control" id="pesanan" placeholder="Enter pesanan" name="pesanan">
         </div>
       </div>
-      <div class="form-group">
+
+     <!-- <div class="form-group">
         <label class="control-label col-sm-2" for="password">Password:</label>
         <div class="col-sm-10">
           <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
@@ -60,7 +61,78 @@ if (isset($_POST['btnSubmit'])) {
           <input type="submit" class="btn btn-success" value="Simpan" name="btnSubmit">
           <a href="index.php?p=lihatuser" class="btn btn-danger">Batal</a></td>
         </div>
+      </div>-->
+      
+      <!--form baru disini-->
+      <div class="form-group"> 
+        <label class="control-label col-sm-2" for="tanggal_pesanan">Tanggal Pesanan:</label>
+        <div class="col-sm-10">
+          <input type="date" class="form-control" id="tanggal_pesanan" name="tanggal_pesanan">
+        </div>
       </div>
+      <div class="form-group"> 
+        <label class="control-label col-sm-2" for="id_pelanggan">ID Pelanggan:</label>
+        <div class="col-sm-10">
+          <input type="select" class="form-control" id="id_pelanggan" name="id_pelanggan">
+        </div>
+      </div>
+      <div class="form-group"> 
+        <label class="control-label col-sm-2" for="alamat_pelanggan">Alamat:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="alamat_pelanggan" placeholder="Masukkan alamat" name="alamat_pelanggan">
+        </div>
+      </div>
+      <div class="form-group"> 
+        <label class="control-label col-sm-2" for="nama_pelanggan">Nama:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="nama_pelanggan" placeholder="Nama" name="nama_pelanggan">
+        </div>
+      </div>
+      <div class="form-group"> 
+        <label class="control-label col-sm-2" for="no_hp">No. HP:</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="no_hp" placeholder="Masukkan No. Hp" name="no_hp"><!--cek lagi input type-->
+        </div>
+      </div>
+      <div class="form-group"> 
+        <label class="control-label col-sm-2" for="id_item_pesanan">ID Item Pesanan:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="id_item_pesanan" name="id_item_pesanan"> <!--kendala: input type dropdown-->
+        </div>
+      </div>
+      <div class="form-group"> 
+        <label class="control-label col-sm-2" for="jumlah_pesanan">Jumlah Pesanan:</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="jumlah_pesanan" name="jumlah_pesanan">
+        </div>
+      </div>
+      <div class="form-group"> 
+        <label class="control-label col-sm-2" for="catatan">Catatan:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="catatan" placeholder="catatan" name="catatan">
+        </div>
+      </div>
+      <div class="form-group"> 
+        <label class="control-label col-sm-2" for="subtotal_pesanan">subtotal pesanan:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="subtotal_pesanan" name="subtotal_pesanan">
+        </div>
+      </div>
+      <div class="form-group"> 
+        <label class="control-label col-sm-2" for="pajak_pesanan">pajak pesanan:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="pajak_pesanan" name="pajak_pesanan">
+        </div>
+      </div>
+      <div class="form-group"> 
+        <label class="control-label col-sm-2" for="total_pesanan">total pesanan:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="total_pesanan" name="total_pesanan">
+        </div>
+      </div>
+    
+      
+
     </form>
   </div>
 </div>
