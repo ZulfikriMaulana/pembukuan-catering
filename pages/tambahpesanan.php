@@ -97,7 +97,12 @@ if (isset($_POST['btnSubmit'])) {
       <div class="form-group"> 
         <label class="control-label col-sm-2" for="id_item_pesanan">ID Item Pesanan:</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="id_item_pesanan" name="id_item_pesanan"> <!--kendala: input type dropdown-->
+          <!--<input type="text" class="form-control" id="id_item_pesanan" name="id_item_pesanan"> kendala: input type dropdown-->
+          <select id="id_item_pesanan" name="id_item_pesanan">
+          <option value="snack_box">Snack Box</option>
+          <option value="nasi_box">Nasi Box</option>
+          <option value="prasmanan">Prasmanan</option>
+          </select>
         </div>
       </div>
       <div class="form-group"> 
