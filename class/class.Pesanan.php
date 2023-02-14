@@ -41,7 +41,7 @@ class Pesanan extends Connection
 
 
 		$sql = "INSERT INTO pesanan(id_pesanan, tanggal_pesanan, id_pelanggan, alamat_pelanggan, nama_pelanggan, no_hp, id_item_pesanan, jumlah_pesanan, catatan, subtotal_pesanan, pajak_pesanan, total_pesanan)
-				values ('$this->id_pesanan', '$this->tanggal_pesanan', '$this->id_pelanggan', '$this->alamat_pelanggan', '$this->nama_pelanggan', '$this->no_hp', '$this->id_item_pesanan', '$this->jumlah_pesanan', '$this->catatan', '$this->subtotal_pesanan', '$this->pajak_pesanan', '$this->total_pesanan',)";
+				values ('$this->id_pesanan', '$this->tanggal_pesanan', '$this->id_pelanggan', '$this->alamat_pelanggan', '$this->nama_pelanggan', '$this->no_hp', '$this->id_item_pesanan', '$this->jumlah_pesanan', '$this->catatan', '$this->subtotal_pesanan', '$this->pajak_pesanan', '$this->total_pesanan')";
 		$this->hasil = mysqli_query($this->connection, $sql);
 
 		if ($this->hasil)
