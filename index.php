@@ -43,6 +43,7 @@ require "inc.koneksi.php";
 							?>
 								<li><a href="index.php?p=lihatuser">Kelola User</a></li>
 								<li><a href="index.php?p=tambahpesanan">Pesanan</a></li>
+								<li><a href="index.php?p=lihatpesanan">Kelola Pesanan</a></li>
 								<li><a href="index.php?p=laporan">Laporan</a></li>
 							<?php
 							}

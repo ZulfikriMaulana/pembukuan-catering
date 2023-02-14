@@ -114,22 +114,30 @@ class Pesanan extends Connection
 		}
 	}
 
-	public function LihatSemuaUser()
+	public function LihatSemuaPesanan()
 	{
 		$this->connect();
-		$sql = "SELECT * FROM user order by userid";
+		$sql = "SELECT * FROM pesanan order by id_pesanan";
 		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
 
 		$arrResult = array();
 		$i = 0;
 		if (mysqli_num_rows($result) > 0) {
 			while ($data = mysqli_fetch_array($result)) {
-				$objUser = new User();
-				$objUser->userid = $data['userid'];
-				$objUser->email = $data['email'];
-				$objUser->password = $data['password'];
-				$objUser->role = $data['role'];
-				$arrResult[$i] = $objUser;
+				$objPesanan = new Pesanan();
+				$objPesanan->id_pesanan = $data['userid'];
+				$objPesanan->tanggal_pesanan = $data['email'];
+				$objPesanan->id_pelanggan = $data['password'];
+				$objPesanan->alamat_pelanggan = $data['role'];
+				$objPesanan->nama_pelanggan = $data['role'];
+				$objPesanan->no_hp = $data['role'];
+				$objPesanan->id_item_pesanan = $data['role'];
+				$objPesanan->jumlah_pesanan = $data['role'];
+				$objPesanan->catatan = $data['role'];
+				$objPesanan->subtotal_pesanan = $data['role'];
+				$objPesanan->pajak_pesanan = $data['role'];
+				$objPesanan->total_pesanan = $data['role'];
+				$arrResult[$i] = $objPesanan;
 				$i++;
 			}
 		}
