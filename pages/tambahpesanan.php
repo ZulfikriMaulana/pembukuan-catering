@@ -115,19 +115,19 @@ if (isset($_POST['btnSubmit'])) {
       <div class="form-group"> 
         <label class="control-label col-sm-2" for="subtotal_pesanan">subtotal pesanan:</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="subtotal_pesanan" name="subtotal_pesanan">
+          <input type="text" class="form-control" id="subtotal_pesanan" name="subtotal_pesanan"><!--note: ubah jadi auto-->
         </div>
       </div>
       <div class="form-group"> 
         <label class="control-label col-sm-2" for="pajak_pesanan">pajak pesanan:</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="pajak_pesanan" name="pajak_pesanan">
+          <input type="text" class="form-control" id="pajak_pesanan" name="pajak_pesanan"><!--note: ubah jadi auto-->
         </div>
       </div>
       <div class="form-group"> 
         <label class="control-label col-sm-2" for="total_pesanan">total pesanan:</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="total_pesanan" name="total_pesanan">
+          <input type="text" class="form-control" id="total_pesanan" name="total_pesanan"><!--note: ubah jadi auto-->
         </div>
       </div>
     
