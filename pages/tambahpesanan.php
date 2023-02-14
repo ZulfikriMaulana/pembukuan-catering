@@ -65,6 +65,12 @@ if (isset($_POST['btnSubmit'])) {
       
       <!--form baru disini-->
       <div class="form-group"> 
+        <label class="control-label col-sm-2" for="id_pesanan">ID Pesanan:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="id_pesanan" name="id_pesanan" value="01" readonly><!--value & readonly-->
+        </div>
+      </div>
+      <div class="form-group"> 
         <label class="control-label col-sm-2" for="tanggal_pesanan">Tanggal Pesanan:</label>
         <div class="col-sm-10">
           <input type="date" class="form-control" id="tanggal_pesanan" name="tanggal_pesanan">
@@ -73,25 +79,30 @@ if (isset($_POST['btnSubmit'])) {
       <div class="form-group"> 
         <label class="control-label col-sm-2" for="id_pelanggan">ID Pelanggan:</label>
         <div class="col-sm-10">
-          <input type="select" class="form-control" id="id_pelanggan" name="id_pelanggan">
+          <!--<input type="select" class="form-control" id="id_pelanggan" name="id_pelanggan">-->
+          <select id="id_item_pesanan" name="id_item_pesanan">
+          <option value="pemkot_depok">Pemkot Depok</option>
+          <option value="ahmad_sumbul">Muhammad Sumbul</option>
+          <option value="esq_165">ESQ 165</option>
+          </select>
         </div>
       </div>
       <div class="form-group"> 
         <label class="control-label col-sm-2" for="alamat_pelanggan">Alamat:</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="alamat_pelanggan" placeholder="Masukkan alamat" name="alamat_pelanggan">
+          <input type="text" class="form-control" id="alamat_pelanggan" placeholder="Masukkan alamat" name="alamat_pelanggan" required>
         </div>
       </div>
       <div class="form-group"> 
         <label class="control-label col-sm-2" for="nama_pelanggan">Nama:</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="nama_pelanggan" placeholder="Nama" name="nama_pelanggan">
+          <input type="text" class="form-control" id="nama_pelanggan" placeholder="Nama" name="nama_pelanggan" required>
         </div>
       </div>
       <div class="form-group"> 
         <label class="control-label col-sm-2" for="no_hp">No. HP:</label>
         <div class="col-sm-10">
-          <input type="number" class="form-control" id="no_hp" placeholder="Masukkan No. Hp" name="no_hp"><!--cek lagi input type-->
+          <input type="number" class="form-control" id="no_hp" placeholder="Masukkan No. Hp" name="no_hp" required><!--cek lagi input type-->
         </div>
       </div>
       <div class="form-group"> 
@@ -103,7 +114,7 @@ if (isset($_POST['btnSubmit'])) {
           <option value="nasi_box">Nasi Box</option>
           <option value="prasmanan">Prasmanan</option>
           </select>
-        </div>
+        </div><!--sampel dropdown-->
       </div>
       <div class="form-group"> 
         <label class="control-label col-sm-2" for="jumlah_pesanan">Jumlah Pesanan:</label>
@@ -114,25 +125,34 @@ if (isset($_POST['btnSubmit'])) {
       <div class="form-group"> 
         <label class="control-label col-sm-2" for="catatan">Catatan:</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="catatan" placeholder="catatan" name="catatan">
+          <!--<input type="text" class="form-control" id="catatan" placeholder="catatan" name="catatan">--><!--ubah jadi textarea-->
+          <textarea class="form-control" id="catatan" placeholder="catatan" name="catatan" rows="10" cols="40"></textarea>
         </div>
       </div>
       <div class="form-group"> 
         <label class="control-label col-sm-2" for="subtotal_pesanan">subtotal pesanan:</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="subtotal_pesanan" name="subtotal_pesanan"><!--note: ubah jadi auto-->
+          <input type="text" class="form-control" id="subtotal_pesanan" name="subtotal_pesanan" readonly><!--note: ubah jadi auto-->
         </div>
       </div>
       <div class="form-group"> 
         <label class="control-label col-sm-2" for="pajak_pesanan">pajak pesanan:</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="pajak_pesanan" name="pajak_pesanan"><!--note: ubah jadi auto-->
+          <input type="text" class="form-control" id="pajak_pesanan" name="pajak_pesanan" value="10%" readonly><!--note: ubah jadi auto-->
         </div>
       </div>
       <div class="form-group"> 
         <label class="control-label col-sm-2" for="total_pesanan">total pesanan:</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="total_pesanan" name="total_pesanan"><!--note: ubah jadi auto-->
+          <input type="text" class="form-control" id="total_pesanan" name="total_pesanan" readonly><!--note: ubah jadi auto-->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <input type="button" value="Simpan">
+        </div>
+        <div class="col-sm-1">
+          <input type="button" value="Batal">
         </div>
       </div>
     
