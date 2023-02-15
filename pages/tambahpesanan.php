@@ -125,7 +125,7 @@ if (isset($_POST['btnSubmit'])) {
               <div class="form-group"> 
                 <label class="control-label col-sm-5" for="subtotal_pesanan">subtotal pesanan:</label>
                   <div class="col-sm-7">
-                  <input type="text" class="form-control" id="subtotal_pesanan" name="subtotal_pesanan" readonly>
+                  <input type="text" class="form-control" id="subtotal_pesanan" name="subtotal_pesanan" value=0 readonly>
               </div>
             </div>
           </div>
@@ -152,7 +152,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="total_pesanan">total pesanan:</label>
               <div class="col-sm-7">
-              <input type="text" class="form-control" id="total_pesanan" name="total_pesanan" readonly>
+              <input type="text" class="form-control" id="total_pesanan" name="total_pesanan" value=0 readonly>
               </div>
             </div>
           </div>
