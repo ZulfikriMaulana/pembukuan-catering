@@ -68,10 +68,10 @@ class Pesanan extends Connection
 	}
 
 
-	public function HapusUser()
+	public function HapusPesanan()
 	{
 		$this->connect();
-		$sql = "DELETE FROM user WHERE userid=$this->userid";
+		$sql = "DELETE FROM pesanan WHERE id_pesanan=$this->id_pesanan";
 		$this->hasil = mysqli_query($this->connection, $sql);
 		if ($this->hasil)
 			$this->message = 'Data berhasil dihapus!';
