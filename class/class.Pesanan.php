@@ -14,7 +14,7 @@ class Pesanan extends Connection
 	private $subtotal_pesanan = '';
 	private $pajak_pesanan = '';
 	private $total_pesanan = '';
-	//private $hasil = false;
+	private $hasil = false;
 	private $message = '';
 
 	public function __get($atribute)
@@ -40,8 +40,8 @@ class Pesanan extends Connection
 		$this->connect();
 
 
-		$sql = "INSERT INTO pesanan(id_pesanan, tanggal_pesanan, id_pelanggan, alamat_pelanggan, nama_pelanggan, no_hp, id_item_pesanan, jumlah_pesanan, catatan, subtotal_pesanan, pajak_pesanan, total_pesanan)
-				values ('$this->id_pesanan', '$this->tanggal_pesanan', '$this->id_pelanggan', '$this->alamat_pelanggan', '$this->nama_pelanggan', '$this->no_hp', '$this->id_item_pesanan', '$this->jumlah_pesanan', '$this->catatan', '$this->subtotal_pesanan', '$this->pajak_pesanan', '$this->total_pesanan')";
+		$sql = "INSERT INTO pesanan(tanggal_pesanan, id_pelanggan, alamat_pelanggan, nama_pelanggan, no_hp, id_item_pesanan, jumlah_pesanan, catatan, subtotal_pesanan, pajak_pesanan, total_pesanan)
+				values ('$this->tanggal_pesanan', '$this->id_pelanggan', '$this->alamat_pelanggan', '$this->nama_pelanggan', '$this->no_hp', '$this->id_item_pesanan', '$this->jumlah_pesanan', '$this->catatan', '$this->subtotal_pesanan', '$this->pajak_pesanan', '$this->total_pesanan')";
 		$this->hasil = mysqli_query($this->connection, $sql);
 
 		if ($this->hasil)
@@ -125,18 +125,18 @@ class Pesanan extends Connection
 		if (mysqli_num_rows($result) > 0) {
 			while ($data = mysqli_fetch_array($result)) {
 				$objPesanan = new Pesanan();
-				$objPesanan->id_pesanan = $data['userid'];
-				$objPesanan->tanggal_pesanan = $data['email'];
-				$objPesanan->id_pelanggan = $data['password'];
-				$objPesanan->alamat_pelanggan = $data['role'];
-				$objPesanan->nama_pelanggan = $data['role'];
-				$objPesanan->no_hp = $data['role'];
-				$objPesanan->id_item_pesanan = $data['role'];
-				$objPesanan->jumlah_pesanan = $data['role'];
-				$objPesanan->catatan = $data['role'];
-				$objPesanan->subtotal_pesanan = $data['role'];
-				$objPesanan->pajak_pesanan = $data['role'];
-				$objPesanan->total_pesanan = $data['role'];
+				//$objPesanan->id_pesanan = $data['userid'];
+				$objPesanan->tanggal_pesanan = $data['tanggal_pesanan'];
+				$objPesanan->id_pelanggan = $data['id_pelanggan'];
+				$objPesanan->alamat_pelanggan = $data['alamat_pelanggan'];
+				$objPesanan->nama_pelanggan = $data['nama_pelanggan'];
+				$objPesanan->no_hp = $data['no_hp'];
+				$objPesanan->id_item_pesanan = $data['id_item_pesanan'];
+				$objPesanan->jumlah_pesanan = $data['jumlah_pesanan'];
+				$objPesanan->catatan = $data['catatan'];
+				$objPesanan->subtotal_pesanan = $data['subtotal_pesanan'];
+				$objPesanan->pajak_pesanan = $data['pajak_pesanan'];
+				$objPesanan->total_pesanan = $data['total_pesanan'];
 				$arrResult[$i] = $objPesanan;
 				$i++;
 			}
