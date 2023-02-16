@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="col-md-10">
+	<div class="col-md-12">
 		<h4 class="title"><span class="text"><strong>Kelola Pesanan</strong></span></h4>
 		<a class="btn btn-primary" href="index.php?p=tambahpesanan">Tambah Pesanan</a>
 		<br><br>
@@ -9,10 +9,15 @@
 				<thead>
 					<tr>
 						<th style="vertical-align: middle;">No.</th>
-						<th style="vertical-align: middle;">User Id.</th>
-						<th style="vertical-align: middle;">Email</th>
-						<th style="vertical-align: middle;">Peran</th>
-						<th style="vertical-align: middle;">Aksi</th>
+						<th style="vertical-align: middle;">Id Pesanan</th>
+						<th style="vertical-align: middle;">Tanggal Pesanan</th>
+						<th style="vertical-align: middle;">Id Pelanggan</th>
+						<th style="vertical-align: middle;">Item</th>
+						<th style="vertical-align: middle;">Jmlh Pesanan</th>
+						<th style="vertical-align: middle;">Subtotal Pesanan</th>
+						<th style="vertical-align: middle;">Pajak Pesanan</th>
+						<th style="vertical-align: middle;">Total Pesanan</th>
+						<th style="vertical-align: middle; width:100px">Aksi</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -28,17 +33,13 @@
 						echo '<td>' . $dataPesanan->id_pesanan . '</td>';
 						echo '<td>' . $dataPesanan->tanggal_pesanan . '</td>';
 						echo '<td>' . $dataPesanan->id_pelanggan . '</td>';
-						echo '<td>' . $dataPesanan->alamat_pelanggan . '</td>';
-						echo '<td>' . $dataPesanan->nama_pelanggan . '</td>';
-						echo '<td>' . $dataPesanan->no_hp . '</td>';
 						echo '<td>' . $dataPesanan->id_item_pesanan . '</td>';
 						echo '<td>' . $dataPesanan->jumlah_pesanan . '</td>';
-						echo '<td>' . $dataPesanan->catatan . '</td>';
 						echo '<td>' . $dataPesanan->subtotal_pesanan . '</td>';
 						echo '<td>' . $dataPesanan->pajak_pesanan . '</td>';
 						echo '<td>' . $dataPesanan->total_pesanan . '</td>';
-						echo '<td><a class="btn btn-warning btn-sm"  href="index.php?p=ubahuser&userid=' . $dataPesanan->id_pesanan . '">Ubah</a> |
-   			          <a class="btn btn-danger btn-sm"  href="index.php?p=hapususer&userid=' . $dataPesanan->id_pesanan . '" 
+						echo '<td><a class="btn btn-warning btn-sm"  href="index.php?p=ubahpesanan&id_pesanan=' . $dataPesanan->id_pesanan . '">Ubah</a> |
+   			          <a class="btn btn-danger btn-sm"  href="index.php?p=hapuspesanan&id_pesanan=' . $dataPesanan->id_pesanan . '" 
 		 			  onclick="return confirm(\'Apakah anda yakin ingin menghapus?\')">Hapus</a>							  
 				  </td>';
 						echo '</tr>';

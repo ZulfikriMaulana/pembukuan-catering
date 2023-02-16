@@ -50,7 +50,7 @@ class Pesanan extends Connection
 			$this->message = 'Data gagal ditambahkan!';
 	}
 
-	public function UbahPesanan()
+	public function UbahPesanan() //set satu saja
 	{
 		$this->connect();
 		$sql = "UPDATE user 
