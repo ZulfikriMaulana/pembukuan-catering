@@ -103,7 +103,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="id_item_pesanan">Jenis Pesanan:</label>
                 <div class="col-sm-7">
-                  <select class="form-control" id="id_item_pesanan" name="id_item_pesanan">
+                  <select class="form-control" id="id_item_pesanan" name="id_item_pesanan" onchange="hitung()">
                   <option value="1">Snack Box</option>
                   <option value="2">Nasi Box</option>
                   <option value="3">Prasmanan</option>
@@ -116,7 +116,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="jumlah_pesanan">Jumlah Pesanan:</label>
                 <div class="col-sm-7">
-                  <input type="number" class="form-control" id="jumlah_pesanan" name="jumlah_pesanan">
+                  <input type="number" class="form-control" id="jumlah_pesanan" name="jumlah_pesanan" onchange="hitung()">
               </div>
             </div>
           </div>
@@ -170,3 +170,19 @@ if (isset($_POST['btnSubmit'])) {
 
     </form>
   </div>
+<script>
+function hitung() {
+	    var id_item_pesanan = document.getElementById("id_item_pesanan").value;
+      var jumlah_pesanan = document.getElementById("jumlah_pesanan").value;
+      var subtotal = 0;
+      if (id_item_pesanan == 1){
+        subtotal = 15000*jumlah_pesanan
+      }elseif (id_item_pesanan == 2){
+        subtotal=25000*jumlah_pesanan
+      }elseif(id_item_pesanan == 3){
+        subtotal = 50000*jumlah_pesanan
+      }
+
+	    document.getElementById("subtotal_pesanan").value = subtotal;
+	}
+</script>
