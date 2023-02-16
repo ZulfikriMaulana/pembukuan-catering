@@ -108,7 +108,7 @@ class Pesanan extends Connection
 		if (mysqli_num_rows($result) > 0) {
 			while ($data = mysqli_fetch_array($result)) {
 				$objPesanan = new Pesanan();
-				//$objPesanan->id_pesanan = $data['userid'];
+				$objPesanan->id_pesanan = $data['id_pesanan'];
 				$objPesanan->tanggal_pesanan = $data['tanggal_pesanan'];
 				$objPesanan->id_pelanggan = $data['id_pelanggan'];
 				$objPesanan->alamat_pelanggan = $data['alamat_pelanggan'];

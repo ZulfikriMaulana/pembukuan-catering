@@ -22,7 +22,7 @@ if(isset($_POST['btnLogin'])){
 			$_SESSION["email"]= $objUser->email;		
 			
 			echo "<script>alert('Login sukses');</script>";						
-			echo '<script>window.location = "index.php?p=home";</script>';
+			echo '<script>window.location = "dashboard.php";</script>';
 		}
 		else{
 			echo "<script>alert('Password tidak match');</script>";							
@@ -33,34 +33,33 @@ if(isset($_POST['btnLogin'])){
 	} 	
 }  
 ?>
-<div class="container">  
-<div class="col-md-6">			
-  <h4 class="title"><span class="text"><strong>Login</strong></span></h4>
-    <form action="" method="post">
-	<table class="table" border="0">	
-	<tr>
-	<td>Email</td>
-	<td>:</td>
-	<td>
-	<input type="text" name="email" id="email" class="form-control" maxlength="30" required>
-	</tr>	
-	<tr>
-	<td>Password</td>
-	<td>:</td>
-	<td>
-	<input type="password" name="password" id="password" class="form-control" maxlength="30" required>
-	</tr>		
-	<td></td>
-	<td></td>
-	<td><input type="submit" class="btn btn-success" value="Login" name="btnLogin">
-	    <a href="index.php" class="btn btn-danger">Cancel</a></td>
-	</tr>	
-	</table>    
-</form>	
-</div>  
-</div>
 
+<div class="login-box-body">
 
+        <div class="text-center">
 
+          <span style="color: green;">
+            <center>
+              <h5>Masukkan User & Password Anda</h5>
+            </center>
+          </span></p>
 
+          <form action="" method="POST">
+            <div class="form-group has-feedback">
+              <input type="text" class="form-control" placeholder="Username" name="email" required="required" autocomplete="off">
+              <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+              <input type="password" class="form-control" placeholder="Password" name="password" required="required" autocomplete="off">
+              <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="row">
+              <div class="col-xs-offset-8 col-xs-4">			    
+                <button type="submit" class="btn btn-primary btn-block btn-flat" name="btnLogin">Sign In</button>
+              </div>
+            </div>
+          </form>
 
+        </div>
+      </div>
+    </div>

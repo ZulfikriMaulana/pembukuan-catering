@@ -22,15 +22,35 @@ if (isset($_POST['btnSubmit'])) {
 
   echo "<script> alert('$objPesanan->message'); </script>";
   if ($objPesanan->hasil) {
-    echo '<script> window.location="index.php?p=lihatpesanan"; </script>'; //ganti jadi lihat pesanan
+    echo '<script> window.location="dashboard.php?p=lihatpesanan"; </script>'; //ganti jadi lihat pesanan
   }
 }
 ?>
 
   
-    <div class="container">
+<section class="content-header">
+  <h1>
+	Pesanan
+	<small>Data Pesanan</small>
+  </h1>
+  <ol class="breadcrumb">
+	<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+	<li class="active">Dashboard</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+	<section class="col-lg-12">
+	  <div class="box box-info">
+
+		<div class="box-header">
+		  <h3 class="box-title">Tambah Pesanan</h3>		
+		</div>
+		<div class="box-body">
+        
       <form class="form-horizontal" action="" method="post">
-        <div class="col-md-6"><!--COL Kiri-->
+        <div class="col-md-5"><!--COL Kiri-->
           <div class="row"><!--ROW 1-->
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="id_pesanan">ID Pesanan:</label>
@@ -89,7 +109,7 @@ if (isset($_POST['btnSubmit'])) {
             </div>
           </div>
         </div>
-        <div class="col-md-6"><!--COL Kanan-->
+        <div class="col-md-5"><!--COL Kanan-->
           <div class="row"><!--ROW 1-->
               <div class="form-group"> 
                 <label class="control-label col-sm-5" for="tanggal_pesanan">Tanggal Pesanan:</label>
@@ -129,8 +149,8 @@ if (isset($_POST['btnSubmit'])) {
               </div>
             </div>
           </div>
-          
-          <div class="row"><!--ROW 5-->
+          <!--ROW 5
+          <div class="row">
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="besar_pajak">pajak pesanan:</label>
               <div class="col-sm-7">
@@ -138,10 +158,10 @@ if (isset($_POST['btnSubmit'])) {
               </div>
             </div>
           </div>
-          
+          -->
           <div class="row"><!--ROW 6-->
             <div class="form-group"> 
-              <label class="control-label col-sm-5" for="pajak_pesanan"></label>
+              <label class="control-label col-sm-5" for="pajak_pesanan">pajak pesanan</label>
               <div class="col-sm-7">
                 <input type="text" class="form-control" id="pajak_pesanan" name="pajak_pesanan" value=0 readonly>
               </div>
@@ -161,15 +181,21 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group">
               <div class="col-sm-offset-5 col-sm-7">
               <input type="submit" class="btn btn-success" value="Simpan" name="btnSubmit">
-              <a href="index.php?p=lihatpesanan" class="btn btn-danger">Batal</a></td>
+              <a href="dashboard.php?p=lihatpesanan" class="btn btn-danger">Batal</a></td>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-    </form>
+    </form>  
+	
+		</div>
+	  </div>
+	</section>
   </div>
+</section>
+
 <script>
 function hitung() {
 	    var id_item_pesanan = document.getElementById("id_item_pesanan").value;
@@ -182,17 +208,18 @@ function hitung() {
       }else if(id_item_pesanan == 3){
         subtotal = 50000*jumlah_pesanan
       }
-      var besar_pajak = document.getElementById("besar_pajak").value;
+      var besar_pajak = 10;//document.getElementById("besar_pajak").value;
       var pajak = besar_pajak / 100 * subtotal;
       
       var total = subtotal + pajak;
-    
-
-
-    
 
 	    document.getElementById("subtotal_pesanan").value = subtotal;
       document.getElementById("pajak_pesanan").value = pajak;
       document.getElementById("total_pesanan").value = total;
 	}
 </script>
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Term
+
