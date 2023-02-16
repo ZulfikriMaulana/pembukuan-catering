@@ -134,7 +134,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="besar_pajak">pajak pesanan:</label>
               <div class="col-sm-7">
-                <input type="text" class="form-control" id="besar_pajak" name="besar_pajak" value=0 readonly>
+                <input type="text" class="form-control" id="besar_pajak" name="besar_pajak" value=10 readonly>
               </div>
             </div>
           </div>
@@ -177,12 +177,22 @@ function hitung() {
       var subtotal = 0;
       if (id_item_pesanan == 1){
         subtotal = 15000*jumlah_pesanan
-      }elseif (id_item_pesanan == 2){
+      }else if (id_item_pesanan == 2){
         subtotal=25000*jumlah_pesanan
-      }elseif(id_item_pesanan == 3){
+      }else if(id_item_pesanan == 3){
         subtotal = 50000*jumlah_pesanan
       }
+      var besar_pajak = document.getElementById("besar_pajak").value;
+      var pajak = besar_pajak / 100 * subtotal;
+      
+      var total = subtotal + pajak;
+    
+
+
+    
 
 	    document.getElementById("subtotal_pesanan").value = subtotal;
+      document.getElementById("pajak_pesanan").value = pajak;
+      document.getElementById("total_pesanan").value = total;
 	}
 </script>
