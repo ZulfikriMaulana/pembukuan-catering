@@ -53,7 +53,7 @@ class Pesanan extends Connection
 	public function UbahPesanan() //set satu saja
 	{
 		$this->connect();
-		$sql = "UPDATE user 
+		$sql = "UPDATE id_pesanan 
 			        SET email = '$this->email',
                     password='$this->password',
 					role='$this->role'
@@ -79,21 +79,29 @@ class Pesanan extends Connection
 			$this->message = 'Data gagal dihapus!';
 	}
 
-	public function LihatSatuUser()
+	public function LihatSatuPesanan()
 	{
 		$this->connect();
-		$sql = "SELECT * FROM user
-				WHERE userid = $this->userid";
+		$sql = "SELECT * FROM pesanan
+				WHERE id_pesanan = $this->id_pesanan";
 
 		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
 
 		if (mysqli_num_rows($resultOne) == 1) {
 			$this->hasil = true;
 			$data = mysqli_fetch_assoc($resultOne);
-			$this->userid = $data['userid'];
-			$this->password = $data['password'];
-			$this->email = $data['email'];
-			$this->role = $data['role'];
+			$this->id_pesanan = $data['id_pesanan'];
+			$this->tanggal_pesanan = $data['tanggal_pesanan'];
+			$this->id_pelanggan = $data['id_pelanggan'];
+			$this->alamat_pelanggan = $data['alamat_pelanggan'];
+			$this->nama_pelanggan = $data['nama_pelanggan'];
+			$this->no_hp = $data['no_hp'];
+			$this->id_item_pesanan = $data['id_item_pesanan'];
+			$this->jumlah_pesanan = $data['jumlah_pesanan'];
+			$this->catatan = $data['catatan'];
+			$this->subtotal_pesanan = $data['subtotal_pesanan'];
+			$this->pajak_pesanan = $data['pajak_pesanan'];
+			$this->total_pesanan = $data['total_pesanan'];
 		}
 	}
 
