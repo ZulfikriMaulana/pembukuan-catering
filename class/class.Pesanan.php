@@ -79,23 +79,6 @@ class Pesanan extends Connection
 			$this->message = 'Data gagal dihapus!';
 	}
 
-	public function ValidateEmail($inputemail)
-	{
-		$this->connect();
-		$sql = "SELECT * FROM user
-				WHERE email = '$inputemail'";
-		$result = mysqli_query($this->connection, $sql);
-		if (mysqli_num_rows($result) == 1) {
-			$this->hasil = true;
-			$data = mysqli_fetch_assoc($result);
-			$this->email = $data['email'];
-			$this->userid = $data['userid'];
-			$this->password = $data['password'];
-			$this->role = $data['role'];
-		}
-	}
-
-
 	public function LihatSatuUser()
 	{
 		$this->connect();
