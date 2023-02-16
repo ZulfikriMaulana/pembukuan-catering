@@ -161,7 +161,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group">
               <div class="col-sm-offset-5 col-sm-7">
               <input type="submit" class="btn btn-success" value="Simpan" name="btnSubmit">
-              <a href="index.php?p=lihatuser" class="btn btn-danger">Batal</a></td>
+              <a href="index.php?p=lihatpesanan" class="btn btn-danger">Batal</a></td>
               </div>
             </div>
           </div>
