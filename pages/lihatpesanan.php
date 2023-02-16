@@ -56,7 +56,7 @@
 									echo '<td>' . $dataPesanan->subtotal_pesanan . '</td>';
 									echo '<td>' . $dataPesanan->pajak_pesanan . '</td>';
 									echo '<td>' . $dataPesanan->total_pesanan . '</td>';
-									echo '<td><a class="btn btn-warning btn-sm"  href="ubahpesanan.php?p=ubahpesanan&id_pesanan=' . $dataPesanan->id_pesanan . '">Ubah</a> |
+									echo '<td><a class="btn btn-warning btn-sm"  href="dashboard.php?p=ubahpesanan&id_pesanan=' . $dataPesanan->id_pesanan . '">Ubah</a> |
    			          <a class="btn btn-danger btn-sm"  href="dashboard.php?p=hapuspesanan&id_pesanan=' . $dataPesanan->id_pesanan . '" 
 		 			  onclick="return confirm(\'Apakah anda yakin ingin menghapus?\')">Hapus</a>							  
 				  </td>';

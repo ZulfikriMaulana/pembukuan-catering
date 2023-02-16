@@ -10,6 +10,7 @@ if (isset($_POST['btnSubmit'])) {
   $objPesanan->no_hp = $_POST['no_hp'];
   $objPesanan->jumlah_pesanan = $_POST['jumlah_pesanan'];
   $objPesanan->catatan = $_POST['catatan'];
+
   $objUser->UbahPesanan();
 
   echo "<script> alert('$objPesanan->message'); </script>";
