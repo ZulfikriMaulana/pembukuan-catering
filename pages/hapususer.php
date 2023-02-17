@@ -6,7 +6,7 @@ if(isset($_GET['userid'])){
 	
 	$objUser->HapusUser();
 	echo "<script> alert('$objUser->message'); </script>";
-	echo "<script>window.location = 'index.php?p=lihatuser'</script>";			
+	echo "<script>window.location = 'dashboard.php?p=lihatuser'</script>";			
 		
 }
 else{		

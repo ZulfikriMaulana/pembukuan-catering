@@ -64,9 +64,9 @@ require "inc.koneksi.php";
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">   
 			  <?php
-				if (isset($_SESSION["role"])) {
+				if (isset($_SESSION["userid"])) {
 			  ?>
-					<span class="hidden-xs"><?php echo $_SESSION['email']; ?> - <?php echo $_SESSION['role']; ?></span>
+					<span class="hidden-xs"><?php echo $_SESSION['nama']; ?> - <?php echo $_SESSION['nama_role']; ?></span>
 			  <?php
 				}
 			  ?>
@@ -88,9 +88,7 @@ require "inc.koneksi.php";
           <div class="pull-left image">
            
           </div>
-          <div class="pull-left info">
-            <p><?php echo $_SESSION['email']; ?></p>
-          </div>
+          
         </div>
 
         <ul class="sidebar-menu" data-widget="tree">
@@ -101,7 +99,12 @@ require "inc.koneksi.php";
               <i class="fa fa-dashboard"></i> <span>DASHBOARD</span>
             </a>
           </li>
-
+    <?php
+          if(isset($_SESSION["nama_role"]))
+						{ 							
+									if($_SESSION["nama_role"] == "admin")
+									{						
+        ?>
           <li>
             <a href="dashboard.php?p=lihatpesanan">
               <i class="fa fa-folder"></i> <span>DATA PESANAN</span>
@@ -113,23 +116,14 @@ require "inc.koneksi.php";
               <i class="fa fa-folder"></i> <span>DATA TRANSAKSI</span>
             </a>
           </li>
+          <?php
+                  }
+                  else {
 
-          <li class="treeview">
-            <a href="#">
-              <i class="fa fa-hand-paper-o"></i>
-              <span>HUTANG PIUTANG</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu" style="display: none;">
-              <li><a href="hutang.php"><i class="fa fa-circle-o"></i> Catatan Hutang</a></li>
-              <li><a href="piutang.php"><i class="fa fa-circle-o"></i> Catatan Piutang</a></li>
-            </ul>
-          </li>
+          ?>
 
           <li>
-            <a href="user.php">
+            <a href="dashboard.php?p=lihatuser">
               <i class="fa fa-users"></i> <span>DATA PENGGUNA</span>
             </a>
           </li>
@@ -139,7 +133,10 @@ require "inc.koneksi.php";
               <i class="fa fa-file"></i> <span>LAPORAN</span>
             </a>
           </li>
-
+          <?php
+                  }
+            }
+            ?>
           <li>
             <a href="gantipassword.php">
               <i class="fa fa-lock"></i> <span>GANTI PASSWORD</span>

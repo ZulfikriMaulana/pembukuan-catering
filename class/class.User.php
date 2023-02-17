@@ -3,8 +3,10 @@
 class User extends Connection{
 	private $userid=0;
 	private $email='';
+	private $nama='';
 	private $password='';	
-	private $role='';		
+	private $id_role='';		
+	private $nama_role='';		
 	private $hasil= false;
 	private $message ='';
 	
@@ -28,8 +30,8 @@ class User extends Connection{
 		$this->connect();
 		
 		
-		$sql = "INSERT INTO user(email, password, role)
-				values ('$this->email', '$this->password', '$this->role')";				
+		$sql = "INSERT INTO user(nama, email, password, id_role)
+				values ('$this->nama','$this->email', '$this->password', '$this->id_role')";				
 		$this->hasil = mysqli_query($this->connection, $sql);
 		
 		if($this->hasil)
@@ -41,9 +43,10 @@ class User extends Connection{
 		public function UbahUser(){
 			$this->connect();
 			$sql = "UPDATE user 
-			        SET email = '$this->email',
+			        SET nama = '$this->nama',
+					email = '$this->email',
                     password='$this->password',
-					role='$this->role'
+					id_role='$this->id_role'
 					WHERE userid = $this->userid";					
 			
 			$this->hasil = mysqli_query($this->connection, $sql);			
@@ -67,24 +70,26 @@ class User extends Connection{
 
 	public function ValidateEmail($inputemail){
 		$this->connect();
-		$sql = "SELECT * FROM user
-				WHERE email = '$inputemail'";
+		$sql = "SELECT u.*, r.nama_role FROM user u, role r where u.id_role = r.id_role
+				and email = '$inputemail'";
 		$result = mysqli_query($this->connection, $sql);	
 		if (mysqli_num_rows ($result) == 1){
 			$this->hasil = true;			
 			$data = mysqli_fetch_assoc($result);
+			$this->nama = $data['nama'];				
 			$this->email = $data['email'];				
 			$this->userid = $data['userid'];				
 			$this->password = $data['password'];				
-			$this->role=$data['role'];	
+			$this->id_role=$data['id_role'];	
+			$this->nama_role=$data['nama_role'];	
 		}
 	}	
 	
 	
 	public function LihatSatuUser(){
 		$this->connect();
-		$sql = "SELECT * FROM user
-				WHERE userid = $this->userid";
+		$sql = "SELECT u.*, r.nama_role FROM user u, role r where u.id_role = r.id_role
+				and userid = $this->userid";
 				
 		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));	
 		
@@ -94,13 +99,15 @@ class User extends Connection{
 			$this->userid = $data['userid'];				
 			$this->password = $data['password'];				
 			$this->email=$data['email'];
-			$this->role=$data['role'];			
+			$this->nama=$data['nama'];
+			$this->nama_role=$data['nama_role'];
+			$this->id_role=$data['id_role'];			
 		}		
 	}
 	
 	public function LihatSemuaUser(){
 		$this->connect();
-		$sql = "SELECT * FROM user order by userid";
+		$sql = "SELECT u.*, r.nama_role FROM user u, role r where u.id_role = r.id_role order by userid";
 		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));	
 		
 		$arrResult = Array();
@@ -111,8 +118,10 @@ class User extends Connection{
 				$objUser = new User();
 				$objUser->userid=$data['userid'];
 				$objUser->email=$data['email'];
+				$objUser->nama=$data['nama'];
 				$objUser->password=$data['password'];
-				$objUser->role=$data['role'];
+				$objUser->id_role=$data['id_role'];
+				$objUser->nama_role=$data['nama_role'];
 				$arrResult[$i] = $objUser;
 				$i++;
 			}

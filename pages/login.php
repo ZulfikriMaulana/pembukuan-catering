@@ -18,7 +18,8 @@ if(isset($_POST['btnLogin'])){
 			}		  			
 		
 			$_SESSION["userid"]= $objUser->userid;
-			$_SESSION["role"]= $objUser->role;
+			$_SESSION["nama_role"]= $objUser->nama_role;
+      $_SESSION["nama"]= $objUser->nama;
 			$_SESSION["email"]= $objUser->email;		
 			
 			echo "<script>alert('Login sukses');</script>";						
