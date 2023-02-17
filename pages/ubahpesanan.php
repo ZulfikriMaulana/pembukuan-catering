@@ -4,12 +4,9 @@ require_once('./class/class.Pesanan.php');
 $objUser = new Pesanan();
 
 if (isset($_POST['btnSubmit'])) {
-  $objPesanan->id_pesanan = $_GET['id_pesanan'];
   $objPesanan->tanggal_pesanan = $_POST['tanggal_pesanan'];
-  $objPesanan->alamat_pesanan = $_POST['alamat_pesanan'];
-  $objPesanan->no_hp = $_POST['no_hp'];
-  $objPesanan->jumlah_pesanan = $_POST['jumlah_pesanan'];
   $objPesanan->catatan = $_POST['catatan'];
+  $objPesanan->jumlah_pesanan = $_POST['jumlah_pesanan'];
 
   $objUser->UbahPesanan();
 
