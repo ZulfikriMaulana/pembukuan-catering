@@ -4,26 +4,19 @@ require_once('./class/class.Pesanan.php');
 $objPesanan = new Pesanan();
 
 if (isset($_POST['btnSubmit'])) {
-  $objPesanan->id_pesanan = $_POST['id_pesanan'];
   $objPesanan->tanggal_pesanan = $_POST['tanggal_pesanan'];
-  $objPesanan->id_pelanggan = $_POST['id_pelanggan'];
-  $objPesanan->alamat_pelanggan = $_POST['alamat_pelanggan'];
-  $objPesanan->nama_pelanggan = $_POST['nama_pelanggan'];
-  $objPesanan->no_hp = $_POST['no_hp'];
-  $objPesanan->id_item_pesanan = $_POST['id_item_pesanan'];
-  $objPesanan->jumlah_pesanan = $_POST['jumlah_pesanan'];
   $objPesanan->catatan = $_POST['catatan'];
-  $objPesanan->subtotal_pesanan = $_POST['subtotal_pesanan'];
-  $objPesanan->pajak_pesanan = $_POST['pajak_pesanan'];
-  $objPesanan->total_pesanan = $_POST['total_pesanan'];
+  $objPesanan->jumlah_pesanan = $_POST['jumlah_pesanan'];
 
-
-  $objPesanan->TambahPesanan();
+  $objPesanan->UbahPesanan();
 
   echo "<script> alert('$objPesanan->message'); </script>";
   if ($objPesanan->hasil) {
-    echo '<script> window.location="dashboard.php?p=lihatpesanan"; </script>'; //ganti jadi lihat pesanan
+    echo '<script> window.location="index.php?p=lihatpesanan"; </script>';
   }
+} else if (isset($_GET['userid'])) {
+  $objPesanan->userid = $_GET['userid'];
+  $objPesanan->LihatSatuPesanan();
 }
 ?>
 
@@ -55,7 +48,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="id_pesanan">ID Pesanan:</label>
                 <div class="col-sm-7">
-                <input type="text" class="form-control" id="id_pesanan" name="id_pesanan" value="01" value="<?php echo $objUser->id_pesanan; ?>" readonly>
+                <input type="text" class="form-control" id="id_pesanan" name="id_pesanan" value="<?php echo $objPesanan->id_pesanan; ?>" readonly>
                 </div>
               </div>
           </div>
@@ -64,7 +57,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="id_pelanggan">Pelanggan:</label>
                 <div class="col-sm-7">
-                  <select class="form-control" id="id_pelanggan" name="id_pelanggan" value="<?php echo $objUser->id_pelanggan; ?>" readonly>
+                  <select class="form-control" id="id_pelanggan" name="id_pelanggan" value="<?php echo $objPesanan->id_pelanggan; ?>" readonly>
                   <option value="1">Pemkot Depok</option>
                   <option value="2">Muhammad Sumbul</option>
                   <option value="3">ESQ 165</option>
@@ -77,7 +70,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="alamat_pelanggan">Alamat:</label>
                 <div class="col-sm-7">
-                <textarea class="form-control" id="alamat_pelanggan" placeholder="Alamat" name="alamat_pelanggan" value="<?php echo $objUser->alamat_pelanggan; ?>" rows="2" cols="20" required readonly></textarea>
+                <textarea class="form-control" id="alamat_pelanggan" placeholder="Alamat" name="alamat_pelanggan" value="<?php echo $objPesanan->alamat_pelanggan; ?>" rows="2" cols="20" required readonly></textarea>
               </div>
             </div>
           </div>
@@ -86,7 +79,7 @@ if (isset($_POST['btnSubmit'])) {
               <div class="form-group"> 
                 <label class="control-label col-sm-5" for="nama_pelanggan">Nama:</label>
                 <div class="col-sm-7">
-                  <input type="text" class="form-control" id="nama_pelanggan" placeholder="Nama" name="nama_pelanggan" value="<?php echo $objUser->nama_pelanggan; ?>" required readonly>
+                  <input type="text" class="form-control" id="nama_pelanggan" placeholder="Nama" name="nama_pelanggan" value="<?php echo $objPesanan->nama_pelanggan; ?>" required readonly>
               </div>
             </div>
           </div>
@@ -95,7 +88,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
                 <label class="control-label col-sm-5" for="no_hp">No. HP:</label>
                 <div class="col-sm-7">
-                <input type="number" class="form-control" id="no_hp" placeholder="Masukkan No. Hp" name="no_hp" value="<?php echo $objUser->no_hp; ?>" required readonly>
+                <input type="number" class="form-control" id="no_hp" placeholder="Masukkan No. Hp" name="no_hp" value="<?php echo $objPesanan->no_hp; ?>" required readonly>
                 </div>
             </div>
           </div>
@@ -104,7 +97,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="catatan">Catatan:</label>
               <div class="col-sm-7">
-                <textarea class="form-control" id="catatan" placeholder="catatan" name="catatan" value="<?php echo $objUser->catatan; ?>" rows="2" cols="20"></textarea>
+                <textarea class="form-control" id="catatan" placeholder="catatan" name="catatan" value="<?php echo $objPesanan->catatan; ?>" rows="2" cols="20"></textarea>
               </div>
             </div>
           </div>
@@ -114,7 +107,7 @@ if (isset($_POST['btnSubmit'])) {
               <div class="form-group"> 
                 <label class="control-label col-sm-5" for="tanggal_pesanan">Tanggal Pesanan:</label>
                 <div class="col-sm-7">
-                  <input type="date" class="form-control" id="tanggal_pesanan" name="tanggal_pesanan" value="<?php echo $objUser->tanggal_pesanan; ?>" required>
+                  <input type="date" class="form-control" id="tanggal_pesanan" name="tanggal_pesanan" value="<?php echo $objPesanan->tanggal_pesanan; ?>" required>
               </div>
             </div>
           </div>
@@ -123,7 +116,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="id_item_pesanan">Jenis Pesanan:</label>
                 <div class="col-sm-7">
-                  <select class="form-control" id="id_item_pesanan" name="id_item_pesanan" value="<?php echo $objUser->id_item_pesanan; ?>" onchange="hitung()">
+                  <select class="form-control" id="id_item_pesanan" name="id_item_pesanan" value="<?php echo $objPesanan->id_item_pesanan; ?>" onchange="hitung()">
                   <option value="1">Snack Box</option>
                   <option value="2">Nasi Box</option>
                   <option value="3">Prasmanan</option>
@@ -136,7 +129,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="jumlah_pesanan">Jumlah Pesanan:</label>
                 <div class="col-sm-7">
-                  <input type="number" class="form-control" id="jumlah_pesanan" name="jumlah_pesanan" value="<?php echo $objUser->jumlah_pesanan; ?>" onchange="hitung()" required>
+                  <input type="number" class="form-control" id="jumlah_pesanan" name="jumlah_pesanan" value="<?php echo $objPesanan->jumlah_pesanan; ?>" onchange="hitung()" required>
               </div>
             </div>
           </div>
@@ -145,7 +138,7 @@ if (isset($_POST['btnSubmit'])) {
               <div class="form-group"> 
                 <label class="control-label col-sm-5" for="subtotal_pesanan">subtotal pesanan:</label>
                   <div class="col-sm-7">
-                  <input type="text" class="form-control" id="subtotal_pesanan" name="subtotal_pesanan" value="<?php echo $objUser->subtotal_pesanan; ?>" readonly>
+                  <input type="text" class="form-control" id="subtotal_pesanan" name="subtotal_pesanan" value="<?php echo $objPesanan->subtotal_pesanan; ?>" readonly>
               </div>
             </div>
           </div>
@@ -163,7 +156,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="pajak_pesanan">pajak pesanan</label>
               <div class="col-sm-7">
-                <input type="text" class="form-control" id="pajak_pesanan" name="pajak_pesanan" value="<?php echo $objUser->pajak_pesanan; ?>" readonly> 
+                <input type="text" class="form-control" id="pajak_pesanan" name="pajak_pesanan" value="<?php echo $objPesanan->pajak_pesanan; ?>" readonly> 
               </div>
             </div>
           </div>
@@ -172,7 +165,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="total_pesanan">total pesanan:</label>
               <div class="col-sm-7">
-              <input type="text" class="form-control" id="total_pesanan" name="total_pesanan" value="<?php echo $objUser->total_pesanan; ?>" readonly>
+              <input type="text" class="form-control" id="total_pesanan" name="total_pesanan" value="<?php echo $objPesanan->total_pesanan; ?>" readonly>
               </div>
             </div>
           </div>
@@ -225,4 +218,4 @@ Term
 
 
 
-<!--value="<?php echo $objUser->email; ?>"  buat mengambil value dari tabel-->
+<!--value="<?php echo $objPesanan->email; ?>"  buat mengambil value dari tabel-->
