@@ -70,7 +70,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="alamat_pelanggan">Alamat:</label>
                 <div class="col-sm-7">
-                <textarea class="form-control" id="alamat_pelanggan" placeholder="Alamat" name="alamat_pelanggan" rows="2" cols="20" required readonly value="<?php echo $objPesanan->alamat_pelanggan; ?>"></textarea>
+                <textarea class="form-control" id="alamat_pelanggan" placeholder="Alamat" name="alamat_pelanggan" rows="2" cols="20" required readonly><?php echo $objPesanan->alamat_pelanggan; ?></textarea>
               </div>
             </div>
           </div>
@@ -97,7 +97,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="catatan">Catatan:</label>
               <div class="col-sm-7">
-                <textarea class="form-control" id="catatan" placeholder="catatan" name="catatan" rows="2" cols="20" value="<?php echo $objPesanan->catatan; ?>"></textarea>
+                <textarea class="form-control" id="catatan" placeholder="catatan" name="catatan" rows="2" cols="20"><?php echo $objPesanan->catatan; ?></textarea>
               </div>
             </div>
           </div>
