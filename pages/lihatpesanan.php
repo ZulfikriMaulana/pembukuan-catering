@@ -27,15 +27,16 @@
 							<thead>
 								<tr>
 									<th style="vertical-align: middle;">No.</th>
-									<th style="vertical-align: middle;">Id Pesanan</th>
-									<th style="vertical-align: middle;">Tanggal Pesanan</th>
-									<th style="vertical-align: middle;">Id Pelanggan</th>
+									<th style="vertical-align: middle;">Id</th>
+									<th style="vertical-align: middle;width:50px">Tanggal</th>
+									<th style="vertical-align: middle;">Pelanggan</th>
 									<th style="vertical-align: middle;">Item</th>
-									<th style="vertical-align: middle;">Jmlh Pesanan</th>
-									<th style="vertical-align: middle;">Subtotal Pesanan</th>
-									<th style="vertical-align: middle;">Pajak Pesanan</th>
-									<th style="vertical-align: middle;">Total Pesanan</th>
-									<th style="vertical-align: middle; width:100px">Aksi</th>
+									<th style="vertical-align: middle;">Jumlah</th>
+									<th style="vertical-align: middle;">Subtotal</th>
+									<th style="vertical-align: middle;">Pajak</th>
+									<th style="vertical-align: middle;">Total</th>
+									<th style="vertical-align: middle;">Status</th>
+									<th style="vertical-align: middle; width:150px; text-align:center">Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -49,14 +50,16 @@
 									echo '<tr>';
 									echo '<td>' . $no . '</td>';
 									echo '<td>' . $dataPesanan->id_pesanan . '</td>';
-									echo '<td>' . $dataPesanan->tanggal_pesanan . '</td>';
+									echo '<td>' . date('d-m-Y', strtotime($dataPesanan->tanggal_pesanan)) . '</td>';
 									echo '<td>' . $dataPesanan->id_pelanggan . '</td>';
 									echo '<td>' . $dataPesanan->id_item_pesanan . '</td>';
 									echo '<td>' . $dataPesanan->jumlah_pesanan . '</td>';
-									echo '<td>' . $dataPesanan->subtotal_pesanan . '</td>';
-									echo '<td>' . $dataPesanan->pajak_pesanan . '</td>';
-									echo '<td>' . $dataPesanan->total_pesanan . '</td>';
-									echo '<td><a class="btn btn-warning btn-sm"  href="dashboard.php?p=ubahpesanan&id_pesanan=' . $dataPesanan->id_pesanan . '">Ubah</a> |
+									echo '<td>' . "Rp. " . number_format($dataPesanan->subtotal_pesanan) . '</td>';
+									echo '<td>' . "Rp. " . number_format($dataPesanan->pajak_pesanan) . '</td>';
+									echo '<td>' . "Rp. " . number_format($dataPesanan->total_pesanan) . '</td>';
+									echo '<td>' . 'Belum Lunas' . '</td>';
+									echo '<td><a class="btn btn-success btn-sm"  href="dashboard.php?p=bayarpesanan&id_pesanan=' . $dataPesanan->id_pesanan . '">Bayar</a> 
+									<a class="btn btn-warning btn-sm"  href="dashboard.php?p=ubahpesanan&id_pesanan=' . $dataPesanan->id_pesanan . '">Ubah</a> |
    			          <a class="btn btn-danger btn-sm"  href="dashboard.php?p=hapuspesanan&id_pesanan=' . $dataPesanan->id_pesanan . '" 
 		 			  onclick="return confirm(\'Apakah anda yakin ingin menghapus?\')">Hapus</a>							  
 				  </td>';
@@ -76,7 +79,15 @@
 </section>
 
 <script>
-	$(document).ready(function() {
-		$('.table').DataTable();
+	$(document).ready(function() {		
+		$('.table').DataTable({
+       	 	'paging': true,
+        	'lengthChange': false,
+        	'searching': true,
+        	'ordering': false,
+        	'info': true,
+        	'autoWidth': false,
+        	"pageLength": 50
+      });
 	});
 </script>
