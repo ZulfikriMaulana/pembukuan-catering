@@ -114,7 +114,7 @@ if (isset($_POST['btnSubmit'])) {
               <div class="form-group"> 
                 <label class="control-label col-sm-5" for="tanggal_pesanan">Tanggal Pesanan:</label>
                 <div class="col-sm-7">
-                  <input type="date" class="form-control" id="tanggal_pesanan" name="tanggal_pesanan">
+                  <input type="date" class="form-control" id="tanggal_pesanan" name="tanggal_pesanan" required>
               </div>
             </div>
           </div>
@@ -136,7 +136,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="jumlah_pesanan">Jumlah Pesanan:</label>
                 <div class="col-sm-7">
-                  <input type="number" class="form-control" id="jumlah_pesanan" name="jumlah_pesanan" onchange="hitung()">
+                  <input type="number" class="form-control" id="jumlah_pesanan" name="jumlah_pesanan" onchange="hitung()" required>
               </div>
             </div>
           </div>
