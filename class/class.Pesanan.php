@@ -56,10 +56,10 @@ class Pesanan extends Connection
 		$sql = "UPDATE id_pesanan 
 			        SET tanggal_pesanan = '$this->tanggal_pesanan',
                     id_item_pesanan='$this->id_item_pesanan',
-					jumlah_pesanan='$this->jumlah_pesanan'
-					catatan='$this->catatan'
-					subtotal_pesanan='$this->subtotal_pesanan'
-					pajak_pesanan='$this->pajak_pesanan'
+					jumlah_pesanan='$this->jumlah_pesanan',
+					catatan='$this->catatan',
+					subtotal_pesanan='$this->subtotal_pesanan',
+					pajak_pesanan='$this->pajak_pesanan',
 					total_pesanan='$this->total_pesanan'
 					
 					WHERE id_pesanan = $this->id_pesanan";
