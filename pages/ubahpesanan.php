@@ -4,6 +4,7 @@ require_once('./class/class.Pesanan.php');
 $objPesanan = new Pesanan();
 
 if (isset($_POST['btnSubmit'])) {
+  $objPesanan->id_pesanan = $_POST['id_pesanan'];
   $objPesanan->tanggal_pesanan = $_POST['tanggal_pesanan'];
   $objPesanan->catatan = $_POST['catatan'];
   $objPesanan->jumlah_pesanan = $_POST['jumlah_pesanan'];

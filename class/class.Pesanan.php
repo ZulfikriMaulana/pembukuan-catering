@@ -53,7 +53,7 @@ class Pesanan extends Connection
 	public function UbahPesanan() //set satu saja
 	{
 		$this->connect();
-		$sql = "UPDATE id_pesanan 
+		$sql = "UPDATE pesanan 
 			        SET tanggal_pesanan = '$this->tanggal_pesanan',
                     id_item_pesanan='$this->id_item_pesanan',
 					jumlah_pesanan='$this->jumlah_pesanan',
