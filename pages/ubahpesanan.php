@@ -7,6 +7,10 @@ if (isset($_POST['btnSubmit'])) {
   $objPesanan->tanggal_pesanan = $_POST['tanggal_pesanan'];
   $objPesanan->catatan = $_POST['catatan'];
   $objPesanan->jumlah_pesanan = $_POST['jumlah_pesanan'];
+  $objPesanan->id_item_pesanan = $_POST['id_item_pesanan'];
+  $objPesanan->subtotal_pesanan = $_POST['subtotal_pesanan'];
+  $objPesanan->pajak_pesanan = $_POST['pajak_pesanan'];
+  $objPesanan->total_pesanan = $_POST['total_pesanan'];
 
   $objPesanan->UbahPesanan();
 
