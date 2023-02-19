@@ -17,7 +17,7 @@ if (isset($_POST['btnSubmit'])) {
 
   echo "<script> alert('$objPesanan->message'); </script>";
   if ($objPesanan->hasil) {
-    echo '<script> window.location="index.php?p=lihatpesanan"; </script>';
+    echo '<script> window.location="dashboard.php?p=lihatpesanan"; </script>';
   }
 } else if (isset($_GET['id_pesanan'])) {
   $objPesanan->id_pesanan = $_GET['id_pesanan'];
