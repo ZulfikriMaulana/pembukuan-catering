@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2023 at 04:35 AM
+-- Generation Time: Feb 19, 2023 at 08:58 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `henacatering`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `item_pesanan`
+--
+
+CREATE TABLE `item_pesanan` (
+  `id_item_pesanan` int(11) NOT NULL,
+  `nama_item` text NOT NULL,
+  `harga_jual` int(11) NOT NULL,
+  `harga_modal` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pelanggan`
+--
+
+CREATE TABLE `pelanggan` (
+  `id_pelanggan` int(11) NOT NULL,
+  `nama_instansi` text NOT NULL,
+  `alamat` text NOT NULL,
+  `nama_cp` text NOT NULL,
+  `no_hp` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -47,7 +74,7 @@ CREATE TABLE `pesanan` (
 --
 
 INSERT INTO `pesanan` (`id_pesanan`, `tanggal_pesanan`, `id_pelanggan`, `alamat_pelanggan`, `nama_pelanggan`, `no_hp`, `id_item_pesanan`, `jumlah_pesanan`, `catatan`, `subtotal_pesanan`, `pajak_pesanan`, `total_pesanan`) VALUES
-(1, '2023-02-16', 1, 'Margonda', 'Zul', 2147483647, 1, 15, 'tidak ada', 0, 0, 0),
+(1, '2023-02-16', 1, 'Margonda', 'Zul', 2147483647, 1, 25, 'tidak ada', 375000, 37500, 412500),
 (2, '2002-12-03', 3, 'jakarta menara 165', 'Lala', 8191919, 1, 100, 'ok', 1500000, 150000, 1650000);
 
 -- --------------------------------------------------------
@@ -113,6 +140,18 @@ INSERT INTO `user` (`userid`, `nama`, `email`, `password`, `id_role`) VALUES
 --
 
 --
+-- Indexes for table `item_pesanan`
+--
+ALTER TABLE `item_pesanan`
+  ADD PRIMARY KEY (`id_item_pesanan`);
+
+--
+-- Indexes for table `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  ADD PRIMARY KEY (`id_pelanggan`);
+
+--
 -- Indexes for table `pesanan`
 --
 ALTER TABLE `pesanan`
@@ -139,6 +178,18 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `item_pesanan`
+--
+ALTER TABLE `item_pesanan`
+  MODIFY `id_item_pesanan` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pesanan`
