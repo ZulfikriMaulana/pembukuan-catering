@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2023 at 08:58 AM
+-- Generation Time: Feb 19, 2023 at 04:56 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -34,6 +34,15 @@ CREATE TABLE `item_pesanan` (
   `harga_modal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `item_pesanan`
+--
+
+INSERT INTO `item_pesanan` (`id_item_pesanan`, `nama_item`, `harga_jual`, `harga_modal`) VALUES
+(1, 'Snack Box', 15000, 8000),
+(2, 'Nasi Box', 30000, 20000),
+(3, 'Prasmanan', 40000, 25000);
+
 -- --------------------------------------------------------
 
 --
@@ -45,8 +54,15 @@ CREATE TABLE `pelanggan` (
   `nama_instansi` text NOT NULL,
   `alamat` text NOT NULL,
   `nama_cp` text NOT NULL,
-  `no_hp` int(11) NOT NULL
+  `no_hp` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pelanggan`
+--
+
+INSERT INTO `pelanggan` (`id_pelanggan`, `nama_instansi`, `alamat`, `nama_cp`, `no_hp`) VALUES
+(1, 'Dinas Kesehatan Kota Depok', 'Jl. Raya Margonda Kantor Walikota', 'Bu Ratna (Contoh)', 822133443);
 
 -- --------------------------------------------------------
 
@@ -183,13 +199,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `item_pesanan`
 --
 ALTER TABLE `item_pesanan`
-  MODIFY `id_item_pesanan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_item_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pesanan`
