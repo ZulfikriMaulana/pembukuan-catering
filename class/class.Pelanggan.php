@@ -74,7 +74,7 @@ class Pelanggan extends Connection
 	public function LihatSatuPelanggan() //belum
 	{
 		$this->connect();
-		$sql = "SELECT u.*, FROM pelanggan order by id_pelanggan = $this->id_pelanggan";
+		$sql = "SELECT * FROM pelanggan order by id_pelanggan = $this->id_pelanggan";
 
 		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
 
@@ -92,7 +92,7 @@ class Pelanggan extends Connection
 	public function LihatSemuaPelanggan() //Belum
 	{
 		$this->connect();
-		$sql = "SELECT u.*, FROM pelanggan order by id_pelanggan";
+		$sql = "SELECT * FROM pelanggan order by id_pelanggan";
 		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
 
 		$arrResult = array();
