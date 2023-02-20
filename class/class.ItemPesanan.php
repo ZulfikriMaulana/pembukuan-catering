@@ -27,7 +27,7 @@ class ItemPesanan extends Connection
 
 
 
-	public function LihatSemuaPesanan()
+	public function LihatSemuaItemPesanan()
 	{
 		$this->connect();
 		$sql = "SELECT * FROM item_pesanan order by id_item_pesanan";

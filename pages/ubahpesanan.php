@@ -21,7 +21,7 @@ if (isset($_POST['btnSubmit'])) {
   }
 } else if (isset($_GET['id_pesanan'])) {
   $objPesanan->id_pesanan = $_GET['id_pesanan'];
-  $objPesanan->LihatSatuItemPesanan();
+  $objPesanan->LihatSatuPesanan();
 }
 ?>
 
