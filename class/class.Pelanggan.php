@@ -74,8 +74,7 @@ class Pelanggan extends Connection
 	public function LihatSatuPelanggan() //belum
 	{
 		$this->connect();
-		$sql = "SELECT u.*, FROM pelanggan
-				and id_pelanggan = $this->id_pelanggan";
+		$sql = "SELECT u.*, FROM pelanggan order by id_pelanggan = $this->id_pelanggan";
 
 		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
 
@@ -93,21 +92,20 @@ class Pelanggan extends Connection
 	public function LihatSemuaPelanggan() //Belum
 	{
 		$this->connect();
-		$sql = "SELECT u.*, r.nama_role FROM user u, role r where u.id_role = r.id_role order by userid";
+		$sql = "SELECT u.*, FROM pelanggan order by id_pelanggan";
 		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
 
 		$arrResult = array();
 		$i = 0;
 		if (mysqli_num_rows($result) > 0) {
 			while ($data = mysqli_fetch_array($result)) {
-				$objUser = new User();
-				$objUser->userid = $data['userid'];
-				$objUser->email = $data['email'];
-				$objUser->nama = $data['nama'];
-				$objUser->password = $data['password'];
-				$objUser->id_role = $data['id_role'];
-				$objUser->nama_role = $data['nama_role'];
-				$arrResult[$i] = $objUser;
+				$objPelanggan = new Pelanggan();
+				$objPelanggan->id_pelanggan = $data['id_pelanggan'];
+				$objPelanggan->nama_instansi = $data['nama_instansi'];
+				$objPelanggan->alamat = $data['alamat'];
+				$objPelanggan->nama_cp = $data['nama_cp'];
+				$objPelanggan->no_hp = $data['no_hp'];
+				$arrResult[$i] = $objPelanggan;
 				$i++;
 			}
 		}
