@@ -74,20 +74,19 @@ class Pelanggan extends Connection
 	public function LihatSatuPelanggan() //belum
 	{
 		$this->connect();
-		$sql = "SELECT u.*, r.nama_role FROM user u, role r where u.id_role = r.id_role
-				and userid = $this->userid";
+		$sql = "SELECT u.*, FROM pelanggan
+				and id_pelanggan = $this->id_pelanggan";
 
 		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
 
 		if (mysqli_num_rows($resultOne) == 1) {
 			$this->hasil = true;
 			$data = mysqli_fetch_assoc($resultOne);
-			$this->userid = $data['userid'];
-			$this->password = $data['password'];
-			$this->email = $data['email'];
-			$this->nama = $data['nama'];
-			$this->nama_role = $data['nama_role'];
-			$this->id_role = $data['id_role'];
+			$this->id_pelanggan = $data['id_pelanggan'];
+			$this->nama_instansi = $data['nama_instansi'];
+			$this->alamat = $data['alamat'];
+			$this->nama_cp = $data['nama_cp'];
+			$this->no_hp = $data['no_hp'];
 		}
 	}
 

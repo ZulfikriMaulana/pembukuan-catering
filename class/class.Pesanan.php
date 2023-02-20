@@ -84,7 +84,7 @@ class Pesanan extends Connection
 			$this->message = 'Data gagal dihapus!';
 	}
 
-	public function LihatSatuPesanan()
+	public function LihatSatuItemPesanan()
 	{
 		$this->connect();
 		$sql = "SELECT * FROM pesanan
