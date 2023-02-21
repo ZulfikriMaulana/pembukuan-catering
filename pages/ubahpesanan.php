@@ -138,7 +138,7 @@ if (isset($_POST['btnSubmit'])) {
                         if($objItemPesanan->id_item_pesanan == $ItemPesanan->id_item_pesanan)				
                           echo '<option selected="true" value='.$ItemPesanan->id_item_pesanan.'>'.$ItemPesanan->nama_instansi.'</option>';
                         else
-                        echo '<option value='.$ItemPesanan->id_item_pesanan.'>'.$ItemPesanan->nama_instansi.'</option>';
+                        echo '<option value='.$ItemPesanan->id_item_pesanan.'>'.$ItemPesanan->nama_item.'</option>';
                        }
                       ?>	
                     </select>
