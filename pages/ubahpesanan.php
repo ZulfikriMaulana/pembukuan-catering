@@ -1,5 +1,6 @@
 <?php
 require_once('./class/class.Pesanan.php');
+require_once('./class/class.Pelanggan.php');
 
 $objPesanan = new Pesanan();
 
@@ -63,14 +64,21 @@ if (isset($_POST['btnSubmit'])) {
                   <label class="control-label col-sm-5" for="id_pelanggan">Pelanggan:</label>
                   <div class="col-sm-7">
                     <select class="form-control" id="id_pelanggan" name="id_pelanggan" value="<?php echo $objPesanan->id_pelanggan; ?>" readonly>
-                      <option value="1">Pemkot Depok</option>
-                      <option value="2">Muhammad Sumbul</option>
-                      <option value="3">ESQ 165</option>
+                      <!--Replace value heret-->
+                      <?php
+                      $objPelanggan = new Pelanggan();
+                      $PelangganList = $objPelanggan->LihatSemuaPelanggan();
+                      foreach ($PelangganList as $Pelanggan){ 								
+                        if($objPelanggan->id_Pelanggan == $Pelanggan->id_Pelanggan)				
+                          echo '<option selected="true" value='.$Pelanggan->id_Pelanggan.'>'.$Pelanggan->nama_instansi.'</option>';
+                        else
+                        echo '<option value='.$Pelanggan->id_Pelanggan.'>'.$Pelanggan->nama_instansi.'</option>';
+                       }
+                      ?>	
                     </select>
                   </div>
                 </div>
               </div>
-
               <div class="row"><!--ROW 3-->
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="alamat_pelanggan">Alamat:</label>
@@ -82,9 +90,9 @@ if (isset($_POST['btnSubmit'])) {
 
               <div class="row"><!--ROW 4-->
                 <div class="form-group">
-                  <label class="control-label col-sm-5" for="nama_pelanggan">Nama:</label>
+                  <label class="control-label col-sm-5" for="nama_instansi">Nama:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control" id="nama_pelanggan" placeholder="Nama" name="nama_pelanggan" value="<?php echo $objPesanan->nama_pelanggan; ?>" required readonly>
+                    <input type="text" class="form-control" id="nama_instansi" placeholder="Nama" name="nama_instansi" value="<?php echo $objPesanan->nama_instansi; ?>" required readonly>
                   </div>
                 </div>
               </div>
