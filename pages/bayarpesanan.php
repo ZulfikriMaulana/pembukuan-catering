@@ -19,10 +19,10 @@ if (isset($_POST['btnSubmit'])) {
   echo "<script> alert('$objTransaksi->message'); </script>";
   if ($objTransaksi->hasil) {
     echo '<script> window.location="dashboard.php?p=lihatpesanan"; </script>'; //ganti jadi lihat pesanan
-  } else if (isset($_GET['id_pesanan'])) {
-    $objPesanan->id_pesanan = $_GET['id_pesanan'];
-    $objPesanan->LihatTransaksi();
   }
+} else if (isset($_GET['id_transaksi'])) {
+  $objPesanan->id_transaksi = $_GET['id_transaksi'];
+  $objPesanan->LihatTransaksi();
 }
 ?>
 
