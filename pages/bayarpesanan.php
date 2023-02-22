@@ -9,7 +9,7 @@ if (isset($_POST['btnSubmit'])) {
   $objTransaksi->id_pesanan = $_POST['id_pesanan'];
   $objTransaksi->id_kategori = $_POST['id_kategori'];
   $objTransaksi->tanggal_transaksi = $_POST['tanggal_transaksi'];
-  $objTransaksi->jenis_transaksi = ['pemasukan'];
+  $objTransaksi->jenis_transaksi = "pemasukan";
   $objTransaksi->keterangan_transaksi = $_POST['keterangan_transaksi'];
   $objTransaksi->foto_transaksi = $_POST['foto_transaksi'];
   $objTransaksi->nominal_transaksi = $_POST['nominal_transaksi'];
@@ -20,9 +20,10 @@ if (isset($_POST['btnSubmit'])) {
   if ($objTransaksi->hasil) {
     echo '<script> window.location="dashboard.php?p=lihatpesanan"; </script>'; //ganti jadi lihat pesanan
   }
-} else if (isset($_GET['id_transaksi'])) {
-  $objPesanan->id_transaksi = $_GET['id_transaksi'];
-  $objPesanan->LihatTransaksi();
+} else if (isset($_GET['id_pesanan'])) {
+  $objPesanan = new Pesanan();
+  $objPesanan->id_pesanan = $_GET['id_pesanan'];
+  $objPesanan->LihatSatuPesanan();
 }
 ?>
 
