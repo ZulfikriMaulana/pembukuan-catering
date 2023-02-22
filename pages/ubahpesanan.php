@@ -70,7 +70,7 @@ if (isset($_POST['btnSubmit'])) {
                       $objPelanggan = new Pelanggan();
                       $PelangganList = $objPelanggan->LihatSemuaPelanggan();
                       foreach ($PelangganList as $Pelanggan){ 								
-                        if($objPelanggan->id_pelanggan == $Pelanggan->id_pelanggan)				
+                        if($objPesanan->id_pelanggan == $Pelanggan->id_pelanggan)				
                           echo '<option selected="true" value='.$Pelanggan->id_pelanggan.'>'.$Pelanggan->nama_instansi.'</option>';
                         else
                         echo '<option value='.$Pelanggan->id_pelanggan.'>'.$Pelanggan->nama_instansi.'</option>';
@@ -135,7 +135,7 @@ if (isset($_POST['btnSubmit'])) {
                       $objItemPesanan = new ItemPesanan();
                       $ItemPesananList = $objItemPesanan->LihatSemuaItemPesanan();
                       foreach ($ItemPesananList as $ItemPesanan){ 								
-                        if($objItemPesanan->id_item_pesanan == $ItemPesanan->id_item_pesanan)				
+                        if($objPesanan->id_item_pesanan == $ItemPesanan->id_item_pesanan)				
                           echo '<option selected="true" value='.$ItemPesanan->id_item_pesanan.'>'.$ItemPesanan->nama_instansi.'</option>';
                         else
                         echo '<option value='.$ItemPesanan->id_item_pesanan.'>'.$ItemPesanan->nama_item.'</option>';
