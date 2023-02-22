@@ -9,16 +9,19 @@ if (isset($_POST['btnSubmit'])) {
   $objTransaksi->id_pesanan = $_POST['id_pesanan'];
   $objTransaksi->id_kategori = $_POST['id_kategori'];
   $objTransaksi->tanggal_transaksi = $_POST['tanggal_transaksi'];
-  $objTransaksi->jenis_transksi = $_POST['jenis_transksi'];
-  $objTransaksi->keterangan_transksi = $_POST['keterangan_transksi'];
-  $objTransaksi->foto_transksi = $_POST['foto_transksi'];
-  $objTransaksi->nominal_transksi = $_POST['nominal_transksi'];
+  $objTransaksi->jenis_transaksi = $_POST['pemasukan'];
+  $objTransaksi->keterangan_transaksi = $_POST['keterangan_transaksi'];
+  $objTransaksi->foto_transaksi = $_POST['foto_transaksi'];
+  $objTransaksi->nominal_transaksi = $_POST['nominal_transaksi'];
 
   $objTransaksi->BayarTransaksi();
 
-  echo "<script> alert('$objPesanan->message'); </script>";
-  if ($objPesanan->hasil) {
+  echo "<script> alert('$objTransaksi->message'); </script>";
+  if ($objTransaksi->hasil) {
     echo '<script> window.location="dashboard.php?p=lihatpesanan"; </script>'; //ganti jadi lihat pesanan
+  } else if (isset($_GET['id_transaksi'])) {
+    $objPesanan->id_transaksi = $_GET['id_transaksi'];
+    $objPesanan->LihatTransaksi();
   }
 }
 ?>

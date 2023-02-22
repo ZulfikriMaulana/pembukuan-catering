@@ -6,10 +6,10 @@ class Transaksi extends Connection
 	private $id_pesanan = '';
 	private $id_kategori = '';
 	private $tanggal_transaksi = '';
-	private $jenis_transksi = '';
-	private $keterangan_transksi = '';
-	private $foto_transksi = '';
-	private $nominal_transksi = '';
+	private $jenis_transaksi = '';
+	private $keterangan_transaksi = '';
+	private $foto_transaksi = '';
+	private $nominal_transaksi = '';
 
 	public function __get($atribute)
 	{
@@ -37,12 +37,12 @@ class Transaksi extends Connection
                     id_pesanan='$this->id_pesanan',
 					id_kategori='$this->id_kategori',
 					tanggal_transaksi='$this->tanggal_transaksi',
-					jenis_transksi='$this->jenis_transksi',
-					keterangan_transksi='$this->keterangan_transksi',
-					foto_transksi='$this->foto_transksi',
-					nominal_transksi='$this->nominal_transksi'
+					jenis_transaksi='$this->jenis_transaksi',
+					keterangan_transaksi='$this->keterangan_transaksi',
+					foto_transaksi='$this->foto_transaksi',
+					nominal_transaksi='$this->nominal_transaksi'
 					
-					WHERE id_transksi = $this->id_transksi";
+					WHERE id_transaksi = $this->id_transaksi";
 
 		$this->hasil = mysqli_query($this->connection, $sql);
 
@@ -57,9 +57,9 @@ class Transaksi extends Connection
 		$this->connect();
 
 
-		$sql = "INSERT INTO transaksi(id_transksi, id_pesanan, id_kategori, tanggal_transaksi, jenis_transksi, keterangan_transksi, foto_transksi, nominal_transksi)
-				values ('$this->id_transksi', '$this->id_pesanan', '$this->id_kategori', '$this->tanggal_transaksi', '$this->jenis_transksi', '$this->keterangan_transksi',
-				'$this->foto_transksi', '$this->nominal_transksi')";
+		$sql = "INSERT INTO transaksi(id_transaksi, id_pesanan, id_kategori, tanggal_transaksi, jenis_transaksi, keterangan_transaksi, foto_transaksi, nominal_transaksi)
+				values ('$this->id_transaksi', '$this->id_pesanan', '$this->id_kategori', '$this->tanggal_transaksi', '$this->jenis_transaksi', '$this->keterangan_transaksi',
+				'$this->foto_transaksi', '$this->nominal_transaksi')";
 		$this->hasil = mysqli_query($this->connection, $sql);
 
 		if ($this->hasil)
