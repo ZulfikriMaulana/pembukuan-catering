@@ -136,7 +136,7 @@ if (isset($_POST['btnSubmit'])) {
                       $ItemPesananList = $objItemPesanan->LihatSemuaItemPesanan();
                       foreach ($ItemPesananList as $ItemPesanan){ 								
                         if($objPesanan->id_item_pesanan == $ItemPesanan->id_item_pesanan)				
-                          echo '<option selected="true" value='.$ItemPesanan->id_item_pesanan.'>'.$ItemPesanan->nama_instansi.'</option>';
+                          echo '<option selected="true" value='.$ItemPesanan->id_item_pesanan.'>'.$ItemPesanan->nama_item.'</option>';
                         else
                         echo '<option value='.$ItemPesanan->id_item_pesanan.'>'.$ItemPesanan->nama_item.'</option>';
                        }
