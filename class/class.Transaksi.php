@@ -51,4 +51,20 @@ class Transaksi extends Connection
 		else
 			$this->message = 'Data gagal diubah!';
 	}
+
+	public function BayarTransaksi()
+	{
+		$this->connect();
+
+
+		$sql = "INSERT INTO transaksi(id_transksi, id_pesanan, id_kategori, tanggal_transaksi, jenis_transksi, keterangan_transksi, foto_transksi, nominal_transksi)
+				values ('$this->id_transksi', '$this->id_pesanan', '$this->id_kategori', '$this->tanggal_transaksi', '$this->jenis_transksi', '$this->keterangan_transksi',
+				'$this->foto_transksi', '$this->nominal_transksi')";
+		$this->hasil = mysqli_query($this->connection, $sql);
+
+		if ($this->hasil)
+			$this->message = 'Transaksi Berhasil Dibayar!';
+		else
+			$this->message = 'Transaksi Gagal Dibayar!';
+	}
 }
