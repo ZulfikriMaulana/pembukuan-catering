@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2023 at 02:09 PM
+-- Generation Time: Feb 23, 2023 at 04:48 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -92,7 +92,8 @@ CREATE TABLE `pesanan` (
 
 INSERT INTO `pesanan` (`id_pesanan`, `tanggal_pesanan`, `id_pelanggan`, `alamat_pelanggan`, `nama_pelanggan`, `no_hp`, `id_item_pesanan`, `jumlah_pesanan`, `catatan`, `subtotal_pesanan`, `pajak_pesanan`, `total_pesanan`, `status`) VALUES
 (2, '2002-12-03', 3, 'jakarta menara 165', 'Lala', 8191919, 1, 100, 'ok', 1500000, 150000, 1650000, ''),
-(3, '2023-02-20', 1, 'Margonda', 'Zul', 2147483647, 1, 20, 'ok', 300000, 30000, 330000, '');
+(3, '2023-02-20', 1, 'Margonda', 'Zul', 2147483647, 1, 20, 'ok', 300000, 30000, 330000, ''),
+(4, '2023-02-23', 1, 'Depok', 'Zul', 1231243, 1, 20, 'ok', 300000, 30000, 330000, 'Belum Lunas');
 
 -- --------------------------------------------------------
 
@@ -212,7 +213,7 @@ ALTER TABLE `pelanggan`
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `role`
