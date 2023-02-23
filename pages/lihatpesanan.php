@@ -57,7 +57,7 @@
 									echo '<td>' . "Rp. " . number_format($dataPesanan->subtotal_pesanan) . '</td>';
 									echo '<td>' . "Rp. " . number_format($dataPesanan->pajak_pesanan) . '</td>';
 									echo '<td>' . "Rp. " . number_format($dataPesanan->total_pesanan) . '</td>';
-									echo '<td>' . 'Belum Lunas' . '</td>';
+									echo '<td>' . $dataPesanan->status . '</td>';
 									echo '<td><a class="btn btn-success btn-sm"  href="dashboard.php?p=bayarpesanan&id_pesanan=' . $dataPesanan->id_pesanan . '">Bayar</a> 
 									<a class="btn btn-warning btn-sm"  href="dashboard.php?p=ubahpesanan&id_pesanan=' . $dataPesanan->id_pesanan . '">Ubah</a> |
    			          <a class="btn btn-danger btn-sm"  href="dashboard.php?p=hapuspesanan&id_pesanan=' . $dataPesanan->id_pesanan . '" 
@@ -79,15 +79,15 @@
 </section>
 
 <script>
-	$(document).ready(function() {		
+	$(document).ready(function() {
 		$('.table').DataTable({
-       	 	'paging': true,
-        	'lengthChange': false,
-        	'searching': true,
-        	'ordering': false,
-        	'info': true,
-        	'autoWidth': false,
-        	"pageLength": 50
-      });
+			'paging': true,
+			'lengthChange': false,
+			'searching': true,
+			'ordering': false,
+			'info': true,
+			'autoWidth': false,
+			"pageLength": 50
+		});
 	});
 </script>

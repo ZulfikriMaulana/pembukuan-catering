@@ -15,6 +15,7 @@ class Pesanan extends Connection
 	private $pajak_pesanan = '';
 	private $total_pesanan = '';
 	private $hasil = false;
+	private $status = '';
 	private $message = '';
 
 	public function __get($atribute)
@@ -40,8 +41,8 @@ class Pesanan extends Connection
 		$this->connect();
 
 
-		$sql = "INSERT INTO pesanan(tanggal_pesanan, id_pelanggan, alamat_pelanggan, nama_pelanggan, no_hp, id_item_pesanan, jumlah_pesanan, catatan, subtotal_pesanan, pajak_pesanan, total_pesanan)
-				values ('$this->tanggal_pesanan', '$this->id_pelanggan', '$this->alamat_pelanggan', '$this->nama_pelanggan', '$this->no_hp', '$this->id_item_pesanan', '$this->jumlah_pesanan', '$this->catatan', '$this->subtotal_pesanan', '$this->pajak_pesanan', '$this->total_pesanan')";
+		$sql = "INSERT INTO pesanan(tanggal_pesanan, id_pelanggan, alamat_pelanggan, nama_pelanggan, no_hp, id_item_pesanan, jumlah_pesanan, catatan, subtotal_pesanan, pajak_pesanan, total_pesanan, status)
+				values ('$this->tanggal_pesanan', '$this->id_pelanggan', '$this->alamat_pelanggan', '$this->nama_pelanggan', '$this->no_hp', '$this->id_item_pesanan', '$this->jumlah_pesanan', '$this->catatan', '$this->subtotal_pesanan', '$this->pajak_pesanan', '$this->total_pesanan', 'Belum Lunas')";
 		$this->hasil = mysqli_query($this->connection, $sql);
 
 		if ($this->hasil)
@@ -107,6 +108,7 @@ class Pesanan extends Connection
 			$this->subtotal_pesanan = $data['subtotal_pesanan'];
 			$this->pajak_pesanan = $data['pajak_pesanan'];
 			$this->total_pesanan = $data['total_pesanan'];
+			$this->status = $data['status'];
 		}
 	}
 
@@ -133,6 +135,8 @@ class Pesanan extends Connection
 				$objPesanan->subtotal_pesanan = $data['subtotal_pesanan'];
 				$objPesanan->pajak_pesanan = $data['pajak_pesanan'];
 				$objPesanan->total_pesanan = $data['total_pesanan'];
+				$objPesanan->status = $data['status'];
+
 				$arrResult[$i] = $objPesanan;
 				$i++;
 			}
