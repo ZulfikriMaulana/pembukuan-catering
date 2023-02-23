@@ -6,6 +6,8 @@ class ItemPesanan extends Connection
 	private $nama_item = '';
 	private $harga_jual = '';
 	private $harga_modal = '';
+	private $hasil = false;
+	private $message = '';
 
 	public function __get($atribute)
 	{

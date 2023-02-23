@@ -7,6 +7,8 @@ class Pelanggan extends Connection
 	private $alamat = '';
 	private $nama_cp = '';
 	private $no_hp = '';
+	private $hasil = false;
+	private $message = '';
 
 	public function __get($atribute)
 	{

@@ -10,6 +10,8 @@ class Transaksi extends Connection
 	private $keterangan_transaksi = '';
 	private $foto_transaksi = '';
 	private $nominal_transaksi = '';
+	private $hasil = false;
+	private $message = '';
 
 	public function __get($atribute)
 	{
