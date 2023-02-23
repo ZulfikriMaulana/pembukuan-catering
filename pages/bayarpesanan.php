@@ -70,7 +70,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="tanggal_pesanan">Tanggal Pesanan:</label>
                   <div class="col-sm-7">
-                    <input type="date" class="form-control" id="tanggal_pesanan" name="tanggal_pesanan" value="<?php echo $objPesanan->tanggal_pesanan; ?>" required>
+                    <input type="date" class="form-control" id="tanggal_pesanan" name="tanggal_pesanan" value="<?php echo $objPesanan->tanggal_pesanan; ?>" required readonly>
                   </div>
                 </div>
               </div>
@@ -79,7 +79,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="id_item_pesanan">Jenis Pesanan:</label>
                   <div class="col-sm-7">
-                    <select class="form-control" id="id_item_pesanan" name="id_item_pesanan" value="<?php echo $objPesanan->id_item_pesanan; ?>">
+                    <select class="form-control" id="id_item_pesanan" name="id_item_pesanan" value="<?php echo $objPesanan->id_item_pesanan; ?>" readonly>
                     <?php
                       $objItemPesanan = new ItemPesanan();
                       $ItemPesananList = $objItemPesanan->LihatSemuaItemPesanan();
@@ -99,7 +99,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="jumlah_pesanan">Jumlah Pesanan:</label>
                   <div class="col-sm-7">
-                    <input type="number" class="form-control" id="jumlah_pesanan" name="jumlah_pesanan" value="<?php echo $objPesanan->jumlah_pesanan; ?>" onchange="hitung()" required>
+                    <input type="number" class="form-control" id="jumlah_pesanan" name="jumlah_pesanan" value="<?php echo $objPesanan->jumlah_pesanan; ?>" onchange="hitung()" required readonly>
                   </div>
                 </div>
               </div>
