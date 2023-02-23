@@ -59,7 +59,7 @@ class Transaksi extends Connection
 
 		$sql = "INSERT INTO transaksi(id_transaksi, id_pesanan, id_kategori, tanggal_transaksi, jenis_transaksi, keterangan_transaksi, foto_transaksi, nominal_transaksi)
 				values ('$this->id_transaksi', '$this->id_pesanan', '$this->id_kategori', '$this->tanggal_transaksi', '$this->jenis_transaksi', '$this->keterangan_transaksi',
-				'$this->foto_transaksi', '$this->nominal_transaksi')";
+				'$this->foto_transaksi', '$this->nominal_transaksi');";
 
 		$sql .= "UPDATE pesanan 
 				SET status = 'Lunas'
