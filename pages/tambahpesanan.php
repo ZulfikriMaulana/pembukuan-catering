@@ -1,5 +1,7 @@
 <?php
 require_once('./class/class.Pesanan.php');
+require_once('./class/class.Pelanggan.php');
+require_once('./class/class.ItemPesanan.php');
 
 $objPesanan = new Pesanan();
 
@@ -65,9 +67,16 @@ if (isset($_POST['btnSubmit'])) {
               <label class="control-label col-sm-5" for="id_pelanggan">Pelanggan:</label>
                 <div class="col-sm-7">
                   <select class="form-control" id="id_pelanggan" name="id_pelanggan">
-                  <option value="1">Pemkot Depok</option>
+                  <!--<option value="1">Pemkot Depok</option>
                   <option value="2">Muhammad Sumbul</option>
-                  <option value="3">ESQ 165</option>
+                  <option value="3">ESQ 165</option>-->
+                  <?php
+                      $objPelanggan = new Pelanggan();
+                      $PelangganList = $objPelanggan->LihatSemuaPelanggan();
+                      foreach ($PelangganList as $Pelanggan){ 										
+                          echo '<option value='.$Pelanggan->id_pelanggan.'>'.$Pelanggan->nama_instansi.'</option>';
+                       }
+                      ?>
                   </select>
                 </div>
             </div>
@@ -124,9 +133,17 @@ if (isset($_POST['btnSubmit'])) {
               <label class="control-label col-sm-5" for="id_item_pesanan">Jenis Pesanan:</label>
                 <div class="col-sm-7">
                   <select class="form-control" id="id_item_pesanan" name="id_item_pesanan" onchange="hitung()">
-                  <option value="1">Snack Box</option>
+                  <!--<option value="1">Snack Box</option>
                   <option value="2">Nasi Box</option>
-                  <option value="3">Prasmanan</option>
+                  <option value="3">Prasmanan</option>-->
+                  <?php
+                      $objItemPesanan = new ItemPesanan();
+                      $ItemPesananList = $objItemPesanan->LihatSemuaItemPesanan();
+                      foreach ($ItemPesananList as $ItemPesanan){ 								
+                        /*($objPesanan->id_item_pesanan == $ItemPesanan->id_item_pesanan)*/				
+                          echo '<option value='.$ItemPesanan->id_item_pesanan.'>'.$ItemPesanan->nama_item.'</option>';
+                       }
+                      ?>	
                   </select>
                 </div><!--sampel dropdown-->
               </div>
