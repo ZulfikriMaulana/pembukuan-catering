@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2023 at 04:48 PM
+-- Generation Time: Feb 24, 2023 at 06:57 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -42,6 +42,32 @@ INSERT INTO `item_pesanan` (`id_item_pesanan`, `nama_item`, `harga_jual`, `harga
 (1, 'Snack Box', 15000, 8000),
 (2, 'Nasi Box', 30000, 20000),
 (3, 'Prasmanan', 40000, 25000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kategori`
+--
+
+CREATE TABLE `kategori` (
+  `id_kategori` int(11) NOT NULL,
+  `nama_kategori` varchar(255) NOT NULL,
+  `jenis` enum('Pengeluaran','Pemasukan') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kategori`
+--
+
+INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `jenis`) VALUES
+(1, 'pembayaran pesanan', 'Pemasukan'),
+(2, 'pinjaman', 'Pemasukan'),
+(3, 'belanja modal', 'Pengeluaran'),
+(4, 'gaji pegawai', 'Pengeluaran'),
+(5, 'biaya listrik', 'Pengeluaran'),
+(6, 'biaya transportasi', 'Pengeluaran'),
+(7, 'bayar pajak', 'Pengeluaran'),
+(8, 'bayar cicilan', 'Pengeluaran');
 
 -- --------------------------------------------------------
 
@@ -164,6 +190,12 @@ ALTER TABLE `item_pesanan`
   ADD PRIMARY KEY (`id_item_pesanan`);
 
 --
+-- Indexes for table `kategori`
+--
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`id_kategori`);
+
+--
 -- Indexes for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
@@ -202,6 +234,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `item_pesanan`
   MODIFY `id_item_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `pelanggan`
