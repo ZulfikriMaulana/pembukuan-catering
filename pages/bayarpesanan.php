@@ -55,8 +55,7 @@ if (isset($_POST['btnSubmit'])) {
         <div class="box-body">
 
           <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
-            <div class="col-md-5"><!--COL Kiri-->
-            <!--ISI COL KIRI BAYAR PESANAN:ID PESANAN, TANGGAL PESANAN, JENIS PESANAN, JUMLAH PESANAN, TOTAL HARGA (SEMUANYA READONLY) -->
+            <div class="col-md-5">
               <div class="row"><!--ROW ID Pesanan-->
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="id_pesanan">ID Pesanan:</label>
@@ -79,7 +78,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="id_item_pesanan">Jenis Pesanan:</label>
                   <div class="col-sm-7">
-                    <select class="form-control" id="id_item_pesanan" name="id_item_pesanan" value="<?php echo $objPesanan->id_item_pesanan; ?>" readonly>
+                    <select class="form-control" id="id_item_pesanan" name="id_item_pesanan" value="<?php echo $objPesanan->id_item_pesanan; ?>" disabled>
                     <?php
                       $objItemPesanan = new ItemPesanan();
                       $ItemPesananList = $objItemPesanan->LihatSemuaItemPesanan();
@@ -112,7 +111,7 @@ if (isset($_POST['btnSubmit'])) {
                   </div>
                 </div>
               </div>
-              </div>
+            </div>
 <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
               
 
@@ -125,7 +124,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="tanggal_transaksi">Tanggal Bayar:</label>
                   <div class="col-sm-7">
-                    <input type="date" class="form-control" id="tanggal_transaksi" name="tanggal_transaksi">
+                    <input type="date" class="form-control" id="tanggal_transaksi" name="tanggal_transaksi" required>
                   </div>
                 </div>
               </div>
@@ -154,7 +153,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="keterangan_transaksi">Keterangan:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control" id="keterangan_transaksi" placeholder="Keterangan" name="keterangan_transaksi">
+                    <input type="text" class="form-control" id="keterangan_transaksi" name="keterangan_transaksi">
                   </div>
                 </div>
               </div>
@@ -163,7 +162,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="foto_transaksi">Upload Bukti bayar:</label>
                   <div class="col-sm-7">
-                    <input type="file" class="form-control" id="foto_transaksi" name="foto_transaksi">
+                    <input type="file" class="form-control" id="foto_transaksi" name="foto_transaksi" required>
                   </div>
                 </div>
               </div>
@@ -180,10 +179,10 @@ if (isset($_POST['btnSubmit'])) {
               <!----------------------------------------------------------------------------------------------->
 
              
-
+              </div>
         </form>
 
-      </div>
+      
   </div>
 </section>
 </div>

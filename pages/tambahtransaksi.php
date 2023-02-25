@@ -1,38 +1,3 @@
-<?php
-require_once('./class/class.Pesanan.php');
-require_once('./class/class.Transaksi.php');
-require_once('./class/class.ItemPesanan.php');
-
-$objTransaksi = new Transaksi();
-
-if (isset($_POST['btnSubmit'])) {
-  $objTransaksi->id_pesanan = $_POST['id_pesanan'];
-  $objTransaksi->id_kategori = $_POST['id_kategori'];
-  $objTransaksi->tanggal_transaksi = $_POST['tanggal_transaksi'];
-  $objTransaksi->jenis_transaksi = "pemasukan";
-  $objTransaksi->keterangan_transaksi = $_POST['keterangan_transaksi'];
-  $objTransaksi->nominal_transaksi = $_POST['nominal_transaksi'];
-  $lokasi_file = $_FILES['foto_transaksi']['tmp_name'];
-  $nama_file = $_FILES['foto_transaksi']['name'];
-  $objTransaksi->foto_transaksi = $nama_file;
-
-  $folder = './bukti/';
-  $iSuccessUpload = move_uploaded_file($lokasi_file, $folder.$nama_file);
-  if ($iSuccessUpload) {
-    $objTransaksi->BayarTransaksi();
-
-    echo "<script> alert('$objTransaksi->message'); </script>";
-    if ($objTransaksi->hasil) {
-      echo '<script> window.location="dashboard.php?p=lihatpesanan"; </script>'; //ganti jadi lihat pesanan
-    }
-  }
-} else if (isset($_GET['id_pesanan'])) {
-  $objPesanan = new Pesanan();
-  $objPesanan->id_pesanan = $_GET['id_pesanan'];
-  $objPesanan->LihatSatuPesanan();
-}
-?>
-
 <section class="content-header">
   <h1>
     Pesanan
@@ -50,7 +15,7 @@ if (isset($_POST['btnSubmit'])) {
       <div class="box box-info">
 
         <div class="box-header">
-          <h3 class="box-title">Bayar Pesanan</h3>
+          <h3 class="box-title">Tambah Transaksi</h3>
         </div>
         <div class="box-body">
 
