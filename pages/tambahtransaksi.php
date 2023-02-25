@@ -27,9 +27,9 @@
             
             <div class="row"><!--ROW ID Pesanan-->
                 <div class="form-group">
-                  <label class="control-label col-sm-5" for="id_pesanan">ID Pesanan:</label>
+                  <label class="control-label col-sm-5" for="id_transaksi">ID Pesanan:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control" id="id_pesanan" name="id_pesanan" value="<?php echo $objPesanan->id_pesanan; ?>" readonly>
+                    <input type="text" class="form-control" id="id_transaksi" name="id_transaksi" readonly>
                   </div>
                 </div>
               </div>
@@ -47,7 +47,7 @@
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="jenis_transaksi">Jenis:</label>
                   <div class="col-sm-7">
-                    <select class="form-control" id="jenis_transaksi" name="jenis_transaksi">
+                    <select class="form-control" id="jenis_transaksi" name="jenis_transaksi" required>
                     <option value="1">Pemasukan</option>
                     </select>
                   </div>
@@ -58,7 +58,7 @@
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="id_kategori">Kategori:</label>
                   <div class="col-sm-7">
-                    <select class="form-control" id="id_kategori" name="id_kategori">
+                    <select class="form-control" id="id_kategori" name="id_kategori" required>
                     <option value="1">Pelunasan</option>
                     </select>
                   </div>
@@ -87,7 +87,7 @@
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="foto_transaksi">Upload Bukti bayar:</label>
                   <div class="col-sm-7">
-                    <input type="file" class="form-control" id="foto_transaksi" name="foto_transaksi">
+                    <input type="file" class="form-control" id="foto_transaksi" name="foto_transaksi" required>
                   </div>
                 </div>
               </div>
