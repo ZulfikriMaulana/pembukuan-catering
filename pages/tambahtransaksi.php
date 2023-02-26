@@ -27,7 +27,7 @@
             
             <div class="row"><!--ROW ID Pesanan-->
                 <div class="form-group">
-                  <label class="control-label col-sm-5" for="id_transaksi">ID Pesanan:</label>
+                  <label class="control-label col-sm-5" for="id_transaksi">ID Transaksi:</label>
                   <div class="col-sm-7">
                     <input type="text" class="form-control" id="id_transaksi" name="id_transaksi" readonly>
                   </div>
@@ -59,7 +59,14 @@
                   <label class="control-label col-sm-5" for="id_kategori">Kategori:</label>
                   <div class="col-sm-7">
                     <select class="form-control" id="id_kategori" name="id_kategori" required>
-                    <option value="1">Pelunasan</option>
+                    <!--<option value="1">Pelunasan</option>-->
+                    <?php
+                      $objKategori = new Kategori();
+                      $KategoriList = $objKategori->LihatSemuaKategori();
+                      foreach ($KategoriList as $Kategori){ 										
+                          echo '<option value='.$Kategori->id_kategori.'>'.$Kategori->nama_kategori.'</option>';
+                       }
+                      ?>
                     </select>
                   </div>
                 </div>
