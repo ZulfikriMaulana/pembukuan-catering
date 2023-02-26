@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2023 at 06:57 PM
+-- Generation Time: Feb 26, 2023 at 06:59 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -80,7 +80,7 @@ CREATE TABLE `pelanggan` (
   `nama_instansi` text NOT NULL,
   `alamat` text NOT NULL,
   `nama_cp` text NOT NULL,
-  `no_hp` int(15) NOT NULL
+  `no_hp` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -88,7 +88,9 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`id_pelanggan`, `nama_instansi`, `alamat`, `nama_cp`, `no_hp`) VALUES
-(1, 'Dinas Kesehatan Kota Depok', 'Jl. Raya Margonda Kantor Walikota', 'Bu Ratna (Contoh)', 822133443);
+(1, 'Dinas Kesehatan Kota Depok', 'Jl. Raya Margonda Kantor Walikota', 'Bu Ratna (Contoh)', 822133443),
+(2, 'Dinas Pendidikan Kota Depok', 'Jl. Raya Margonda Kantor Walikota', 'Agus ', 82234645),
+(3, 'Dinas Komunikasi dna Informasi Kota Depok', 'Jl. Raya Margonda Kantor Walikota', 'Darmawan', 82232456);
 
 -- --------------------------------------------------------
 
@@ -105,7 +107,7 @@ CREATE TABLE `pesanan` (
   `no_hp` int(11) NOT NULL,
   `id_item_pesanan` int(11) NOT NULL,
   `jumlah_pesanan` int(11) NOT NULL,
-  `catatan` text NOT NULL,
+  `catatan` text DEFAULT NULL,
   `subtotal_pesanan` int(11) NOT NULL,
   `pajak_pesanan` int(11) NOT NULL,
   `total_pesanan` int(11) NOT NULL,
@@ -152,7 +154,7 @@ CREATE TABLE `transaksi` (
   `id_kategori` int(11) NOT NULL,
   `tanggal_transaksi` date NOT NULL,
   `jenis_transaksi` enum('Pengeluaran','Pemasukan') CHARACTER SET utf8 NOT NULL,
-  `keterangan_transaksi` text CHARACTER SET utf8 NOT NULL,
+  `keterangan_transaksi` text CHARACTER SET utf8 DEFAULT NULL,
   `foto_transaksi` varchar(255) CHARACTER SET utf8 NOT NULL,
   `nominal_transaksi` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -245,7 +247,7 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pesanan`
