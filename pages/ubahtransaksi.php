@@ -64,7 +64,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="tanggal_transaksi">Tanggal Transaksi:</label>
                   <div class="col-sm-7">
-                    <input type="date" class="form-control" id="tanggal_transaksi" name="tanggal_transaksi" value="<?php echo $objTransaksi->tanggal_transaksi; ?>" required>
+                    <input type="date" class="form-control" id="tanggal_transaksi" name="tanggal_transaksi" value="<?php echo $objTransaksi->tanggal_transaksi; ?>" required disabled>
                   </div>
                 </div>
               </div>
