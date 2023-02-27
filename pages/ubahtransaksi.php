@@ -15,7 +15,7 @@ if (isset($_POST['btnSubmit'])) {
   $objTransaksi->foto_transaksi = $_POST['foto_transaksi'];
   $objTransaksi->nominal_transaksi = $_POST['nominal_transaksi'];
 
-  $objTransaksi->TambahTransaksi();
+  $objTransaksi->UbahTransaksi();
 
   echo "<script> alert('$objTransaksi->message'); </script>";
   if ($objTransaksi->hasil) {
@@ -55,7 +55,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="id_transaksi">ID Transaksi:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control" id="id_transaksi" name="id_transaksi" readonly>
+                    <input type="text" class="form-control" id="id_transaksi" name="id_transaksi" value="<?php echo $objTransaksi->id_transaksi; ?>" readonly>
                   </div>
                 </div>
               </div>
@@ -64,7 +64,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="tanggal_transaksi">Tanggal Transaksi:</label>
                   <div class="col-sm-7">
-                    <input type="date" class="form-control" id="tanggal_transaksi" name="tanggal_transaksi" required>
+                    <input type="date" class="form-control" id="tanggal_transaksi" name="tanggal_transaksi" value="<?php echo $objTransaksi->tanggal_transaksi; ?>" required>
                   </div>
                 </div>
               </div>
@@ -73,7 +73,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="jenis_transaksi">Jenis:</label>
                   <div class="col-sm-7">
-                    <select class="form-control" id="jenis_transaksi" name="jenis_transaksi" required>
+                    <select class="form-control" id="jenis_transaksi" name="jenis_transaksi" value="<?php echo $objTransaksi->jenis_transaksi; ?>" required>
                       <option value="1">Pemasukan</option>
                     </select>
                   </div>
@@ -84,7 +84,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="id_kategori">Kategori:</label>
                   <div class="col-sm-7">
-                    <select class="form-control" id="id_kategori" name="id_kategori" required>
+                    <select class="form-control" id="id_kategori" name="id_kategori" value="<?php echo $objTransaksi->id_kategori; ?>" required>
                       <!--<option value="1">Pelunasan</option>-->
                       <?php
                       $objKategori = new Kategori();
@@ -102,7 +102,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="nominal_transaksi">Nominal Transaksi:</label>
                   <div class="col-sm-7">
-                    <input type="number" class="form-control" id="nominal_transaksi" name="nominal_transaksi" required>
+                    <input type="number" class="form-control" id="nominal_transaksi" name="nominal_transaksi" value="<?php echo $objTransaksi->nominal_transaksi; ?>" required>
                   </div>
                 </div>
               </div>
@@ -111,7 +111,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="keterangan_transaksi">Keterangan:</label>
                   <div class="col-sm-7">
-                    <textarea class="form-control" id="keterangan_transaksi" name="keterangan_transaksi" rows="2" cols="20"></textarea>
+                    <textarea class="form-control" id="keterangan_transaksi" name="keterangan_transaksi" rows="2" cols="20"><?php echo $objTransaksi->keterangan_transaksi; ?></textarea>
                   </div>
                 </div>
               </div>
@@ -120,7 +120,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="foto_transaksi">Upload Bukti bayar:</label>
                   <div class="col-sm-7">
-                    <input type="file" class="form-control" id="foto_transaksi" name="foto_transaksi" required>
+                    <input type="file" class="form-control" id="foto_transaksi" name="foto_transaksi" value="<?php echo $objTransaksi->foto_transaksi; ?>" required>
                   </div>
                 </div>
               </div>
