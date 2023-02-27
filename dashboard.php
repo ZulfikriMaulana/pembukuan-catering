@@ -112,7 +112,7 @@ require "inc.koneksi.php";
           </li>
 
           <li>
-            <a href="transaksi.php">
+            <a href="dashboard.php?p=lihattransaksi">
               <i class="fa fa-folder"></i> <span>DATA TRANSAKSI</span>
             </a>
           </li>

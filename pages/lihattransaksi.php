@@ -1,7 +1,7 @@
 <section class="content-header">
 	<h1>
-		Pesanan
-		<small>Data Pesanan</small>
+		Transaksi
+		<small>Data Pemasukan & Pengeluaran</small>
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -15,7 +15,7 @@
 			<div class="box box-info">
 
 				<div class="box-header">
-					<h3 class="box-title">Kelola Pesanan</h3>
+					<h3 class="box-title">Kelola Transaksi</h3>
 					<div class="btn-group pull-right">
 						<a class="btn btn-info btn-sm" href="dashboard.php?p=tambahpesanan"><i class="fa fa-plus"></i> &nbsp Tambah Pesanan</a>
 					</div>
@@ -24,22 +24,21 @@
 
 					<div id="result" style="width: 100%;" class="table-responsive">
 						<table class="table table-bordered table-hover table-striped">
-							<thead>
-								<tr>
-									<th style="vertical-align: middle;">No.</th>
-									<th style="vertical-align: middle;">Id</th>
-									<th style="vertical-align: middle;width:50px">Tanggal</th>
-									<th style="vertical-align: middle;">Pelanggan</th>
-									<th style="vertical-align: middle;">Item</th>
-									<th style="vertical-align: middle;">Jumlah</th>
-									<th style="vertical-align: middle;">Subtotal</th>
-									<th style="vertical-align: middle;">Pajak</th>
-									<th style="vertical-align: middle;">Total</th>
-									<th style="vertical-align: middle;">Status</th>
-									<th style="vertical-align: middle; width:150px; text-align:center">Aksi</th>
-								</tr>
-							</thead>
-							<tbody>
+						<thead>
+							<tr>
+								<th width="1%" rowspan="2">NO</th>
+								<th width="10%" rowspan="2" class="text-center">TANGGAL</th>
+								<th rowspan="2" class="text-center">KATEGORI</th>
+								<th rowspan="2" class="text-center">KETERANGAN</th>
+								<th colspan="2" class="text-center">JENIS</th>
+								<th rowspan="2" width="10%" class="text-center">OPSI</th>
+							</tr>
+							<tr>
+								<th class="text-center">PEMASUKAN</th>
+								<th class="text-center">PENGELUARAN</th>
+							</tr>
+						</thead>
+						<tbody>
 
 								<?php
 								require_once('./class/class.transaksi.php');
