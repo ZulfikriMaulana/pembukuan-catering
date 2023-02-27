@@ -26,8 +26,7 @@ if (isset($_POST['btnSubmit'])) {
 
 <section class="content-header">
   <h1>
-    Pesanan
-    <small>Data Pesanan</small>
+    Transaksi
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -129,7 +128,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <div class="col-sm-offset-5 col-sm-7">
                     <input type="submit" class="btn btn-success" value="Simpan" name="btnSubmit">
-                    <a href="dashboard.php?p=lihatpesanan" class="btn btn-danger">Batal</a></td>
+                    <a href="dashboard.php?p=lihattransaksi" class="btn btn-danger">Batal</a></td>
                   </div>
                 </div>
               </div>
