@@ -73,7 +73,8 @@ if (isset($_POST['btnSubmit'])) {
                   <label class="control-label col-sm-5" for="jenis_transaksi">Jenis:</label>
                   <div class="col-sm-7">
                     <select class="form-control" id="jenis_transaksi" name="jenis_transaksi" required>
-                      <option value="1">Pemasukan</option>
+                      <option value="Pemasukan">Pemasukan</option>
+                      <option value="Pengeluaran">Pengeluaran</option>
                     </select>
                   </div>
                 </div>

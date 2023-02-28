@@ -17,7 +17,7 @@
 				<div class="box-header">
 					<h3 class="box-title">Kelola Transaksi</h3>
 					<div class="btn-group pull-right">
-						<a class="btn btn-info btn-sm" href="dashboard.php?p=tambahpesanan"><i class="fa fa-plus"></i> &nbsp Tambah Pesanan</a>
+						<a class="btn btn-info btn-sm" href="dashboard.php?p=tambahtransaksi"><i class="fa fa-plus"></i> &nbsp Tambah Transaksi</a>
 					</div>
 				</div>
 				<div class="box-body">
@@ -31,7 +31,7 @@
 								<th rowspan="2" class="text-center">KATEGORI</th>
 								<th rowspan="2" class="text-center">KETERANGAN</th>
 								<th colspan="2" class="text-center">JENIS</th>
-								<th rowspan="2" width="10%" class="text-center">OPSI</th>
+								<th rowspan="2" width="16%" class="text-center">AKSI</th>
 							</tr>
 							<tr>
 								<th class="text-center">PEMASUKAN</th>
@@ -48,18 +48,25 @@
 								foreach ($arrayResult as $dataTransaksi) {
 									echo '<tr>';
 									echo '<td>' . $no . '</td>';
-									echo '<td>' . $dataTransaksi->id_transaksi . '</td>';
-									echo '<td>' . $dataTransaksi->id_pesanan . '</td>';
 									echo '<td>' . date('d-m-Y', strtotime($dataTransaksi->tanggal_transaksi)) . '</td>';
-									echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
+									echo '<td>' . $dataTransaksi->id_kategori . '</td>';
 									echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
-									echo '<td>' . $dataTransaksi->foto_transaksi . '</td>';
-									echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
-									echo '<td><a class="btn btn-success btn-sm"  href="dashboard.php?p=bayarpesanan&id_pesanan=' . $dataPesanan->id_pesanan . '">Bayar</a> 
-									<a class="btn btn-warning btn-sm"  href="dashboard.php?p=ubahpesanan&id_pesanan=' . $dataPesanan->id_pesanan . '">Ubah</a> |
-   			          <a class="btn btn-danger btn-sm"  href="dashboard.php?p=hapuspesanan&id_pesanan=' . $dataPesanan->id_pesanan . '" 
-		 			  onclick="return confirm(\'Apakah anda yakin ingin menghapus?\')">Hapus</a>							  
-				  </td>';
+									//echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
+									if($dataTransaksi->jenis_transaksi == "Pemasukan")
+										echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
+									else
+										echo '<td>' . ' - ' . '</td>';
+									if($dataTransaksi->jenis_transaksi == "Pengeluaran")
+										echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
+									else
+										echo '<td>' . ' - ' . '</td>';
+									//echo '<td>' . $dataTransaksi->pemasukan . '</td>';//edit lagi menyesuaikan backend
+									//echo '<td>' . $dataTransaksi->pengeluaran . '</td>';//edit lagi menyesuaikan backend / perbaiki lagi href untuk tombol bukti
+									echo '<td><a class="btn btn-success btn-sm" target="_blank" href="bukti/' . $dataTransaksi->foto_transaksi . '">Bukti</a>
+											  <a class="btn btn-warning btn-sm"  href="dashboard.php?p=ubahtransaksi&id_transaksi=' . $dataTransaksi->id_transaksi . '">Ubah</a>
+											  <a class="btn btn-danger btn-sm"  href="dashboard.php?p=hapustransaksi&id_transaksi=' . $dataTransaksi->id_transaksi . '" 
+											onclick="return confirm(\'Apakah anda yakin ingin menghapus?\')">Hapus</a>							  
+										  </td>';
 									echo '</tr>';
 
 									$no++;
