@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2023 at 06:59 AM
+-- Generation Time: Mar 01, 2023 at 10:31 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -150,14 +150,21 @@ INSERT INTO `role` (`id_role`, `nama_role`) VALUES
 
 CREATE TABLE `transaksi` (
   `id_transaksi` int(11) NOT NULL,
-  `id_pesanan` int(11) NOT NULL,
+  `id_pesanan` int(11) DEFAULT NULL,
   `id_kategori` int(11) NOT NULL,
   `tanggal_transaksi` date NOT NULL,
   `jenis_transaksi` enum('Pengeluaran','Pemasukan') CHARACTER SET utf8 NOT NULL,
   `keterangan_transaksi` text CHARACTER SET utf8 DEFAULT NULL,
-  `foto_transaksi` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `foto_transaksi` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `nominal_transaksi` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id_transaksi`, `id_pesanan`, `id_kategori`, `tanggal_transaksi`, `jenis_transaksi`, `keterangan_transaksi`, `foto_transaksi`, `nominal_transaksi`) VALUES
+(1, 0, 1, '2023-03-01', 'Pemasukan', '', '', 1000000);
 
 -- --------------------------------------------------------
 
@@ -265,7 +272,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
