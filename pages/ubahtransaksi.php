@@ -12,15 +12,25 @@ if (isset($_POST['btnSubmit'])) {
   $objTransaksi->tanggal_transaksi = $_POST['tanggal_transaksi'];
   $objTransaksi->jenis_transaksi = $_POST['jenis_transaksi'];
   $objTransaksi->keterangan_transaksi = $_POST['keterangan_transaksi'];
-  $objTransaksi->foto_transaksi = $_POST['foto_transaksi'];
   $objTransaksi->nominal_transaksi = $_POST['nominal_transaksi'];
+  $lokasi_file = $_FILES['foto_transaksi']['tmp_name'];
+  $nama_file = $_FILES['foto_transaksi']['name'];
+  $objTransaksi->foto_transaksi = $nama_file;
 
-  $objTransaksi->UbahTransaksi();
+  $folder = './bukti/';
+  $iSuccessUpload = move_uploaded_file($lokasi_file, $folder . $nama_file);
+  if ($iSuccessUpload) {
+    $objTransaksi->BayarTransaksi();
 
-  echo "<script> alert('$objTransaksi->message'); </script>";
-  if ($objTransaksi->hasil) {
-    echo '<script> window.location="dashboard.php?p=lihattransaksi"; </script>';
+    echo "<script> alert('$objTransaksi->message'); </script>";
+    if ($objTransaksi->hasil) {
+      echo '<script> window.location="dashboard.php?p=lihatpesanan"; </script>'; //ganti jadi lihat pesanan
+    }
   }
+} else if (isset($_GET['id_transaksi'])) {
+  $objTransaksi = new Transaksi();
+  $objTransaksi->id_transaksi = $_GET['id_transaksi'];
+  $objTransaksi->LihatSatuTransaksi();
 }
 ?>
 
