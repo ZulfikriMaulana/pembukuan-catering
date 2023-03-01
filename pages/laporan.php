@@ -4,7 +4,7 @@
 						<a class="btn btn-info btn-sm" href="dashboard.php?p=tambahpesanan"><i class="fa fa-plus"></i> &nbsp Tambah Pesanan</a>
 					</div>
 				</div>
-
+<section class="content">
 <div class="content-wrapper">
 
   <section class="content-header">
@@ -32,7 +32,7 @@
 
                   <div class="form-group">
                     <label>Mulai Tanggal</label>
-                    <input autocomplete="off" type="text" value="<?php if(isset($_GET['tanggal_dari'])){echo $_GET['tanggal_dari'];}else{echo "";} ?>" name="tanggal_dari" class="form-control datepicker2" placeholder="Mulai Tanggal" required="required">
+                    <input autocomplete="off" type="date" value="<?//php if(isset($_GET['tanggal_dari'])){echo $_GET['tanggal_dari'];}else{echo "";} ?>" name="tanggal_dari" class="form-control datepicker2" placeholder="Mulai Tanggal" required="required">
                   </div>
 
                 </div>
@@ -41,7 +41,7 @@
 
                   <div class="form-group">
                     <label>Sampai Tanggal</label>
-                    <input autocomplete="off" type="text" value="<?php if(isset($_GET['tanggal_sampai'])){echo $_GET['tanggal_sampai'];}else{echo "";} ?>" name="tanggal_sampai" class="form-control datepicker2" placeholder="Sampai Tanggal" required="required">
+                    <input autocomplete="off" type="date" value="<?//php if(isset($_GET['tanggal_sampai'])){echo $_GET['tanggal_sampai'];}else{echo "";} ?>" name="tanggal_sampai" class="form-control datepicker2" placeholder="Sampai Tanggal" required="required">
                   </div>
 
                 </div>
@@ -52,13 +52,12 @@
                     <label>Kategori</label>
                     <select name="kategori" class="form-control" required="required">
                       <option value="semua">- Semua Kategori -</option>
-                      <?php 
-                      $kategori = mysqli_query($koneksi,"SELECT * FROM kategori");
-                      while($k = mysqli_fetch_array($kategori)){
-                        ?>
-                        <option <?php if(isset($_GET['kategori'])){ if($_GET['kategori'] == $k['kategori_id']){echo "selected='selected'";}} ?>  value="<?php echo $k['kategori_id']; ?>"><?php echo $k['kategori']; ?></option>
-                        <?php 
-                      }
+                      <?/*php
+                      require_once('./class/class.Kategori.php');
+                      $objKategori = new Kategori();
+                      $KategoriList = $objKategori->LihatSemuaKategori();
+                      foreach ($KategoriList as $Kategori) {
+                        echo '<option value=' . $Kategori->id_kategori . '>' . $Kategori->nama_kategori . '</option>';}*/
                       ?>
                     </select>
                   </div>
@@ -84,11 +83,11 @@
           </div>
           <div class="box-body">
 
-            <?php 
+            <?/*php 
             if(isset($_GET['tanggal_sampai']) && isset($_GET['tanggal_dari']) && isset($_GET['kategori'])){
               $tgl_dari = $_GET['tanggal_dari'];
               $tgl_sampai = $_GET['tanggal_sampai'];
-              $kategori = $_GET['kategori'];
+              $kategori = $_GET['kategori'];*/
               ?>
 
               <div class="row">
@@ -108,14 +107,13 @@
                       <th>KATEGORI</th>
                       <th>:</th>
                       <td>
-                        <?php 
+                        <?/*php 
                         if($kategori == "semua"){
                           echo "SEMUA KATEGORI";
                         }else{
                           $k = mysqli_query($koneksi,"select * from kategori where kategori_id='$kategori'");
                           $kk = mysqli_fetch_assoc($k);
-                          echo $kk['kategori'];
-                        }
+                          echo $kk['kategori'];}*/
                         ?>
 
                       </td>
@@ -143,7 +141,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php 
+                    <?/*php 
                     include '../koneksi.php';
                     $no=1;
                     $total_pemasukan=0;
@@ -158,8 +156,7 @@
                       if($d['transaksi_jenis'] == "Pemasukan"){
                         $total_pemasukan += $d['transaksi_nominal'];
                       }elseif($d['transaksi_jenis'] == "Pengeluaran"){
-                        $total_pengeluaran += $d['transaksi_nominal'];
-                      }
+                        $total_pengeluaran += $d['transaksi_nominal'];} */
                       ?>
                       <tr>
                         <td class="text-center"><?php echo $no++; ?></td>
@@ -167,12 +164,11 @@
                         <td><?php echo $d['kategori']; ?></td>
                         <td><?php echo $d['transaksi_keterangan']; ?></td>
                         <td class="text-center">
-                          <?php 
+                          <?/*php 
                           if($d['transaksi_jenis'] == "Pemasukan"){
                             echo "Rp. ".number_format($d['transaksi_nominal'])." ,-";
                           }else{
-                            echo "-";
-                          }
+                            echo "-"; }*/
                           ?>
                         </td>
                         <td class="text-center">
@@ -185,8 +181,7 @@
                           ?>
                         </td>
                       </tr>
-                      <?php 
-                    }
+                      <?//php }
                     ?>
                     <tr>
                       <th colspan="4" class="text-right">TOTAL</th>
@@ -204,16 +199,16 @@
 
               </div>
 
-              <?php 
-            }else{
+              <?//php 
+           // }else{
               ?>
 
               <div class="alert alert-info text-center">
                 Silahkan Filter Laporan Terlebih Dulu.
               </div>
 
-              <?php
-            }
+              <?//php
+           // }
             ?>
 
           </div>
@@ -223,4 +218,5 @@
   </section>
 
 </div>
+           </section>
 <?php include 'footer.php'; ?>

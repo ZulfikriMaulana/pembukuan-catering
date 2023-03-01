@@ -128,7 +128,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="foto_transaksi">Upload Bukti bayar:</label>
                   <div class="col-sm-7">
-                    <input type="file" class="form-control" id="foto_transaksi" name="foto_transaksi" value="<?php echo $objTransaksi->foto_transaksi; ?>" required>
+                    <input type="file" class="form-control" id="foto_transaksi" name="foto_transaksi" value="<?php echo $objTransaksi->foto_transaksi; ?>">
                   </div>
                 </div>
               </div>
