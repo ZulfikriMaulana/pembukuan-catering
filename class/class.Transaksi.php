@@ -10,6 +10,8 @@ class Transaksi extends Connection
 	private $keterangan_transaksi = '';
 	private $foto_transaksi = '';
 	private $nominal_transaksi = '';
+	private $tgl_dari = '';
+	private $tgl_sampai = '';
 	private $hasil = false;
 	private $message = '';
 
@@ -100,6 +102,38 @@ class Transaksi extends Connection
 			$this->foto_transaksi = $data['foto_transaksi'];
 			$this->nominal_transaksi = $data['nominal_transaksi'];
 		}
+	}
+
+	public function LihatLaporanHarian($tgl_dari, $tgl_sampai, $id_kategori)
+	{
+		$this->connect();
+		if ($id_kategori == 'semua') {
+			$sql = "SELECT * FROM transaksi WHERE tanggal_transaksi between '$tgl_dari' and '$tgl_sampai'
+		order by id_transaksi";
+		} else {
+			$sql = "SELECT * FROM transaksi WHERE tanggal_transaksi between '$tgl_dari' and '$tgl_sampai'
+		and id_kategori = $id_kategori order by id_transaksi";
+		}
+
+		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
+		$arrResult = array();
+		$i = 0;
+		if (mysqli_num_rows($result) > 0) {
+			while ($data = mysqli_fetch_array($result)) {
+				$objTransaksi = new Transaksi();
+				$objTransaksi->id_transaksi = $data['id_transaksi'];
+				$objTransaksi->id_pesanan = $data['id_pesanan'];
+				$objTransaksi->id_kategori = $data['id_kategori'];
+				$objTransaksi->tanggal_transaksi = $data['tanggal_transaksi'];
+				$objTransaksi->jenis_transaksi = $data['jenis_transaksi'];
+				$objTransaksi->keterangan_transaksi = $data['keterangan_transaksi'];
+				$objTransaksi->foto_transaksi = $data['foto_transaksi'];
+				$objTransaksi->nominal_transaksi = $data['nominal_transaksi'];
+				$arrResult[$i] = $objTransaksi;
+				$i++;
+			}
+		}
+		return $arrResult;
 	}
 
 	public function LihatSemuaTransaksi()
