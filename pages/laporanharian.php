@@ -23,7 +23,11 @@
 
                   <div class="form-group">
                     <label>Mulai Tanggal</label>
-                    <input autocomplete="off" type="date" value="<?php if(isset($_POST['tanggal_dari'])){echo $_POST['tanggal_dari'];}else{echo "";} ?>" name="tanggal_dari" class="form-control datepicker2" placeholder="Mulai Tanggal" required="required">
+                    <input autocomplete="off" type="date" value="<?php if (isset($_POST['tanggal_dari'])) {
+                                                                    echo $_POST['tanggal_dari'];
+                                                                  } else {
+                                                                    echo "";
+                                                                  } ?>" name="tanggal_dari" class="form-control datepicker2" placeholder="Mulai Tanggal" required="required">
                   </div>
 
                 </div>
@@ -32,7 +36,11 @@
 
                   <div class="form-group">
                     <label>Sampai Tanggal</label>
-                    <input autocomplete="off" type="date" value="<?php if(isset($_POST['tanggal_sampai'])){echo $_POST['tanggal_sampai'];}else{echo "";} ?>" name="tanggal_sampai" class="form-control datepicker2" placeholder="Sampai Tanggal" required="required">
+                    <input autocomplete="off" type="date" value="<?php if (isset($_POST['tanggal_sampai'])) {
+                                                                    echo $_POST['tanggal_sampai'];
+                                                                  } else {
+                                                                    echo "";
+                                                                  } ?>" name="tanggal_sampai" class="form-control datepicker2" placeholder="Sampai Tanggal" required="required">
                   </div>
 
                 </div>
@@ -48,7 +56,8 @@
                       $objKategori = new Kategori();
                       $KategoriList = $objKategori->LihatSemuaKategori();
                       foreach ($KategoriList as $Kategori) {
-                        echo '<option value=' . $Kategori->id_kategori . '>' . $Kategori->nama_kategori . '</option>';}
+                        echo '<option value=' . $Kategori->id_kategori . '>' . $Kategori->nama_kategori . '</option>';
+                      }
                       ?>
                     </select>
                   </div>
@@ -58,7 +67,7 @@
                 <div class="col-md-3">
 
                   <div class="form-group">
-                    <br/>
+                    <br />
                     <input type="submit" value="TAMPILKAN" name="btnSubmit" class="btn btn-sm btn-primary btn-block">
                   </div>
 
@@ -74,13 +83,13 @@
           </div>
           <div class="box-body">
 
-            <?php 
+            <?php
             if (isset($_POST['btnSubmit'])) {
-            
+
               $tgl_dari = $_POST['tanggal_dari'];
               $tgl_sampai = $_POST['tanggal_sampai'];
               $id_kategori = $_POST['kategori'];
-              ?>
+            ?>
 
               <div class="row">
                 <div class="col-lg-6">
@@ -100,9 +109,9 @@
                       <th>:</th>
                       <td>
                         <?php
-                        if($id_kategori == "semua"){
+                        if ($id_kategori == "semua") {
                           echo "SEMUA KATEGORI";
-                        }else{
+                        } else {
                           $objKategori->id_kategori = $id_kategori;
                           $objKategori->LihatSatuKategori();
                           echo $objKategori->nama_kategori;
@@ -112,12 +121,18 @@
                       </td>
                     </tr>
                   </table>
-                  
+
                 </div>
               </div>
 
-              <a href="laporan_pdf.php?tanggal_dari=<?php //echo $tgl_dari ?>&tanggal_sampai=<?php //echo $tgl_sampai ?>&kategori=<?php //echo $kategori ?>" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-file-pdf-o"></i> &nbsp CETAK PDF</a>
-              <a href="laporan_print.php?tanggal_dari=<?php //echo $tgl_dari ?>&tanggal_sampai=<?php //echo $tgl_sampai ?>&kategori=<?php //echo $kategori ?>" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> &nbsp PRINT</a>
+              <a href="laporan_pdf.php?tanggal_dari=<?php //echo $tgl_dari 
+                                                    ?>&tanggal_sampai=<?php //echo $tgl_sampai 
+                                                                      ?>&kategori=<?php //echo $kategori 
+                                                                                  ?>" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-file-pdf-o"></i> &nbsp CETAK PDF</a>
+              <a href="laporan_print.php?tanggal_dari=<?php //echo $tgl_dari 
+                                                      ?>&tanggal_sampai=<?php //echo $tgl_sampai 
+                                                                        ?>&kategori=<?php //echo $kategori 
+                                                                                    ?>" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> &nbsp PRINT</a>
               <div class="table-responsive">
                 <table class="table table-bordered table-striped">
                   <thead>
@@ -134,56 +149,52 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php /*
-                    include '../koneksi.php';
-                    $no=1;
-                    $total_pemasukan=0;
-                    $total_pengeluaran=0;
-                    if($kategori == "semua"){
-                      $data = mysqli_query($koneksi,"SELECT * FROM transaksi,kategori where kategori_id=transaksi_kategori");
-                    }else{
-                      $data = mysqli_query($koneksi,"SELECT * FROM transaksi,kategori where kategori_id=transaksi_kategori and kategori_id='$kategori'");
-                    }
-                    while($d = mysqli_fetch_array($data)){
 
-                      if($d['transaksi_jenis'] == "Pemasukan"){
-                        $total_pemasukan += $d['transaksi_nominal'];
-                      }elseif($d['transaksi_jenis'] == "Pengeluaran"){
-                        $total_pengeluaran += $d['transaksi_nominal'];} */
-                      ?>
-                      <tr>
-                        <td class="text-center"><?php //echo $no++; ?></td>
-                        <td class="text-center"><?php //echo date('d-m-Y', strtotime($d['transaksi_tanggal'])); ?></td>
-                        <td><?php //echo $d['kategori']; ?></td>
-                        <td><?php //echo $d['transaksi_keterangan']; ?></td>
-                        <td class="text-center">
-                          <?php /*
-                          if($d['transaksi_jenis'] == "Pemasukan"){
-                            echo "Rp. ".number_format($d['transaksi_nominal'])." ,-";
-                          }else{
-                            echo "-"; }*/
-                          ?>
-                        </td>
-                        <td class="text-center">
-                          <?php /*
-                          if($d['transaksi_jenis'] == "Pengeluaran"){
-                            echo "Rp. ".number_format($d['transaksi_nominal'])." ,-";
-                          }else{
-                            echo "-";
-                          }*/
-                          ?>
-                        </td>
-                      </tr>
-                      <?php// }
+                    <?php
+                    require_once('./class/class.transaksi.php');
+                    $objTransaksi = new Transaksi();
+                    $no = 1;
+                    $total_pemasukan = 0;
+                    $total_pengeluaran = 0;
+                    $arrayResult = $objTransaksi->LihatLaporanHarian($tgl_dari, $tgl_sampai, $id_kategori);
+                    foreach ($arrayResult as $dataTransaksi) {
+                      if ($dataTransaksi->jenis_transaksi == "Pemasukan") {
+                        $total_pemasukan += $dataTransaksi->nominal_transaksi;
+                      } elseif ($dataTransaksi->jenis_transaksi == "Pengeluaran") {
+                        $total_pengeluaran += $dataTransaksi->nominal_transaksi;
+                      }
+                      echo '<tr>';
+                      echo '<td>' . $no . '</td>';
+                      echo '<td>' . date('d-m-Y', strtotime($dataTransaksi->tanggal_transaksi)) . '</td>';
+                      echo '<td>' . $dataTransaksi->id_kategori . '</td>';
+                      echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
+                      //echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
+                      if ($dataTransaksi->jenis_transaksi == "Pemasukan")
+                        echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
+                      else
+                        echo '<td>' . ' - ' . '</td>';
+                      if ($dataTransaksi->jenis_transaksi == "Pengeluaran")
+                        echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
+                      else
+                        echo '<td>' . ' - ' . '</td>';
+                      //echo '<td>' . $dataTransaksi->pemasukan . '</td>';//edit lagi menyesuaikan backend
+                      //echo '<td>' . $dataTransaksi->pengeluaran . '</td>';//edit lagi menyesuaikan backend / perbaiki lagi href untuk tombol bukti
+                      echo '</tr>';
+
+                      $no++;
+                    }
                     ?>
                     <tr>
                       <th colspan="4" class="text-right">TOTAL</th>
-                      <td class="text-center text-bold text-success"><?php //echo "Rp. ".number_format($total_pemasukan)." ,-"; ?></td>
-                      <td class="text-center text-bold text-danger"><?php// echo "Rp. ".number_format($total_pengeluaran)." ,-"; ?></td>
+                      <td class="text-center text-bold text-success"><?php echo "Rp. " . number_format($total_pemasukan) . " ,-";
+                                                                      ?></td>
+                      <td class="text-center text-bold text-danger"><?php echo "Rp. " . number_format($total_pengeluaran) . " ,-";
+                                                                    ?></td>
                     </tr>
                     <tr>
                       <th colspan="4" class="text-right">SALDO</th>
-                      <td colspan="2" class="text-center text-bold text-white bg-primary"><?php //echo "Rp. ".number_format($total_pemasukan - $total_pengeluaran)." ,-"; ?></td>
+                      <td colspan="2" class="text-center text-bold text-white bg-primary"><?php echo "Rp. " . number_format($total_pemasukan - $total_pengeluaran) . " ,-";
+                                                                                          ?></td>
                     </tr>
                   </tbody>
                 </table>
@@ -192,15 +203,15 @@
 
               </div>
 
-              <?php 
-           }else{
-              ?>
+            <?php
+            } else {
+            ?>
 
               <div class="alert alert-info text-center">
                 Silahkan Filter Laporan Terlebih Dulu.
               </div>
 
-              <?php
+            <?php
             }
             ?>
 
@@ -210,4 +221,4 @@
     </div>
   </section>
 
-</div>
+  </div>
