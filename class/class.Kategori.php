@@ -35,7 +35,7 @@ class Kategori extends Connection
 				$objKategori = new Kategori();
 				$objKategori->id_kategori = $data['id_kategori'];
 				$objKategori->nama_kategori = $data['nama_kategori'];
-				$objKategori->jenis = $data['pemasukan, pengeluaran'];
+				$objKategori->jenis = $data['jenis'];
 
 				$arrResult[$i] = $objKategori;
 				$i++;

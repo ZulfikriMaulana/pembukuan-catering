@@ -116,6 +116,21 @@ require "inc.koneksi.php";
               <i class="fa fa-folder"></i> <span>DATA TRANSAKSI</span>
             </a>
           </li>
+
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-hand-paper-o"></i>
+              <span>LAPORAN</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu" style="display: block;">
+              <li><a href="dashboard.php?p=laporanharian"><i class="fa fa-circle-o"></i> LAPORAN HARIAN</a></li>
+              <li><a href="dashboard.php?p=laporanbulanan"><i class="fa fa-circle-o"></i> LAPORAN BULANAN</a></li>
+              <li><a href="dashboard.php?p=laporantahunan"><i class="fa fa-circle-o"></i> LAPORAN TAHUNAN</a></li>
+            </ul>
+          </li>
           <?php
                   }
                   else {

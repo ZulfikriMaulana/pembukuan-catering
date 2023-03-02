@@ -1,11 +1,3 @@
-<div class="box-header">
-					<h3 class="box-title">Kelola Pesanan</h3>
-					<div class="btn-group pull-right">
-						<a class="btn btn-info btn-sm" href="dashboard.php?p=tambahpesanan"><i class="fa fa-plus"></i> &nbsp Tambah Pesanan</a>
-					</div>
-				</div>
-
-
   <section class="content-header">
     <h1>
       LAPORAN
