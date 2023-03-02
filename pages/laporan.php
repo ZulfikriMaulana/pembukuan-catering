@@ -4,8 +4,7 @@
 						<a class="btn btn-info btn-sm" href="dashboard.php?p=tambahpesanan"><i class="fa fa-plus"></i> &nbsp Tambah Pesanan</a>
 					</div>
 				</div>
-<section class="content">
-<div class="content-wrapper">
+
 
   <section class="content-header">
     <h1>
@@ -218,5 +217,5 @@
   </section>
 
 </div>
-           </section>
+        
 <?php include 'footer.php'; ?>
