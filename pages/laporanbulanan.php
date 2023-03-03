@@ -48,20 +48,20 @@
 
                   <div class="form-group">
                     <label>Bulan :</label>
-                    <input type="month" id="bulan" name="bulan" class="form-control">
+                    <input type="month" id="bulan" name="bulan" class="form-control"> 
                     <!-- <select id="bulan" name="bulan" class="form-control">
-                      <option value="volvo">Januari</option>
-                      <option value="saab">Februari</option>
-                      <option value="fiat">Maret</option>
-                      <option value="audi">April</option>
-                      <option value="audi">Mei</option>
-                      <option value="audi">Juni</option>
-                      <option value="audi">Juli</option>
-                      <option value="audi">Agustus</option>
-                      <option value="audi">September</option>
-                      <option value="audi">Oktober</option>
-                      <option value="audi">November</option>
-                      <option value="audi">Desember</option>
+                      <option value="1">Januari</option>
+                      <option value="2">Februari</option>
+                      <option value="3">Maret</option>
+                      <option value="4">April</option>
+                      <option value="5">Mei</option>
+                      <option value="6">Juni</option>
+                      <option value="7">Juli</option>
+                      <option value="8">Agustus</option>
+                      <option value="9">September</option>
+                      <option value="10">Oktober</option>
+                      <option value="11">November</option>
+                      <option value="12">Desember</option>
                     </select> -->
                   </div>
 
@@ -107,8 +107,7 @@
             <?php
             if (isset($_POST['btnSubmit'])) {
 
-              $tgl_dari = $_POST['tanggal_dari'];
-              $tgl_sampai = $_POST['tanggal_sampai'];
+              $bulan = $_POST['bulan'];
               $id_kategori = $_POST['kategori'];
             ?>
 
@@ -116,14 +115,9 @@
                 <div class="col-lg-6">
                   <table class="table table-bordered">
                     <tr>
-                      <th width="30%">DARI TANGGAL</th>
+                      <th width="30%">Bulan</th>
                       <th width="1%">:</th>
-                      <td><?php echo $tgl_dari; ?></td>
-                    </tr>
-                    <tr>
-                      <th>SAMPAI TANGGAL</th>
-                      <th>:</th>
-                      <td><?php echo $tgl_sampai; ?></td>
+                      <td><?php echo $bulan; ?></td>
                     </tr>
                     <tr>
                       <th>KATEGORI</th>
@@ -171,7 +165,7 @@
                   </thead>
                   <tbody>
 
-                    <?php
+                    <?php /*
                     require_once('./class/class.transaksi.php');
                     $objTransaksi = new Transaksi();
                     $no = 1;
@@ -203,18 +197,18 @@
                       echo '</tr>';
 
                       $no++;
-                    }
+                    }*/
                     ?>
                     <tr>
                       <th colspan="4" class="text-right">TOTAL</th>
-                      <td class="text-center text-bold text-success"><?php echo "Rp. " . number_format($total_pemasukan) . " ,-";
+                      <td class="text-center text-bold text-success"><?php //echo "Rp. " . number_format($total_pemasukan) . " ,-";
                                                                       ?></td>
-                      <td class="text-center text-bold text-danger"><?php echo "Rp. " . number_format($total_pengeluaran) . " ,-";
+                      <td class="text-center text-bold text-danger"><?php //echo "Rp. " . number_format($total_pengeluaran) . " ,-";
                                                                     ?></td>
                     </tr>
                     <tr>
                       <th colspan="4" class="text-right">SALDO</th>
-                      <td colspan="2" class="text-center text-bold text-white bg-primary"><?php echo "Rp. " . number_format($total_pemasukan - $total_pengeluaran) . " ,-";
+                      <td colspan="2" class="text-center text-bold text-white bg-primary"><?php //echo "Rp. " . number_format($total_pemasukan - $total_pengeluaran) . " ,-";
                                                                                           ?></td>
                     </tr>
                   </tbody>
