@@ -9,17 +9,17 @@
   </ol>
 </section>
 
-<section class="content">
-  <div class="row">
-    <section class="col-lg-12">
-      <div class="box box-info">
-        <div class="box-header">
-          <h3 class="box-title">Filter Laporan</h3>
-        </div>
-        <div class="box-body">
-          <form method="post" action="">
-            <div class="row">
-              <div class="col-md-3">
+  <section class="content">
+    <div class="row">
+      <section class="col-lg-12">
+        <div class="box box-info">
+          <div class="box-header">
+            <h3 class="box-title">Filter Laporan</h3>
+          </div>
+          <div class="box-body">
+            <form method="post" action="">
+              <div class="row">
+                <!-- <div class="col-md-3">
 
                 <div class="form-group">
                   <label>Mulai Tanggal</label>
@@ -43,9 +43,25 @@
                                                                 } ?>" name="tanggal_sampai" class="form-control datepicker2" placeholder="Sampai Tanggal" required="required">
                 </div>
 
-              </div>
+                </div> -->
+                <div class="col-md-3">
 
-              <div class="col-md-3">
+                  <div class="form-group">
+                    <label>Tahun :</label>
+                    <select id="tahun" name="tahun" class="form-control">
+                      <option selected="selected">Tahun</option>
+                        <?php
+                        for($i=date("Y"); $i>=date("Y")-10; $i-=1){
+                        echo "<option value='$i'> $i </option>";
+                        }
+                        ?>
+                    </select>
+                   
+                    
+                  </div>
+
+                </div>
+                <div class="col-md-3">
 
                 <div class="form-group">
                   <label>Kategori</label>
@@ -86,37 +102,31 @@
           <?php
           if (isset($_POST['btnSubmit'])) {
 
-            $tgl_dari = $_POST['tanggal_dari'];
-            $tgl_sampai = $_POST['tanggal_sampai'];
-            $id_kategori = $_POST['kategori'];
-          ?>
+              $tahun = $_POST['tahun'];
+              $id_kategori = $_POST['kategori'];
+            ?>
 
-            <div class="row">
-              <div class="col-lg-6">
-                <table class="table table-bordered">
-                  <tr>
-                    <th width="30%">DARI TANGGAL</th>
-                    <th width="1%">:</th>
-                    <td><?php echo $tgl_dari; ?></td>
-                  </tr>
-                  <tr>
-                    <th>SAMPAI TANGGAL</th>
-                    <th>:</th>
-                    <td><?php echo $tgl_sampai; ?></td>
-                  </tr>
-                  <tr>
-                    <th>KATEGORI</th>
-                    <th>:</th>
-                    <td>
-                      <?php
-                      if ($id_kategori == "semua") {
-                        echo "SEMUA KATEGORI";
-                      } else {
-                        $objKategori->id_kategori = $id_kategori;
-                        $objKategori->LihatSatuKategori();
-                        echo $objKategori->nama_kategori;
-                      }
-                      ?>
+              <div class="row">
+                <div class="col-lg-6">
+                  <table class="table table-bordered">
+                    <tr>
+                      <th width="30%">Tahun</th>
+                      <th width="1%">:</th>
+                      <td><?php echo $tahun; ?></td>
+                    </tr>
+                    <tr>
+                      <th>KATEGORI</th>
+                      <th>:</th>
+                      <td>
+                        <?php
+                        if ($id_kategori == "semua") {
+                          echo "SEMUA KATEGORI";
+                        } else {
+                          $objKategori->id_kategori = $id_kategori;
+                          $objKategori->LihatSatuKategori();
+                          echo $objKategori->nama_kategori;
+                        }
+                        ?>
 
                     </td>
                   </tr>
@@ -150,54 +160,54 @@
                 </thead>
                 <tbody>
 
-                  <?php
-                  require_once('./class/class.transaksi.php');
-                  $objTransaksi = new Transaksi();
-                  $no = 1;
-                  $total_pemasukan = 0;
-                  $total_pengeluaran = 0;
-                  $arrayResult = $objTransaksi->LihatLaporanTahunan($tahunan, $id_kategori);
-                  foreach ($arrayResult as $dataTransaksi) {
-                    if ($dataTransaksi->jenis_transaksi == "Pemasukan") {
-                      $total_pemasukan += $dataTransaksi->nominal_transaksi;
-                    } elseif ($dataTransaksi->jenis_transaksi == "Pengeluaran") {
-                      $total_pengeluaran += $dataTransaksi->nominal_transaksi;
-                    }
-                    echo '<tr>';
-                    echo '<td>' . $no . '</td>';
-                    echo '<td>' . date('d-m-Y', strtotime($dataTransaksi->tanggal_transaksi)) . '</td>';
-                    echo '<td>' . $dataTransaksi->id_kategori . '</td>';
-                    echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
-                    //echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
-                    if ($dataTransaksi->jenis_transaksi == "Pemasukan")
-                      echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
-                    else
-                      echo '<td>' . ' - ' . '</td>';
-                    if ($dataTransaksi->jenis_transaksi == "Pengeluaran")
-                      echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
-                    else
-                      echo '<td>' . ' - ' . '</td>';
-                    //echo '<td>' . $dataTransaksi->pemasukan . '</td>';//edit lagi menyesuaikan backend
-                    //echo '<td>' . $dataTransaksi->pengeluaran . '</td>';//edit lagi menyesuaikan backend / perbaiki lagi href untuk tombol bukti
-                    echo '</tr>';
+                    <?php /*
+                    require_once('./class/class.transaksi.php');
+                    $objTransaksi = new Transaksi();
+                    $no = 1;
+                    $total_pemasukan = 0;
+                    $total_pengeluaran = 0;
+                    $arrayResult = $objTransaksi->LihatLaporanHarian($tgl_dari, $tgl_sampai, $id_kategori);
+                    foreach ($arrayResult as $dataTransaksi) {
+                      if ($dataTransaksi->jenis_transaksi == "Pemasukan") {
+                        $total_pemasukan += $dataTransaksi->nominal_transaksi;
+                      } elseif ($dataTransaksi->jenis_transaksi == "Pengeluaran") {
+                        $total_pengeluaran += $dataTransaksi->nominal_transaksi;
+                      }
+                      echo '<tr>';
+                      echo '<td>' . $no . '</td>';
+                      echo '<td>' . date('d-m-Y', strtotime($dataTransaksi->tanggal_transaksi)) . '</td>';
+                      echo '<td>' . $dataTransaksi->id_kategori . '</td>';
+                      echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
+                      //echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
+                      if ($dataTransaksi->jenis_transaksi == "Pemasukan")
+                        echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
+                      else
+                        echo '<td>' . ' - ' . '</td>';
+                      if ($dataTransaksi->jenis_transaksi == "Pengeluaran")
+                        echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
+                      else
+                        echo '<td>' . ' - ' . '</td>';
+                      //echo '<td>' . $dataTransaksi->pemasukan . '</td>';//edit lagi menyesuaikan backend
+                      //echo '<td>' . $dataTransaksi->pengeluaran . '</td>';//edit lagi menyesuaikan backend / perbaiki lagi href untuk tombol bukti
+                      echo '</tr>';
 
-                    $no++;
-                  }
-                  ?>
-                  <tr>
-                    <th colspan="4" class="text-right">TOTAL</th>
-                    <td class="text-center text-bold text-success"><?php echo "Rp. " . number_format($total_pemasukan) . " ,-";
+                      $no++;
+                    }*/
+                    ?>
+                    <tr>
+                      <th colspan="4" class="text-right">TOTAL</th>
+                      <td class="text-center text-bold text-success"><?php //echo "Rp. " . number_format($total_pemasukan) . " ,-";
+                                                                      ?></td>
+                      <td class="text-center text-bold text-danger"><?php //echo "Rp. " . number_format($total_pengeluaran) . " ,-";
                                                                     ?></td>
-                    <td class="text-center text-bold text-danger"><?php echo "Rp. " . number_format($total_pengeluaran) . " ,-";
-                                                                  ?></td>
-                  </tr>
-                  <tr>
-                    <th colspan="4" class="text-right">SALDO</th>
-                    <td colspan="2" class="text-center text-bold text-white bg-primary"><?php echo "Rp. " . number_format($total_pemasukan - $total_pengeluaran) . " ,-";
-                                                                                        ?></td>
-                  </tr>
-                </tbody>
-              </table>
+                    </tr>
+                    <tr>
+                      <th colspan="4" class="text-right">SALDO</th>
+                      <td colspan="2" class="text-center text-bold text-white bg-primary"><?php //echo "Rp. " . number_format($total_pemasukan - $total_pengeluaran) . " ,-";
+                                                                                          ?></td>
+                    </tr>
+                  </tbody>
+                </table>
 
 
 
