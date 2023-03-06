@@ -109,18 +109,18 @@
                     <th width="1%">:</th>
                     <td><?php 
                     $namabulan = array(
-                      '01' => 'JANUARI',
-                      '02' => 'FEBRUARI',
-                      '03' => 'MARET',
-                      '04' => 'APRIL',
-                      '05' => 'MEI',
-                      '06' => 'JUNI',
-                      '07' => 'JULI',
-                      '08' => 'AGUSTUS',
-                      '09' => 'SEPTEMBER',
-                      '10' => 'OKTOBER',
-                      '11' => 'NOVEMBER',
-                      '12' => 'DESEMBER',
+                      '01' => 'Januari',
+                      '02' => 'Februari',
+                      '03' => 'Maret',
+                      '04' => 'April',
+                      '05' => 'Mei',
+                      '06' => 'Juni',
+                      '07' => 'Juli',
+                      '08' => 'Agustus',
+                      '09' => 'September',
+                      '10' => 'Oktober',
+                      '11' => 'November',
+                      '12' => 'Desember',
                     );
                     echo $namabulan[$pecahanbulan[1]] .' '.$pecahanbulan[0]; 
                     ?>
