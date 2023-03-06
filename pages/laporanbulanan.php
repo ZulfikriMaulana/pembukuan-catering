@@ -50,15 +50,15 @@
                   <label>Bulan :</label>
                   <input type="month" id="bulan" name="bulan" class="form-control">
                   <!-- <select id="bulan" name="bulan" class="form-control">
-                      <option value="1">Januari</option>
-                      <option value="2">Februari</option>
-                      <option value="3">Maret</option>
-                      <option value="4">April</option>
-                      <option value="5">Mei</option>
-                      <option value="6">Juni</option>
-                      <option value="7">Juli</option>
-                      <option value="8">Agustus</option>
-                      <option value="9">September</option>
+                      <option value="01">Januari</option>
+                      <option value="02">Februari</option>
+                      <option value="03">Maret</option>
+                      <option value="04">April</option>
+                      <option value="05">Mei</option>
+                      <option value="06">Juni</option>
+                      <option value="07">Juli</option>
+                      <option value="08">Agustus</option>
+                      <option value="09">September</option>
                       <option value="10">Oktober</option>
                       <option value="11">November</option>
                       <option value="12">Desember</option>
@@ -117,7 +117,24 @@
                   <tr>
                     <th width="30%">Bulan</th>
                     <th width="1%">:</th>
-                    <td><?php echo $bulan; ?></td>
+                    <td><?php 
+                    $namabulan = array(
+                      '01' => 'JANUARI',
+                      '02' => 'FEBRUARI',
+                      '03' => 'MARET',
+                      '04' => 'APRIL',
+                      '05' => 'MEI',
+                      '06' => 'JUNI',
+                      '07' => 'JULI',
+                      '08' => 'AGUSTUS',
+                      '09' => 'SEPTEMBER',
+                      '10' => 'OKTOBER',
+                      '11' => 'NOVEMBER',
+                      '12' => 'DESEMBER',
+                    );
+                    echo $namabulan[date('m')]; 
+                    ?>
+                    </td>
                   </tr>
                   <tr>
                     <th>KATEGORI</th>

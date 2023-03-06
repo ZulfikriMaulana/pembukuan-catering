@@ -247,3 +247,4 @@ class Transaksi extends Connection
 			$this->message = 'Transaksi Gagal Dibayar!';
 	}
 }
+?>
