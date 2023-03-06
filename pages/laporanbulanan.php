@@ -94,11 +94,11 @@
           if (isset($_POST['btnSubmit'])) {
 
             $bulan = $_POST['bulan'];
-            $pecahanbulan = explode('-',$bulan );
+            $pecahanbulan = explode('-', $bulan);
             echo $pecahanbulan[0]; // tahun
             echo $pecahanbulan[1]; // bulan
             $id_kategori = $_POST['kategori'];
-            
+
           ?>
 
             <div class="row">
@@ -107,23 +107,23 @@
                   <tr>
                     <th width="30%">Bulan</th>
                     <th width="1%">:</th>
-                    <td><?php 
-                    $namabulan = array(
-                      '01' => 'Januari',
-                      '02' => 'Februari',
-                      '03' => 'Maret',
-                      '04' => 'April',
-                      '05' => 'Mei',
-                      '06' => 'Juni',
-                      '07' => 'Juli',
-                      '08' => 'Agustus',
-                      '09' => 'September',
-                      '10' => 'Oktober',
-                      '11' => 'November',
-                      '12' => 'Desember',
-                    );
-                    echo $namabulan[$pecahanbulan[1]] .' '.$pecahanbulan[0]; 
-                    ?>
+                    <td><?php
+                        $namabulan = array(
+                          '01' => 'Januari',
+                          '02' => 'Februari',
+                          '03' => 'Maret',
+                          '04' => 'April',
+                          '05' => 'Mei',
+                          '06' => 'Juni',
+                          '07' => 'Juli',
+                          '08' => 'Agustus',
+                          '09' => 'September',
+                          '10' => 'Oktober',
+                          '11' => 'November',
+                          '12' => 'Desember',
+                        );
+                        echo $namabulan[$pecahanbulan[1]] . ' ' . $pecahanbulan[0];
+                        ?>
                     </td>
                   </tr>
                   <tr>
@@ -149,12 +149,12 @@
 
             <a href="laporan_pdf.php?tanggal_dari=<?php //echo $tgl_dari 
                                                   ?>&tanggal_sampai=<?php //echo $tgl_sampai 
-                                                                      ?>&kategori=<?php //echo $kategori 
-                                                                                  ?>" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-file-pdf-o"></i> &nbsp CETAK PDF</a>
+                                                                    ?>&kategori=<?php //echo $kategori 
+                                                                                ?>" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-file-pdf-o"></i> &nbsp CETAK PDF</a>
             <a href="laporan_print.php?tanggal_dari=<?php //echo $tgl_dari 
                                                     ?>&tanggal_sampai=<?php //echo $tgl_sampai 
-                                                                        ?>&kategori=<?php //echo $kategori 
-                                                                                    ?>" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> &nbsp PRINT</a>
+                                                                      ?>&kategori=<?php //echo $kategori 
+                                                                                  ?>" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> &nbsp PRINT</a>
             <div class="table-responsive">
               <table class="table table-bordered table-striped">
                 <thead>
@@ -190,7 +190,7 @@
                     echo '<td>' . date('d-m-Y', strtotime($dataTransaksi->tanggal_transaksi)) . '</td>';
                     echo '<td>' . $dataTransaksi->id_kategori . '</td>';
                     echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
-                    //echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
+                    echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
                     if ($dataTransaksi->jenis_transaksi == "Pemasukan")
                       echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
                     else

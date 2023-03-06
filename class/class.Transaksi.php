@@ -142,10 +142,10 @@ class Transaksi extends Connection
 		if ($id_kategori == 'semua') {
 			$sql = "SELECT * FROM transaksi WHERE tanggal_transaksi between '$bulan'
 		order by id_transaksi";
-		} /*else {
-			$sql = "SELECT * FROM transaksi WHERE tanggal_transaksi between '$tgl_dari' and '$tgl_sampai'
-		and id_kategori = $id_kategori order by id_transaksi";
-		}*/
+		} else {
+			$bulan = $_POST['bulan'];
+			$sql = "SELECT * FROM transaksi where month(waktu)='$bulan' ";
+		}
 
 		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
 		$arrResult = array();
@@ -174,10 +174,10 @@ class Transaksi extends Connection
 		if ($id_kategori == 'semua') {
 			$sql = "SELECT * FROM transaksi WHERE tanggal_transaksi between '$tahun'
 		order by id_transaksi";
-		} /*else {
-			$sql = "SELECT * FROM transaksi WHERE tanggal_transaksi between '$tgl_dari' and '$tgl_sampai'
-		and id_kategori = $id_kategori order by id_transaksi";
-		}*/
+		} else {
+			$tahun = $_POST['tahun'];
+			$sql = "SELECT * FROM tabel where year(waktu)='$tahun' ";
+		}
 
 		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
 		$arrResult = array();
@@ -247,4 +247,3 @@ class Transaksi extends Connection
 			$this->message = 'Transaksi Gagal Dibayar!';
 	}
 }
-?>
