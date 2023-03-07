@@ -136,15 +136,16 @@ class Transaksi extends Connection
 		return $arrResult;
 	}
 
-	public function LihatLaporanBulanan($bulan, $id_kategori)
+	public function LihatLaporanBulanan($bulan, $tahun, $id_kategori)
 	{
 		$this->connect();
 		if ($id_kategori == 'semua') {
-			$sql = "SELECT * FROM transaksi WHERE tanggal_transaksi between '$bulan'
+			$sql = "SELECT * FROM transaksi where month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$tahun'
 		order by id_transaksi";
 		} else {
 			$bulan = $_POST['bulan'];
-			$sql = "SELECT * FROM transaksi where month(waktu)='$bulan' ";
+			$sql = "SELECT * FROM transaksi where month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$tahun' 
+			and id_kategori = $id_kategori order by id_transaksi";
 		}
 
 		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
@@ -172,11 +173,11 @@ class Transaksi extends Connection
 	{
 		$this->connect();
 		if ($id_kategori == 'semua') {
-			$sql = "SELECT * FROM transaksi WHERE tanggal_transaksi between '$tahun'
+			$sql = "SELECT * FROM transaksi WHERE year(tanggal_transaksi)='$tahun'
 		order by id_transaksi";
 		} else {
-			$tahun = $_POST['tahun'];
-			$sql = "SELECT * FROM tabel where year(waktu)='$tahun' ";
+			$sql = "SELECT * FROM transaksi where year(tanggal_transaksi)='$tahun' 
+			and id_kategori = $id_kategori order by id_transaksi";
 		}
 
 		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));

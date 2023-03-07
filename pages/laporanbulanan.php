@@ -178,7 +178,7 @@
                   $no = 1;
                   $total_pemasukan = 0;
                   $total_pengeluaran = 0;
-                  $arrayResult = $objTransaksi->LihatLaporanBulanan($bulan, $id_kategori);
+                  $arrayResult = $objTransaksi->LihatLaporanBulanan($pecahanbulan[1], $pecahanbulan[0],  $id_kategori);
                   foreach ($arrayResult as $dataTransaksi) {
                     if ($dataTransaksi->jenis_transaksi == "Pemasukan") {
                       $total_pemasukan += $dataTransaksi->nominal_transaksi;
@@ -190,7 +190,6 @@
                     echo '<td>' . date('d-m-Y', strtotime($dataTransaksi->tanggal_transaksi)) . '</td>';
                     echo '<td>' . $dataTransaksi->id_kategori . '</td>';
                     echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
-                    echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
                     if ($dataTransaksi->jenis_transaksi == "Pemasukan")
                       echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
                     else
@@ -208,14 +207,14 @@
                   ?>
                   <tr>
                     <th colspan="4" class="text-right">TOTAL</th>
-                    <td class="text-center text-bold text-success"><?php //echo "Rp. " . number_format($total_pemasukan) . " ,-";
+                    <td class="text-center text-bold text-success"><?php echo "Rp. " . number_format($total_pemasukan) . " ,-";
                                                                     ?></td>
-                    <td class="text-center text-bold text-danger"><?php //echo "Rp. " . number_format($total_pengeluaran) . " ,-";
+                    <td class="text-center text-bold text-danger"><?php echo "Rp. " . number_format($total_pengeluaran) . " ,-";
                                                                   ?></td>
                   </tr>
                   <tr>
                     <th colspan="4" class="text-right">SALDO</th>
-                    <td colspan="2" class="text-center text-bold text-white bg-primary"><?php //echo "Rp. " . number_format($total_pemasukan - $total_pengeluaran) . " ,-";
+                    <td colspan="2" class="text-center text-bold text-white bg-primary"><?php echo "Rp. " . number_format($total_pemasukan - $total_pengeluaran) . " ,-";
                                                                                         ?></td>
                   </tr>
                 </tbody>
