@@ -25,8 +25,6 @@
   </div>
 </section> -->
 
-<section>
-<div class="content">
 
   <section class="content-header">
     <h1>
@@ -282,8 +280,7 @@
 
   </section>
 
-</div>
-</section>
+
 
 
 

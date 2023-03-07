@@ -48,7 +48,7 @@
 
                 <div class="form-group">
                   <label>Bulan :</label>
-                  <input type="month" id="bulan" name="bulan" class="form-control">
+                  <input type="month" id="bulan" name="bulan" class="form-control" required>
                 </div>
 
               </div>
