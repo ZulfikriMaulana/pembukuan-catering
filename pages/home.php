@@ -49,7 +49,7 @@
             $pemasukan = mysqli_query($koneksi, "SELECT sum(transaksi_nominal) as total_pemasukan FROM transaksi WHERE transaksi_jenis='Pemasukan' and transaksi_tanggal='$tanggal'");
             $p = mysqli_fetch_assoc($pemasukan);*/
             ?>
-            <h4 style="font-weight: bolder"><?php //echo "Rp. " . number_format($p['total_pemasukan']) . " ,-" ?></h4>
+            <h4 style="font-weight: bolder">Rp. 100,000 ,-<?php //echo "Rp. " . number_format($p['total_pemasukan']) . " ,-" ?></h4>
             <p>Pemasukan Hari Ini</p>
           </div>
           <div class="icon">
@@ -66,7 +66,7 @@
             $pemasukan = mysqli_query($koneksi, "SELECT sum(transaksi_nominal) as total_pemasukan FROM transaksi WHERE transaksi_jenis='Pemasukan' and month(transaksi_tanggal)='$bulan'");
             $p = mysqli_fetch_assoc($pemasukan); */
             ?>
-            <h4 style="font-weight: bolder"><?php //echo "Rp. " . number_format($p['total_pemasukan']) . " ,-" ?></h4>
+            <h4 style="font-weight: bolder">Rp. 100,000 ,-<?php //echo "Rp. " . number_format($p['total_pemasukan']) . " ,-" ?></h4>
             <p>Pemasukan Bulan Ini</p>
           </div>
           <div class="icon">
@@ -83,7 +83,7 @@
             $pemasukan = mysqli_query($koneksi, "SELECT sum(transaksi_nominal) as total_pemasukan FROM transaksi WHERE transaksi_jenis='Pemasukan' and year(transaksi_tanggal)='$tahun'");
             $p = mysqli_fetch_assoc($pemasukan); */
             ?>
-            <h4 style="font-weight: bolder"><?php //echo "Rp. " . number_format($p['total_pemasukan']) . " ,-" ?></h4>
+            <h4 style="font-weight: bolder">Rp. 100,000 ,-<?php //echo "Rp. " . number_format($p['total_pemasukan']) . " ,-" ?></h4>
             <p>Pemasukan Tahun Ini</p>
           </div>
           <div class="icon">
@@ -99,7 +99,7 @@
             $pemasukan = mysqli_query($koneksi, "SELECT sum(transaksi_nominal) as total_pemasukan FROM transaksi WHERE transaksi_jenis='Pemasukan'");
             $p = mysqli_fetch_assoc($pemasukan); */
             ?>
-            <h4 style="font-weight: bolder"><?php //echo "Rp. " . number_format($p['total_pemasukan']) . " ,-" ?></h4>
+            <h4 style="font-weight: bolder">Rp. 100,000 ,-<?php //echo "Rp. " . number_format($p['total_pemasukan']) . " ,-" ?></h4>
             <p>Seluruh Pemasukan</p>
           </div>
           <div class="icon">
@@ -119,7 +119,7 @@
             $p = mysqli_fetch_assoc($pengeluaran); */
             ?>
 
-            <h4 style="font-weight: bolder"><?php //echo "Rp. " . number_format($p['total_pengeluaran']) . " ,-" ?></h4>
+            <h4 style="font-weight: bolder">Rp. 100,000 ,-<?php //echo "Rp. " . number_format($p['total_pengeluaran']) . " ,-" ?></h4>
             <p>Pengeluaran Hari Ini</p>
           </div>
           <div class="icon">
@@ -137,7 +137,7 @@
             $p = mysqli_fetch_assoc($pengeluaran); */
             ?>
 
-            <h4 style="font-weight: bolder"><?php //echo "Rp. " . number_format($p['total_pengeluaran']) . " ,-" ?></h4>
+            <h4 style="font-weight: bolder">Rp. 100,000 ,-<?php //echo "Rp. " . number_format($p['total_pengeluaran']) . " ,-" ?></h4>
             <p>Pengeluaran Bulan Ini</p>
           </div>
           <div class="icon">
@@ -155,7 +155,7 @@
             $p = mysqli_fetch_assoc($pengeluaran); */
             ?>
 
-            <h4 style="font-weight: bolder"><?php //echo "Rp. " . number_format($p['total_pengeluaran']) . " ,-" ?></h4>
+            <h4 style="font-weight: bolder">Rp. 100,000 ,-<?php //echo "Rp. " . number_format($p['total_pengeluaran']) . " ,-" ?></h4>
             <p>Pengeluaran Tahun Ini</p>
           </div>
           <div class="icon">
@@ -171,7 +171,7 @@
             $pengeluaran = mysqli_query($koneksi, "SELECT sum(transaksi_nominal) as total_pengeluaran FROM transaksi WHERE transaksi_jenis='pengeluaran'");
             $p = mysqli_fetch_assoc($pengeluaran); */
             ?>
-            <h4 style="font-weight: bolder"><?php //echo "Rp. " . number_format($p['total_pengeluaran']) . " ,-" ?></h4>
+            <h4 style="font-weight: bolder">Rp. 100,000 ,-<?php //echo "Rp. " . number_format($p['total_pengeluaran']) . " ,-" ?></h4>
             <p>Seluruh Pengeluaran</p>
           </div>
           <div class="icon">
@@ -268,34 +268,4 @@
       <!-- right col -->
     </div>
     <!-- /.row (main row) -->
-
-
-
-
-
-
-
-
-
-
   </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php include 'footer.php'; ?>
