@@ -44,12 +44,13 @@
       <div class="col-lg-3 col-xs-6">
         <div class="small-box bg-green">
           <div class="inner">
-            <?php /*
-            $tanggal = date('Y-m-d');
-            $pemasukan = mysqli_query($koneksi, "SELECT sum(transaksi_nominal) as total_pemasukan FROM transaksi WHERE transaksi_jenis='Pemasukan' and transaksi_tanggal='$tanggal'");
-            $p = mysqli_fetch_assoc($pemasukan);*/
+            <?php 
+            require_once('./class/class.transaksi.php');
+            $objTransaksi = new Transaksi();
+
+            $data = $objTransaksi->LihatPemasukanHariini()
             ?>
-            <h4 style="font-weight: bolder">Rp. 100,000 ,-<?php //echo "Rp. " . number_format($p['total_pemasukan']) . " ,-" ?></h4>
+            <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pemasukan']) . " ,-" ?></h4>
             <p>Pemasukan Hari Ini</p>
           </div>
           <div class="icon">
@@ -108,7 +109,7 @@
         </div>
       </div>
 
-
+<!-------------------------Card Pengeluaran----------------------------------->
 
       <div class="col-lg-3 col-xs-6">
         <div class="small-box bg-red">
@@ -117,9 +118,14 @@
             $tanggal = date('Y-m-d');
             $pengeluaran = mysqli_query($koneksi, "SELECT sum(transaksi_nominal) as total_pengeluaran FROM transaksi WHERE transaksi_jenis='pengeluaran' and transaksi_tanggal='$tanggal'");
             $p = mysqli_fetch_assoc($pengeluaran); */
+            
+             require_once('./class/class.transaksi.php');
+            $objTransaksi = new Transaksi();
+
+            $data = $objTransaksi->LihatPengeluaranHariini()
             ?>
 
-            <h4 style="font-weight: bolder">Rp. 100,000 ,-<?php //echo "Rp. " . number_format($p['total_pengeluaran']) . " ,-" ?></h4>
+            <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pengeluaran']) . " ,-" ?></h4>
             <p>Pengeluaran Hari Ini</p>
           </div>
           <div class="icon">
@@ -248,7 +254,7 @@
     <!-- /.row (main row) -->
   </section>
 
-  <!-- <script>
+  <script>
     $(document).ready(function() {
 
       // $(".edit").hide();
@@ -292,8 +298,8 @@
           strokeColor: "rgba(11, 246, 88, 0.61)",
           highlightFill: "rgba(220,220,220,0.75)",
           highlightStroke: "rgba(220,220,220,1)",
-          data: [
-            <?php
+          data: [ 10000, 5000, 100000, 40000, 50000, 600000, 7000, 80000, 9000, 10000, 11000, 120000
+            <?php /*
             for ($bulan = 1; $bulan <= 12; $bulan++) {
               $thn_ini = date('Y');
               $pemasukan = mysqli_query($koneksi, "select sum(transaksi_nominal) as total_pemasukan from transaksi where transaksi_jenis='Pemasukan' and month(transaksi_tanggal)='$bulan' and year(transaksi_tanggal)='$thn_ini'");
@@ -306,7 +312,7 @@
               } else {
                 echo $total . ",";
               }
-            }
+            } */
             ?>
           ]
         },
@@ -316,8 +322,8 @@
           strokeColor: "rgba(248, 5, 5, 0.8)",
           highlightFill: "rgba(151,187,205,0.75)",
           highlightStroke: "rgba(151,187,205,1)",
-          data: [
-            <?php
+          data: [ 10000, 5000, 100000, 40000, 50000, 600000, 7000, 80000, 9000, 10000, 11000, 120000
+            <?php /*
             for ($bulan = 1; $bulan <= 12; $bulan++) {
               $thn_ini = date('Y');
               $pengeluaran = mysqli_query($koneksi, "select sum(transaksi_nominal) as total_pengeluaran from transaksi where transaksi_jenis='pengeluaran' and month(transaksi_tanggal)='$bulan' and year(transaksi_tanggal)='$thn_ini'");
@@ -331,7 +337,7 @@
 
                 echo $total . ",";
               }
-            }
+            } */
             ?>
           ]
         }
@@ -342,12 +348,12 @@
 
     var barChartData2 = {
       labels: [
-        <?php
+        <?php /*
         $tahun = mysqli_query($koneksi, "select distinct year(transaksi_tanggal) as tahun from transaksi order by year(transaksi_tanggal) asc");
         while ($t = mysqli_fetch_array($tahun)) {
         ?> "<?php echo $t['tahun']; ?>",
         <?php
-        }
+        } */
         ?>
       ],
       datasets: [{
@@ -357,7 +363,7 @@
           highlightFill: "rgba(220,220,220,0.75)",
           highlightStroke: "rgba(220,220,220,1)",
           data: [
-            <?php
+            <?php /*
             $tahun = mysqli_query($koneksi, "select distinct year(transaksi_tanggal) as tahun from transaksi order by year(transaksi_tanggal) asc");
             while ($t = mysqli_fetch_array($tahun)) {
               $thn = $t['tahun'];
@@ -369,7 +375,7 @@
               } else {
                 echo $total . ",";
               }
-            }
+            } */
             ?>
           ]
         },
@@ -380,7 +386,7 @@
           highlightFill: "rgba(151,187,205,0.75)",
           highlightStroke: "rgba(254, 29, 29, 0)",
           data: [
-            <?php
+            <?php /*
             $tahun = mysqli_query($koneksi, "select distinct year(transaksi_tanggal) as tahun from transaksi order by year(transaksi_tanggal) asc");
             while ($t = mysqli_fetch_array($tahun)) {
               $thn = $t['tahun'];
@@ -392,7 +398,7 @@
               } else {
                 echo $total . ",";
               }
-            }
+            } */
             ?>
           ]
         }
@@ -430,4 +436,4 @@
 
 
     }
-  </script> -->
+  </script>

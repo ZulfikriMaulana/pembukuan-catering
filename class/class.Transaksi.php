@@ -247,4 +247,34 @@ class Transaksi extends Connection
 		else
 			$this->message = 'Transaksi Gagal Dibayar!';
 	}
+
+	public function LihatPemasukanHariini()
+	{
+		$this->connect();
+		$tanggal = date('Y-m-d');
+		$sql = "SELECT sum(nominal_transaksi) as total_pemasukan FROM transaksi WHERE jenis_transaksi='Pemasukan' and tanggal_transaksi='$tanggal'";
+				
+
+		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
+
+		
+		$data = mysqli_fetch_assoc($resultOne);
+			
+		return $data;
+	}
+	public function LihatPengeluaranHariini()
+	{
+		$this->connect();
+		$tanggal = date('Y-m-d');
+		$sql = "SELECT sum(nominal_transaksi) as total_pengeluaran FROM transaksi WHERE jenis_transaksi='Pengeluaran' and tanggal_transaksi='$tanggal'";
+				
+
+		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
+
+		
+		$data = mysqli_fetch_assoc($resultOne);
+			
+		return $data;
+	}
 }
+
