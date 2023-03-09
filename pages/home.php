@@ -347,7 +347,7 @@
 
 
     var barChartData2 = {
-      labels: [
+      labels: ["2023"
         <?php /*
         $tahun = mysqli_query($koneksi, "select distinct year(transaksi_tanggal) as tahun from transaksi order by year(transaksi_tanggal) asc");
         while ($t = mysqli_fetch_array($tahun)) {
@@ -362,7 +362,7 @@
           strokeColor: "rgba(11, 246, 88, 0.61)",
           highlightFill: "rgba(220,220,220,0.75)",
           highlightStroke: "rgba(220,220,220,1)",
-          data: [
+          data: [10000000
             <?php /*
             $tahun = mysqli_query($koneksi, "select distinct year(transaksi_tanggal) as tahun from transaksi order by year(transaksi_tanggal) asc");
             while ($t = mysqli_fetch_array($tahun)) {
@@ -385,7 +385,7 @@
           strokeColor: "rgba(248, 5, 5, 0.8)",
           highlightFill: "rgba(151,187,205,0.75)",
           highlightStroke: "rgba(254, 29, 29, 0)",
-          data: [
+          data: [200000
             <?php /*
             $tahun = mysqli_query($koneksi, "select distinct year(transaksi_tanggal) as tahun from transaksi order by year(transaksi_tanggal) asc");
             while ($t = mysqli_fetch_array($tahun)) {
