@@ -6,18 +6,18 @@ $objKategori = new Kategori();
 
 if (isset($_POST['btnSubmit'])) {
   $objKategori->id_kategori = $_POST['id_kategori'];
-  $objKategori->namakategori = $_POST['namakategori'];
+  $objKategori->nama_kategori = $_POST['nama_kategori'];
 
-  $folder = './bukti/';
+  /*$folder = './bukti/';
   $iSuccessUpload = move_uploaded_file($lokasi_file, $folder . $nama_file);
   if ($iSuccessUpload) {
-    $objKategori->TambahKategori(); //nanti dibenerin classnya
+    $objKategori->TambahKategori(); //nanti dibenerin classnya 
 
     echo "<script> alert('$objKategori->message'); </script>";
     if ($objKategori->hasil) {
-      echo '<script> window.location="dashboard.php?p=lihattransaksi"; </script>'; //ganti jadi lihat pesanan
+      echo '<script> window.location="dashboard.php?p=lihatkategori"; </script>'; //ganti jadi lihat pesanan
     }
-  }
+  }*/
 }
 ?>
 
@@ -58,9 +58,9 @@ if (isset($_POST['btnSubmit'])) {
 
               <div class="row"><!--ROW Kategori-->
                 <div class="form-group">
-                  <label class="control-label col-sm-5" for="namakategori">Kategori:</label>
+                  <label class="control-label col-sm-5" for="nama_kategori">Kategori:</label>
                   <div class="col-sm-7">
-                  <input type="text" class="form-control" id="namakategori" name="namakategori" required>
+                  <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" required>
                   </div>
                 </div>
               </div>
@@ -69,7 +69,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <div class="col-sm-offset-5 col-sm-7">
                     <input type="submit" class="btn btn-success" value="Simpan" name="btnSubmit">
-                    <a href="dashboard.php?p=lihattransaksi" class="btn btn-danger">Batal</a></td>
+                    <a href="dashboard.php?p=lihatkategori" class="btn btn-danger">Batal</a></td>
                   </div>
                 </div>
               </div>

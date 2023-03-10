@@ -42,7 +42,7 @@
 									echo '<tr>';
 									echo '<td>' . $no . '</td>';
 									//echo '<td>' . date('d-m-Y', strtotime($dataTransaksi->tanggal_transaksi)) . '</td>';
-									echo '<td>' . $dataKategori->id_kategori . '</td>';
+									echo '<td>' . $dataKategori->nama_kategori . '</td>';
 									//echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
 									//echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
 									/*if($dataTransaksi->jenis_transaksi == "Pemasukan")
