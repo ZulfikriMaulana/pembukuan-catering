@@ -71,4 +71,36 @@ class Kategori extends Connection
 		else
 			$this->message = 'Kategori gagal dihapus!';
 	}
+
+	public function UbahKategori() //set satu saja
+	{
+		$this->connect();
+		$sql = "UPDATE kategori 
+			        SET nama_kategori='$this->nama_kategori',
+					jenis='$this->jenis'
+					
+					WHERE id_ = $this->id_kategori";
+
+		$this->hasil = mysqli_query($this->connection, $sql);
+
+		if ($this->hasil)
+			$this->message = 'Kategori berhasil diubah!';
+		else
+			$this->message = 'Kategori gagal diubah!';
+	}
+
+	public function TambahKategori()
+	{
+		$this->connect();
+
+
+		$sql = "INSERT INTO kategori(nama_kategori, jenis)
+				values ('$this->nama_kategori', '$this->jenis')";
+		$this->hasil = mysqli_query($this->connection, $sql);
+
+		if ($this->hasil)
+			$this->message = 'Kategori berhasil ditambahkan!';
+		else
+			$this->message = 'Kategori gagal ditambahkan!';
+	}
 }
