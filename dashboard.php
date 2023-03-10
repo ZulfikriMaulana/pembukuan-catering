@@ -152,6 +152,11 @@ require "inc.koneksi.php";
                   }
             }
             ?>
+            <li>
+            <a href="dashboard.php?p=lihatkategori">
+              <i class="fa fa-users"></i> <span>KATEGORI</span>
+            </a>
+          </li>
           <li>
             <a href="gantipassword.php">
               <i class="fa fa-lock"></i> <span>GANTI PASSWORD</span>
