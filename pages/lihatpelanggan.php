@@ -17,7 +17,7 @@
 				<div class="box-header">
 					<h3 class="box-title">Kelola Pelanggan</h3>
 					<div class="btn-group pull-right">
-						<a class="btn btn-info btn-sm" href="dashboard.php?p=tambahkategori"><i class="fa fa-plus"></i> &nbsp Tambah Kategori</a>
+						<a class="btn btn-info btn-sm" href="dashboard.php?p=tambahpelanggan"><i class="fa fa-plus"></i> &nbsp Tambah Pelanggan</a>
 					</div>
 				</div>
 				<div class="box-body">
@@ -28,6 +28,7 @@
 								<tr>
 									<th width="1%" rowspan="2">NO</th>
 									<th rowspan="2" class="text-center">PELANGGAN</th>
+									<th rowspan="2" class="text-center">NAMA</th>
 									<th rowspan="2" width="11%" class="text-center">AKSI</th>
 								</tr>
 							</thead>
@@ -42,7 +43,8 @@
 									echo '<tr>';
 									echo '<td>' . $no . '</td>';
 									//echo '<td>' . date('d-m-Y', strtotime($dataTransaksi->tanggal_transaksi)) . '</td>';
-									echo '<td>' . $dataPelanggan->id_pelanggan . '</td>';
+									echo '<td>' . $dataPelanggan->nama_instansi . '</td>';
+									echo '<td>' . $dataPelanggan->nama_cp . '</td>';
 									//echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
 									//echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
 									/*if($dataTransaksi->jenis_transaksi == "Pemasukan")
