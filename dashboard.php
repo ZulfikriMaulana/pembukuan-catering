@@ -152,9 +152,14 @@ require "inc.koneksi.php";
                   }
             }
             ?>
-            <li>
+          <li>
+            <a href="dashboard.php?p=lihatpelanggan">
+              <i class="fa fa-users"></i> <span>PELANGGAN</span>
+            </a>
+          </li>
+          <li>
             <a href="dashboard.php?p=lihatkategori">
-              <i class="fa fa-users"></i> <span>KATEGORI</span>
+              <i class="fa fa-folder"></i> <span>KATEGORI</span>
             </a>
           </li>
           <li>
