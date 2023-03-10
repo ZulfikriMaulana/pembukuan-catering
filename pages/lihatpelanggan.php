@@ -1,7 +1,7 @@
 <section class="content-header">
 	<h1>
-		Kategori
-		<small>Data Kategori</small>
+		Pelanggan
+		<small>Data Pelanggan</small>
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -15,7 +15,7 @@
 			<div class="box box-info">
 
 				<div class="box-header">
-					<h3 class="box-title">Kelola Kategori</h3>
+					<h3 class="box-title">Kelola Pelanggan</h3>
 					<div class="btn-group pull-right">
 						<a class="btn btn-info btn-sm" href="dashboard.php?p=tambahkategori"><i class="fa fa-plus"></i> &nbsp Tambah Kategori</a>
 					</div>
@@ -27,22 +27,22 @@
 							<thead>
 								<tr>
 									<th width="1%" rowspan="2">NO</th>
-									<th rowspan="2" class="text-center">KATEGORI</th>
+									<th rowspan="2" class="text-center">PELANGGAN</th>
 									<th rowspan="2" width="11%" class="text-center">AKSI</th>
 								</tr>
 							</thead>
 							<tbody>
 
 								<?php
-								require_once('./class/class.kategori.php');
-								$objKategori = new Kategori();
+								require_once('./class/class.pelanggan.php');
+								$objPelanggan = new Pelanggan();
 								$no = 1;
-								$arrayResult = $objKategori->LihatSemuaKategori(); //ubah jadi kategori
-								foreach ($arrayResult as $dataKategori) {
+								$arrayResult = $objPelanggan->LihatSemuaPelanggan(); //ubah jadi kategori
+								foreach ($arrayResult as $dataPelanggan) {
 									echo '<tr>';
 									echo '<td>' . $no . '</td>';
 									//echo '<td>' . date('d-m-Y', strtotime($dataTransaksi->tanggal_transaksi)) . '</td>';
-									echo '<td>' . $dataKategori->id_kategori . '</td>';
+									echo '<td>' . $dataPelanggan->id_pelanggan . '</td>';
 									//echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
 									//echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
 									/*if($dataTransaksi->jenis_transaksi == "Pemasukan")
@@ -55,8 +55,8 @@
 										echo '<td>' . ' - ' . '</td>';*/
 									//echo '<td>' . $dataTransaksi->pemasukan . '</td>';//edit lagi menyesuaikan backend
 									//echo '<td>' . $dataTransaksi->pengeluaran . '</td>';//edit lagi menyesuaikan backend / perbaiki lagi href untuk tombol bukti
-									echo '<td><a class="btn btn-warning btn-sm"  href="dashboard.php?p=ubahkategori&id_kategori=' . $dataKategori->id_kategori . '">Ubah</a>
-											  <a class="btn btn-danger btn-sm"  href="dashboard.php?p=hapuskategori&id_kategori=' . $dataKategori->id_kategori . '" 
+									echo '<td><a class="btn btn-warning btn-sm"  href="dashboard.php?p=ubahkategori&id_kategori=' . $dataPelanggan->id_pelanggan . '">Ubah</a>
+											  <a class="btn btn-danger btn-sm"  href="dashboard.php?p=hapuskategori&id_kategori=' . $dataPelanggan->id_pelanggan . '" 
 											onclick="return confirm(\'Apakah anda yakin ingin menghapus?\')">Hapus</a>							  
 										  </td>';
 									echo '</tr>';
