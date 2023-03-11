@@ -5,9 +5,10 @@ require_once('./class/class.Pelanggan.php');
 $objPelanggan = new Pelanggan();
 
 if (isset($_POST['btnSubmit'])) {
-  $objPelanggan->id_pelanggan = $_POST['id_pelanggan'];
   $objPelanggan->nama_instansi = $_POST['nama_instansi'];
-
+  $objPelanggan->alamat = $_POST['alamat'];
+  $objPelanggan->nama_cp = $_POST['nama_cp'];
+  $objPelanggan->no_hp = $_POST['no_hp'];
   /*$folder = './bukti/';
   $iSuccessUpload = move_uploaded_file($lokasi_file, $folder . $nama_file);
   if ($iSuccessUpload) {
@@ -96,7 +97,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <div class="col-sm-offset-5 col-sm-7">
                     <input type="submit" class="btn btn-success" value="Simpan" name="btnSubmit">
-                    <a href="dashboard.php?p=lihatkategori" class="btn btn-danger">Batal</a></td>
+                    <a href="dashboard.php?p=lihatpelanggan" class="btn btn-danger">Batal</a></td>
                   </div>
                 </div>
               </div>

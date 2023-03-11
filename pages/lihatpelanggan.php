@@ -57,8 +57,8 @@
 										echo '<td>' . ' - ' . '</td>';*/
 									//echo '<td>' . $dataTransaksi->pemasukan . '</td>';//edit lagi menyesuaikan backend
 									//echo '<td>' . $dataTransaksi->pengeluaran . '</td>';//edit lagi menyesuaikan backend / perbaiki lagi href untuk tombol bukti
-									echo '<td><a class="btn btn-warning btn-sm"  href="dashboard.php?p=ubahkategori&id_kategori=' . $dataPelanggan->id_pelanggan . '">Ubah</a>
-											  <a class="btn btn-danger btn-sm"  href="dashboard.php?p=hapuskategori&id_kategori=' . $dataPelanggan->id_pelanggan . '" 
+									echo '<td><a class="btn btn-warning btn-sm"  href="dashboard.php?p=ubahpelanggan&id_pelanggan=' . $dataPelanggan->id_pelanggan . '">Ubah</a>
+											  <a class="btn btn-danger btn-sm"  href="dashboard.php?p=hapuspelanggan&id_pelanggan=' . $dataPelanggan->id_pelanggan . '" 
 											onclick="return confirm(\'Apakah anda yakin ingin menghapus?\')">Hapus</a>							  
 										  </td>';
 									echo '</tr>';
