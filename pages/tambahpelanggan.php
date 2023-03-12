@@ -5,21 +5,18 @@ require_once('./class/class.Pelanggan.php');
 $objPelanggan = new Pelanggan();
 
 if (isset($_POST['btnSubmit'])) {
+  $objPelanggan->id_pelanggan = $_POST['id_pelanggan'];
   $objPelanggan->nama_instansi = $_POST['nama_instansi'];
   $objPelanggan->nama_instansi = $_POST['alamat'];
   $objPelanggan->nama_instansi = $_POST['nama_cp'];
   $objPelanggan->nama_instansi = $_POST['no_hp'];
 
-  /*$folder = './bukti/';
-  $iSuccessUpload = move_uploaded_file($lokasi_file, $folder . $nama_file);
-  if ($iSuccessUpload) {
-    $objKategori->TambahKategori(); //nanti dibenerin classnya 
+  $objPelanggan->TambahPelanggan();
 
-    echo "<script> alert('$objKategori->message'); </script>";
-    if ($objKategori->hasil) {
-      echo '<script> window.location="dashboard.php?p=lihatkategori"; </script>'; //ganti jadi lihat pesanan
-    }
-  }*/
+  echo "<script> alert('$objPelanggan->message'); </script>";
+  if ($objPelanggan->hasil) {
+    echo '<script> window.location="dashboard.php?p=lihatpelanggan"; </script>'; //ganti jadi lihat pesanan
+  }
 }
 ?>
 

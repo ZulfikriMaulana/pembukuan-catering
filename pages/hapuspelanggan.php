@@ -6,7 +6,7 @@ if (isset($_GET['id_pelanggan'])) {
 
 	$objPelanggan->HapusPelanggan(); //ubah di bagian classnya
 	echo "<script> alert('$objPelanggan->message'); </script>";
-	echo "<script>window.location = 'dashboard.php?p=lihatkategori'</script>";
+	echo "<script>window.location = 'dashboard.php?p=lihatpelanggan'</script>";
 } else {
 	echo '<script>window.history.back()</script>';
 }
