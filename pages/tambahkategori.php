@@ -62,6 +62,15 @@ if (isset($_POST['btnSubmit'])) {
                 </div>
               </div>
 
+              <div class="row"><!--ROW Kategori-->
+                <div class="form-group">
+                  <label class="control-label col-sm-5" for="jenis">Jenis:</label>
+                  <div class="col-sm-7">
+                    <input type="text" class="form-control" id="jenis" name="jenis" required>
+                  </div>
+                </div>
+              </div>
+
               <div class="row"><!--ROW Button-->
                 <div class="form-group">
                   <div class="col-sm-offset-5 col-sm-7">
