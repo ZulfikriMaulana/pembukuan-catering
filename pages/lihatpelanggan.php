@@ -42,21 +42,8 @@
 								foreach ($arrayResult as $dataPelanggan) {
 									echo '<tr>';
 									echo '<td>' . $no . '</td>';
-									//echo '<td>' . date('d-m-Y', strtotime($dataTransaksi->tanggal_transaksi)) . '</td>';
 									echo '<td>' . $dataPelanggan->nama_instansi . '</td>';
 									echo '<td>' . $dataPelanggan->nama_cp . '</td>';
-									//echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
-									//echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
-									/*if($dataTransaksi->jenis_transaksi == "Pemasukan")
-										echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
-									else
-										echo '<td>' . ' - ' . '</td>';
-									if($dataTransaksi->jenis_transaksi == "Pengeluaran")
-										echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
-									else
-										echo '<td>' . ' - ' . '</td>';*/
-									//echo '<td>' . $dataTransaksi->pemasukan . '</td>';//edit lagi menyesuaikan backend
-									//echo '<td>' . $dataTransaksi->pengeluaran . '</td>';//edit lagi menyesuaikan backend / perbaiki lagi href untuk tombol bukti
 									echo '<td><a class="btn btn-warning btn-sm"  href="dashboard.php?p=ubahpelanggan&id_pelanggan=' . $dataPelanggan->id_pelanggan . '">Ubah</a>
 											  <a class="btn btn-danger btn-sm"  href="dashboard.php?p=hapuspelanggan&id_pelanggan=' . $dataPelanggan->id_pelanggan . '" 
 											onclick="return confirm(\'Apakah anda yakin ingin menghapus?\')">Hapus</a>							  

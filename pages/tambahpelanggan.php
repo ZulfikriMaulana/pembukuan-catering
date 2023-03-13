@@ -7,9 +7,9 @@ $objPelanggan = new Pelanggan();
 if (isset($_POST['btnSubmit'])) {
   $objPelanggan->id_pelanggan = $_POST['id_pelanggan'];
   $objPelanggan->nama_instansi = $_POST['nama_instansi'];
-  $objPelanggan->nama_instansi = $_POST['alamat'];
-  $objPelanggan->nama_instansi = $_POST['nama_cp'];
-  $objPelanggan->nama_instansi = $_POST['no_hp'];
+  $objPelanggan->alamat = $_POST['alamat'];
+  $objPelanggan->nama_cp = $_POST['nama_cp'];
+  $objPelanggan->no_hp = $_POST['no_hp'];
 
   $objPelanggan->TambahPelanggan();
 
