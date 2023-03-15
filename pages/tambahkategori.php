@@ -62,11 +62,14 @@ if (isset($_POST['btnSubmit'])) {
                 </div>
               </div>
 
-              <div class="row"><!--ROW Kategori-->
+              <div class="row"><!--ROW Jenis-->
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="jenis">Jenis:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control" id="jenis" name="jenis" required>
+                    <select class="form-control" id="jenis" name="jenis" required>
+                      <option value="Pemasukan">Pemasukan</option>
+                      <option value="Pengeluaran">Pengeluaran</option>
+                    </select>
                   </div>
                 </div>
               </div>

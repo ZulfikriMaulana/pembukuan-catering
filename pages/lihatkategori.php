@@ -28,6 +28,7 @@
 								<tr>
 									<th width="1%" rowspan="2">NO</th>
 									<th rowspan="2" class="text-center">KATEGORI</th>
+									<th rowspan="2" width="20%" class="text-center">JENIS</th>
 									<th rowspan="2" width="11%" class="text-center">AKSI</th>
 								</tr>
 							</thead>
@@ -44,7 +45,7 @@
 									//echo '<td>' . date('d-m-Y', strtotime($dataTransaksi->tanggal_transaksi)) . '</td>';
 									echo '<td>' . $dataKategori->nama_kategori . '</td>';
 									//echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
-									//echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
+									echo '<td>' . $dataKategori->jenis . '</td>';
 									/*if($dataTransaksi->jenis_transaksi == "Pemasukan")
 										echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
 									else
