@@ -363,4 +363,84 @@ class Transaksi extends Connection
 
 		return $data;
 	}
+
+	public function LihatGrafikPemasukanPerbulan()
+	{
+		$this->connect();
+		for ($bulan = 1; $bulan <= 12; $bulan++) {
+			$thn_ini = date('Y');
+			$pemasukan = mysqli_query($this->connection, "select sum(nominal_transaksi) as total_pemasukan from transaksi where jenis_transaksi='Pemasukan' and month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$thn_ini'");
+			$pem = mysqli_fetch_assoc($pemasukan);
+
+			// $total = str_replace(",", "44", number_format($pem['total_pemasukan']));
+			$total = $pem['total_pemasukan'];
+			$data = "";
+			if ($pem['total_pemasukan'] == "") {
+				$data .= "0,";
+			} else {
+				$data .= $total . ",";
+			}
+		}
+		return $data;
+	}
+
+	public function LihatGrafikPengeluaranPerbulan()
+	{
+		$this->connect();
+		for ($bulan = 1; $bulan <= 12; $bulan++) {
+			$thn_ini = date('Y');
+			$pemasukan = mysqli_query($this->connection, "select sum(nominal_transaksi) as total_pemasukan from transaksi where jenis_transaksi='Pemasukan' and month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$thn_ini'");
+			$pem = mysqli_fetch_assoc($pemasukan);
+
+			// $total = str_replace(",", "44", number_format($pem['total_pemasukan']));
+			$total = $pem['total_pemasukan'];
+			$data = "";
+			if ($pem['total_pemasukan'] == "") {
+				$data .= "0,";
+			} else {
+				$data .= $total . ",";
+			}
+		}
+		return $data;
+	}
+
+	public function LihatGrafikPemasukanPertahun()
+	{
+		$this->connect();
+		for ($bulan = 1; $bulan <= 12; $bulan++) {
+			$thn_ini = date('Y');
+			$pemasukan = mysqli_query($this->connection, "select sum(nominal_transaksi) as total_pemasukan from transaksi where jenis_transaksi='Pemasukan' and month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$thn_ini'");
+			$pem = mysqli_fetch_assoc($pemasukan);
+
+			// $total = str_replace(",", "44", number_format($pem['total_pemasukan']));
+			$total = $pem['total_pemasukan'];
+			$data = "";
+			if ($pem['total_pemasukan'] == "") {
+				$data .= "0,";
+			} else {
+				$data .= $total . ",";
+			}
+		}
+		return $data;
+	}
+
+	public function LihatGrafikPengeluaranPertahun()
+	{
+		$this->connect();
+		for ($bulan = 1; $bulan <= 12; $bulan++) {
+			$thn_ini = date('Y');
+			$pemasukan = mysqli_query($this->connection, "select sum(nominal_transaksi) as total_pemasukan from transaksi where jenis_transaksi='Pemasukan' and month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$thn_ini'");
+			$pem = mysqli_fetch_assoc($pemasukan);
+
+			// $total = str_replace(",", "44", number_format($pem['total_pemasukan']));
+			$total = $pem['total_pemasukan'];
+			$data = "";
+			if ($pem['total_pemasukan'] == "") {
+				$data .= "0,";
+			} else {
+				$data .= $total . ",";
+			}
+		}
+		return $data;
+	}
 }
