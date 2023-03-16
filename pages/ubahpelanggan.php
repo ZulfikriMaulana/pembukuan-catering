@@ -62,7 +62,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="nama_instansi">Nama Instansi:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control" id="nama_instansi" name="nama_instansi" value="<?php echo $objPelanggan->nama_instansi ?>" required>
+                    <input type="text" class="form-control" id="nama_instansi" name="nama_instansi" value="<?php echo $objPelanggan->nama_instansi; ?>" required>
                   </div>
                 </div>
               </div>
@@ -71,7 +71,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="alamat">Alamat:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control" id="alamat" name="alamat" required>
+                    <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $objPelanggan->alamat; ?>" required>
                   </div>
                 </div>
               </div>

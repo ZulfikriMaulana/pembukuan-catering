@@ -28,8 +28,10 @@
 								<tr>
 									<th width="1%" rowspan="2">NO</th>
 									<th rowspan="2" class="text-center">PELANGGAN</th>
+									<th rowspan="2" class="text-center">ALAMAT</th>
 									<th rowspan="2" class="text-center">NAMA</th>
-									<th rowspan="2" width="11%" class="text-center">AKSI</th>
+									<th rowspan="2" class="text-center">No. HP</th>
+									<th rowspan="2" width="16%" class="text-center">AKSI</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -43,7 +45,9 @@
 									echo '<tr>';
 									echo '<td>' . $no . '</td>';
 									echo '<td>' . $dataPelanggan->nama_instansi . '</td>';
+									echo '<td>' . $dataPelanggan->alamat . '</td>';
 									echo '<td>' . $dataPelanggan->nama_cp . '</td>';
+									echo '<td>' . $dataPelanggan->no_hp . '</td>';
 									echo '<td><a class="btn btn-warning btn-sm"  href="dashboard.php?p=ubahpelanggan&id_pelanggan=' . $dataPelanggan->id_pelanggan . '">Ubah</a>
 											  <a class="btn btn-danger btn-sm"  href="dashboard.php?p=hapuspelanggan&id_pelanggan=' . $dataPelanggan->id_pelanggan . '" 
 											onclick="return confirm(\'Apakah anda yakin ingin menghapus?\')">Hapus</a>							  
