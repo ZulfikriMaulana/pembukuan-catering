@@ -63,9 +63,6 @@
       <div class="small-box bg-blue">
         <div class="inner">
           <?php 
-          require_once('./class/class.transaksi.php');
-          $objTransaksi = new Transaksi();
-
           $data = $objTransaksi->LihatPemasukanBulanini()
           ?>
           <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pemasukan']) . " ,-" 
@@ -82,9 +79,6 @@
       <div class="small-box bg-orange">
         <div class="inner">
           <?php 
-          require_once('./class/class.transaksi.php');
-          $objTransaksi = new Transaksi();
-
           $data = $objTransaksi->LihatPemasukanTahunini()
           ?>
           <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pemasukan']) . " ,-" 
@@ -101,9 +95,6 @@
       <div class="small-box bg-black">
         <div class="inner">
           <?php 
-          require_once('./class/class.transaksi.php');
-          $objTransaksi = new Transaksi();
-
           $data = $objTransaksi->LihatPemasukanSeluruh()
           ?>
           <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pemasukan']) . " ,-" 
@@ -122,9 +113,6 @@
       <div class="small-box bg-red">
         <div class="inner">
           <?php 
-          require_once('./class/class.transaksi.php');
-          $objTransaksi = new Transaksi();
-
           $data = $objTransaksi->LihatPengeluaranHariini()
           ?>
 
@@ -141,12 +129,6 @@
       <div class="small-box bg-red">
         <div class="inner">
           <?php
-            // $bulan = date('m');
-            // $pengeluaran = mysqli_query($koneksi, "SELECT sum(transaksi_nominal) as total_pengeluaran FROM transaksi WHERE transaksi_jenis='pengeluaran' and month(transaksi_tanggal)='$bulan'");
-            // $p = mysqli_fetch_assoc($pengeluaran);
-            require_once('./class/class.transaksi.php');
-            $objTransaksi = new Transaksi();
-  
             $data = $objTransaksi->LihatPengeluaranBulanini()
             ?>
 
@@ -163,8 +145,6 @@
         <div class="small-box bg-red">
           <div class="inner">
             <?php 
-             require_once('./class/class.transaksi.php');
-             $objTransaksi = new Transaksi();
              $data = $objTransaksi->LihatPengeluaranTahunini()
           ?>
 
@@ -182,8 +162,6 @@
       <div class="small-box bg-black">
         <div class="inner">
           <?php 
-           require_once('./class/class.transaksi.php');
-           $objTransaksi = new Transaksi();
            $data = $objTransaksi->LihatPengeluaranSeluruh()
           ?>
           <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pengeluaran']) . " ,-" 

@@ -281,7 +281,7 @@ class Transaksi extends Connection
 	{
 		$this->connect();
 		$bulan = date('m');
-		$sql = "SELECT sum(nominal_transaksi) as total_pemasukan FROM transaksi WHERE jenis_transaksi='Pemasukan' and tanggal_transaksi='$bulan'";
+		$sql = "SELECT sum(nominal_transaksi) as total_pemasukan FROM transaksi WHERE jenis_transaksi='Pemasukan' and month(tanggal_transaksi)='$bulan'";
 
 
 		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
@@ -294,8 +294,8 @@ class Transaksi extends Connection
 	public function LihatPengeluaranBulanini()
 	{
 		$this->connect();
-		$tanggal = date('Y-m-d');
-		$sql = "SELECT sum(nominal_transaksi) as total_pengeluaran FROM transaksi WHERE jenis_transaksi='Pengeluaran' and tanggal_transaksi='$tanggal'";
+		$bulan = date('Y-m-d');
+		$sql = "SELECT sum(nominal_transaksi) as total_pengeluaran FROM transaksi WHERE jenis_transaksi='Pengeluaran' and month(tanggal_transaksi)='$bulan'";
 
 
 		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
@@ -309,8 +309,8 @@ class Transaksi extends Connection
 	public function LihatPemasukanTahunini()
 	{
 		$this->connect();
-		$tanggal = date('Y-m-d');
-		$sql = "SELECT sum(nominal_transaksi) as total_pemasukan FROM transaksi WHERE jenis_transaksi='Pemasukan' and tanggal_transaksi='$tanggal'";
+		$tahun = date('Y');
+		$sql = "SELECT sum(nominal_transaksi) as total_pemasukan FROM transaksi WHERE jenis_transaksi='Pemasukan' and year(tanggal_transaksi)='$tahun'";
 
 
 		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
@@ -323,8 +323,8 @@ class Transaksi extends Connection
 	public function LihatPengeluaranTahunini()
 	{
 		$this->connect();
-		$tanggal = date('Y-m-d');
-		$sql = "SELECT sum(nominal_transaksi) as total_pengeluaran FROM transaksi WHERE jenis_transaksi='Pengeluaran' and tanggal_transaksi='$tanggal'";
+		$tahun = date('Y');
+		$sql = "SELECT sum(nominal_transaksi) as total_pengeluaran FROM transaksi WHERE jenis_transaksi='Pengeluaran' and year(tanggal_transaksi)='$tahun'";
 
 
 		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
@@ -339,7 +339,7 @@ class Transaksi extends Connection
 	{
 		$this->connect();
 		$tanggal = date('Y-m-d');
-		$sql = "SELECT sum(nominal_transaksi) as total_pemasukan FROM transaksi WHERE jenis_transaksi='Pemasukan' and tanggal_transaksi='$tanggal'";
+		$sql = "SELECT sum(nominal_transaksi) as total_pemasukan FROM transaksi WHERE jenis_transaksi='Pemasukan'";
 
 
 		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
@@ -353,7 +353,7 @@ class Transaksi extends Connection
 	{
 		$this->connect();
 		$tanggal = date('Y-m-d');
-		$sql = "SELECT sum(nominal_transaksi) as total_pengeluaran FROM transaksi WHERE jenis_transaksi='Pengeluaran' and tanggal_transaksi='$tanggal'";
+		$sql = "SELECT sum(nominal_transaksi) as total_pengeluaran FROM transaksi WHERE jenis_transaksi='Pengeluaran'";
 
 
 		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
