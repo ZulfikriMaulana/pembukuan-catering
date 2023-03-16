@@ -1,7 +1,6 @@
 <?php
 require_once('./class/class.Pelanggan.php');
 
-//$objPesanan = new Pesanan();
 $objPelanggan = new Pelanggan();
 
 if (isset($_POST['btnSubmit'])) {
@@ -62,24 +61,12 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="nama_instansi">Nama Instansi:</label>
                   <div class="col-sm-7">
-                    <select class="form-control" id="nama_instansi" name="nama_instansi" value="<?php echo $objPelanggan->nama_instansi; ?>" required>
-                      <!--Replace value heret-->
-                      <?php
-                      $objPelanggan = new Pelanggan();
-                      $PelangganList = $objPelanggan->LihatSemuaPelanggan();
-                      foreach ($PelangganList as $Pelanggan) {
-                        if ($objPelanggan->nama_instansi == $Pelanggan->nama_instansi)
-                          echo '<option selected="true" value=' . $Pelanggan->nama_instansi . '>' . $Pelanggan->nama_instansi . '</option>';
-                        else
-                          echo '<option value=' . $Pelanggan->nama_instansi . '>' . $Pelanggan->nama_instansi . '</option>';
-                      }
-                      ?>
-                    </select>
+                    <input type="text" class="form-control" id="nama_instansi" name="nama_instansi" value="<?php echo $objPelanggan->nama_instansi; ?>" required>
                   </div>
                 </div>
               </div>
 
-              <div class="row"><!--ROW Kategori-->
+              <div class="row"><!--ROW Alamat-->
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="alamat">Alamat:</label>
                   <div class="col-sm-7">
@@ -88,16 +75,16 @@ if (isset($_POST['btnSubmit'])) {
                 </div>
               </div>
 
-              <div class="row"><!--ROW Kategori-->
+              <div class="row"><!--ROW Nama CP-->
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="nama_cp">Nama Pelanggan:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control" id="nama_cp" name="nama_cp" required>
+                    <input type="text" class="form-control" id="nama_cp" name="nama_cp" value="<?php echo $objPelanggan->nama_cp; ?>" required>
                   </div>
                 </div>
               </div>
 
-              <div class="row"><!--ROW Kategori-->
+              <div class="row"><!--ROW No.Hp-->
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="no_hp">No HP:</label>
                   <div class="col-sm-7">

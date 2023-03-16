@@ -83,7 +83,7 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="alamat_pelanggan">Alamat:</label>
                 <div class="col-sm-7">
-                <textarea class="form-control" id="alamat_pelanggan" placeholder="Alamat" name="alamat_pelanggan" onchange="kategori()" rows="2" cols="20"></textarea>
+                <textarea class="form-control" id="alamat_pelanggan" placeholder="Alamat" name="alamat_pelanggan" rows="2" cols="20"></textarea>
               </div>
             </div>
           </div>
@@ -211,12 +211,12 @@ if (isset($_POST['btnSubmit'])) {
 </section>
 
 <script>
-function kategori() {
-      var id_pelanggan = document.getElementById("id_pelanggan");
-      var alamat = id_pelanggan.options[id_pelanggan.selectedIndex].getAttribute("data-alamat");    
+// function kategori() {
+//       var id_pelanggan = document.getElementById("id_pelanggan");
+//       var alamat = id_pelanggan.options[id_pelanggan.selectedIndex].getAttribute("data-alamat");    
 
-	    document.getElementById("alamat_pelanggan").value = alamat;
-	}
+// 	    document.getElementById("alamat_pelanggan").value = alamat;
+// 	}
 
 function hitung() {
       var id_item_pesanan = document.getElementById("id_item_pesanan");	    
