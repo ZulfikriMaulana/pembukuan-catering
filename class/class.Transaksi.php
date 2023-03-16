@@ -253,13 +253,13 @@ class Transaksi extends Connection
 		$this->connect();
 		$tanggal = date('Y-m-d');
 		$sql = "SELECT sum(nominal_transaksi) as total_pemasukan FROM transaksi WHERE jenis_transaksi='Pemasukan' and tanggal_transaksi='$tanggal'";
-				
+
 
 		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
 
-		
+
 		$data = mysqli_fetch_assoc($resultOne);
-			
+
 		return $data;
 	}
 	public function LihatPengeluaranHariini()
@@ -267,14 +267,100 @@ class Transaksi extends Connection
 		$this->connect();
 		$tanggal = date('Y-m-d');
 		$sql = "SELECT sum(nominal_transaksi) as total_pengeluaran FROM transaksi WHERE jenis_transaksi='Pengeluaran' and tanggal_transaksi='$tanggal'";
-				
+
 
 		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
 
-		
+
 		$data = mysqli_fetch_assoc($resultOne);
-			
+
+		return $data;
+	}
+
+	public function LihatPemasukanBulanini()
+	{
+		$this->connect();
+		$bulan = date('m');
+		$sql = "SELECT sum(nominal_transaksi) as total_pemasukan FROM transaksi WHERE jenis_transaksi='Pemasukan' and tanggal_transaksi='$bulan'";
+
+
+		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
+
+
+		$data = mysqli_fetch_assoc($resultOne);
+
+		return $data;
+	}
+	public function LihatPengeluaranBulanini()
+	{
+		$this->connect();
+		$tanggal = date('Y-m-d');
+		$sql = "SELECT sum(nominal_transaksi) as total_pengeluaran FROM transaksi WHERE jenis_transaksi='Pengeluaran' and tanggal_transaksi='$tanggal'";
+
+
+		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
+
+
+		$data = mysqli_fetch_assoc($resultOne);
+
+		return $data;
+	}
+
+	public function LihatPemasukanTahunini()
+	{
+		$this->connect();
+		$tanggal = date('Y-m-d');
+		$sql = "SELECT sum(nominal_transaksi) as total_pemasukan FROM transaksi WHERE jenis_transaksi='Pemasukan' and tanggal_transaksi='$tanggal'";
+
+
+		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
+
+
+		$data = mysqli_fetch_assoc($resultOne);
+
+		return $data;
+	}
+	public function LihatPengeluaranTahunini()
+	{
+		$this->connect();
+		$tanggal = date('Y-m-d');
+		$sql = "SELECT sum(nominal_transaksi) as total_pengeluaran FROM transaksi WHERE jenis_transaksi='Pengeluaran' and tanggal_transaksi='$tanggal'";
+
+
+		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
+
+
+		$data = mysqli_fetch_assoc($resultOne);
+
+		return $data;
+	}
+
+	public function LihatPemasukanSeluruh()
+	{
+		$this->connect();
+		$tanggal = date('Y-m-d');
+		$sql = "SELECT sum(nominal_transaksi) as total_pemasukan FROM transaksi WHERE jenis_transaksi='Pemasukan' and tanggal_transaksi='$tanggal'";
+
+
+		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
+
+
+		$data = mysqli_fetch_assoc($resultOne);
+
+		return $data;
+	}
+	public function LihatPengeluaranSeluruh()
+	{
+		$this->connect();
+		$tanggal = date('Y-m-d');
+		$sql = "SELECT sum(nominal_transaksi) as total_pengeluaran FROM transaksi WHERE jenis_transaksi='Pengeluaran' and tanggal_transaksi='$tanggal'";
+
+
+		$resultOne = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
+
+
+		$data = mysqli_fetch_assoc($resultOne);
+
 		return $data;
 	}
 }
-
