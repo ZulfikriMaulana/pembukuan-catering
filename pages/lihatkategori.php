@@ -29,7 +29,7 @@
 									<th width="1%" rowspan="2">NO</th>
 									<th rowspan="2" class="text-center">KATEGORI</th>
 									<th rowspan="2" width="20%" class="text-center">JENIS</th>
-									<th rowspan="2" width="11%" class="text-center">AKSI</th>
+									<th rowspan="2" width="16%" class="text-center">AKSI</th>
 								</tr>
 							</thead>
 							<tbody>
