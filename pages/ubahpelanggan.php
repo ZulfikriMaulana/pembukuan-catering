@@ -88,7 +88,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="no_hp">No HP:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                    <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?php echo $objPelanggan->no_hp; ?>" required>
                   </div>
                 </div>
               </div>

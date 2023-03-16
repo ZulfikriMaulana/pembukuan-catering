@@ -69,17 +69,18 @@ if (isset($_POST['btnSubmit'])) {
                       <?php
                       $objPelanggan = new Pelanggan();
                       $PelangganList = $objPelanggan->LihatSemuaPelanggan();
-                      foreach ($PelangganList as $Pelanggan){ 								
-                        if($objPesanan->id_pelanggan == $Pelanggan->id_pelanggan)				
-                          echo '<option selected="true" value='.$Pelanggan->id_pelanggan.'>'.$Pelanggan->nama_instansi.'</option>';
+                      foreach ($PelangganList as $Pelanggan) {
+                        if ($objPesanan->id_pelanggan == $Pelanggan->id_pelanggan)
+                          echo '<option selected="true" value=' . $Pelanggan->id_pelanggan . '>' . $Pelanggan->nama_instansi . '</option>';
                         else
-                        echo '<option value='.$Pelanggan->id_pelanggan.'>'.$Pelanggan->nama_instansi.'</option>';
-                       }
-                      ?>	
+                          echo '<option value=' . $Pelanggan->id_pelanggan . '>' . $Pelanggan->nama_instansi . '</option>';
+                      }
+                      ?>
                     </select>
                   </div>
                 </div>
               </div>
+
               <div class="row"><!--ROW 3-->
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="alamat_pelanggan">Alamat:</label>
@@ -131,16 +132,16 @@ if (isset($_POST['btnSubmit'])) {
                   <label class="control-label col-sm-5" for="id_item_pesanan">Jenis Pesanan:</label>
                   <div class="col-sm-7">
                     <select class="form-control" id="id_item_pesanan" name="id_item_pesanan" value="<?php echo $objPesanan->id_item_pesanan; ?>" onchange="hitung()">
-                    <?php
+                      <?php
                       $objItemPesanan = new ItemPesanan();
                       $ItemPesananList = $objItemPesanan->LihatSemuaItemPesanan();
-                      foreach ($ItemPesananList as $ItemPesanan){ 								
-                        if($objPesanan->id_item_pesanan == $ItemPesanan->id_item_pesanan)				
-                          echo '<option selected="true" value='.$ItemPesanan->id_item_pesanan.'>'.$ItemPesanan->nama_item.'</option>';
+                      foreach ($ItemPesananList as $ItemPesanan) {
+                        if ($objPesanan->id_item_pesanan == $ItemPesanan->id_item_pesanan)
+                          echo '<option selected="true" value=' . $ItemPesanan->id_item_pesanan . '>' . $ItemPesanan->nama_item . '</option>';
                         else
-                        echo '<option value='.$ItemPesanan->id_item_pesanan.'>'.$ItemPesanan->nama_item.'</option>';
-                       }
-                      ?>	
+                          echo '<option value=' . $ItemPesanan->id_item_pesanan . '>' . $ItemPesanan->nama_item . '</option>';
+                      }
+                      ?>
                     </select>
                   </div><!--sampel dropdown-->
                 </div>
