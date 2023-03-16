@@ -51,7 +51,7 @@
 									echo '<td>' . $no . '</td>';
 									echo '<td>' . $dataPesanan->id_pesanan . '</td>';
 									echo '<td>' . date('d-m-Y', strtotime($dataPesanan->tanggal_pesanan)) . '</td>';
-									echo '<td>' . $dataPesanan->id_pelanggan . '</td>';
+									echo '<td>' . $dataPesanan->nama_instansi . '</td>';
 									echo '<td>' . $dataPesanan->id_item_pesanan . '</td>';
 									echo '<td>' . $dataPesanan->jumlah_pesanan . '</td>';
 									echo '<td>' . "Rp. " . number_format($dataPesanan->subtotal_pesanan) . '</td>';

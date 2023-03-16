@@ -14,6 +14,7 @@ class Pesanan extends Connection
 	private $subtotal_pesanan = '';
 	private $pajak_pesanan = '';
 	private $total_pesanan = '';
+	private $nama_instansi = '';
 	private $hasil = false;
 	private $status = '';
 	private $message = '';
@@ -115,7 +116,8 @@ class Pesanan extends Connection
 	public function LihatSemuaPesanan()
 	{
 		$this->connect();
-		$sql = "SELECT * FROM pesanan order by id_pesanan";
+		$sql = "SELECT pesanan.*, pelanggan.nama_instansi from pesanan JOIN pelanggan
+		on pesanan.id_pelanggan = pelanggan.id_pelanggan order by id_pesanan";
 		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
 
 		$arrResult = array();
@@ -135,6 +137,7 @@ class Pesanan extends Connection
 				$objPesanan->subtotal_pesanan = $data['subtotal_pesanan'];
 				$objPesanan->pajak_pesanan = $data['pajak_pesanan'];
 				$objPesanan->total_pesanan = $data['total_pesanan'];
+				$objPesanan->nama_instansi = $data['nama_instansi'];
 				$objPesanan->status = $data['status'];
 
 				$arrResult[$i] = $objPesanan;
