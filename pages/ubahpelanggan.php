@@ -62,7 +62,19 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="nama_instansi">Nama Instansi:</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control" id="nama_instansi" name="nama_instansi" value="<?php echo $objPelanggan->nama_instansi; ?>" required>
+                    <select class="form-control" id="nama_instansi" name="nama_instansi" value="<?php echo $objPelanggan->nama_instansi; ?>" required>
+                      <!--Replace value heret-->
+                      <?php
+                      $objPelanggan = new Pelanggan();
+                      $PelangganList = $objPelanggan->LihatSemuaPelanggan();
+                      foreach ($PelangganList as $Pelanggan) {
+                        if ($objPelanggan->nama_instansi == $Pelanggan->nama_instansi)
+                          echo '<option selected="true" value=' . $Pelanggan->nama_instansi . '>' . $Pelanggan->nama_instansi . '</option>';
+                        else
+                          echo '<option value=' . $Pelanggan->nama_instansi . '>' . $Pelanggan->nama_instansi . '</option>';
+                      }
+                      ?>
+                    </select>
                   </div>
                 </div>
               </div>
