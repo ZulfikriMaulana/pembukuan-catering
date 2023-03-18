@@ -119,7 +119,7 @@ require "inc.koneksi.php";
 
           <li class="treeview">
             <a href="#">
-              <i class="fa fa-hand-paper-o"></i>
+              <i class="fa fa-bar-chart"></i>
               <span>LAPORAN</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -159,7 +159,12 @@ require "inc.koneksi.php";
           </li>
           <li>
             <a href="dashboard.php?p=lihatkategori">
-              <i class="fa fa-folder"></i> <span>KATEGORI</span>
+              <i class="fa fa-pencil-square-o"></i> <span>KATEGORI</span>
+            </a>
+          </li>
+          <li>
+            <a href="dashboard.php?p=lihatitempesanan">
+              <i class="fa fa-cutlery"></i> <span>ITEM PESANAN</span>
             </a>
           </li>
           <li>
