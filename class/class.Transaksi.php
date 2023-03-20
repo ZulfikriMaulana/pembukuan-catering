@@ -5,6 +5,7 @@ class Transaksi extends Connection
 	private $id_transaksi = 0;
 	private $id_pesanan = '';
 	private $id_kategori = '';
+	private $nama_kategori = '';
 	private $tanggal_transaksi = '';
 	private $jenis_transaksi = '';
 	private $keterangan_transaksi = '';
@@ -108,11 +109,18 @@ class Transaksi extends Connection
 	{
 		$this->connect();
 		if ($id_kategori == 'semua') {
-			$sql = "SELECT * FROM transaksi WHERE tanggal_transaksi between '$tgl_dari' and '$tgl_sampai'
-		order by id_transaksi";
+			$sql = "SELECT transaksi.*, kategori.nama_kategori 
+			FROM transaksi 
+			JOIN kategori on transaksi.id_kategori = kategori.id_kategori
+			WHERE tanggal_transaksi between '$tgl_dari' and '$tgl_sampai'
+			order by id_transaksi";
 		} else {
-			$sql = "SELECT * FROM transaksi WHERE tanggal_transaksi between '$tgl_dari' and '$tgl_sampai'
-		and id_kategori = $id_kategori order by id_transaksi";
+			$sql = "SELECT transaksi.*, kategori.nama_kategori 
+			FROM transaksi 
+			JOIN kategori on transaksi.id_kategori = kategori.id_kategori
+			WHERE tanggal_transaksi between '$tgl_dari' and '$tgl_sampai'
+			and transaksi.id_kategori=$id_kategori
+			order by id_transaksi";
 		}
 
 		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
@@ -124,6 +132,7 @@ class Transaksi extends Connection
 				$objTransaksi->id_transaksi = $data['id_transaksi'];
 				$objTransaksi->id_pesanan = $data['id_pesanan'];
 				$objTransaksi->id_kategori = $data['id_kategori'];
+				$objTransaksi->nama_kategori = $data['nama_kategori'];
 				$objTransaksi->tanggal_transaksi = $data['tanggal_transaksi'];
 				$objTransaksi->jenis_transaksi = $data['jenis_transaksi'];
 				$objTransaksi->keterangan_transaksi = $data['keterangan_transaksi'];
@@ -204,7 +213,7 @@ class Transaksi extends Connection
 	public function LihatSemuaTransaksi()
 	{
 		$this->connect();
-		$sql = "SELECT * FROM transaksi order by id_transaksi";
+		$sql = "SELECT transaksi.*, kategori.nama_kategori from transaksi JOIN kategori on transaksi.id_kategori = kategori.id_kategori order by id_transaksi;";
 		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
 
 		$arrResult = array();
@@ -220,6 +229,7 @@ class Transaksi extends Connection
 				$objTransaksi->keterangan_transaksi = $data['keterangan_transaksi'];
 				$objTransaksi->foto_transaksi = $data['foto_transaksi'];
 				$objTransaksi->nominal_transaksi = $data['nominal_transaksi'];
+				$objTransaksi->nama_kategori = $data['nama_kategori'];
 				$arrResult[$i] = $objTransaksi;
 				$i++;
 			}

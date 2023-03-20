@@ -89,6 +89,7 @@
               $tgl_dari = $_POST['tanggal_dari'];
               $tgl_sampai = $_POST['tanggal_sampai'];
               $id_kategori = $_POST['kategori'];
+              //$nama_kategori = $_POST['nama_kategori'];
             ?>
 
               <div class="row">
@@ -156,7 +157,7 @@
                     $no = 1;
                     $total_pemasukan = 0;
                     $total_pengeluaran = 0;
-                    $arrayResult = $objTransaksi->LihatLaporanHarian($tgl_dari, $tgl_sampai, $id_kategori);
+                    $arrayResult = $objTransaksi->LihatLaporanHarian($tgl_dari, $tgl_sampai, $id_kategori); //tes ubah id_kategori ke nama_kategori
                     foreach ($arrayResult as $dataTransaksi) {
                       if ($dataTransaksi->jenis_transaksi == "Pemasukan") {
                         $total_pemasukan += $dataTransaksi->nominal_transaksi;
@@ -166,7 +167,7 @@
                       echo '<tr>';
                       echo '<td>' . $no . '</td>';
                       echo '<td>' . date('d-m-Y', strtotime($dataTransaksi->tanggal_transaksi)) . '</td>';
-                      echo '<td>' . $dataTransaksi->id_kategori . '</td>';
+                      echo '<td>' . $dataTransaksi->nama_kategori . '</td>'; //tes ubah id_kategori ke nama_kategori
                       echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
                       //echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
                       if ($dataTransaksi->jenis_transaksi == "Pemasukan")

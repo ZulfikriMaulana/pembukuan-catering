@@ -89,7 +89,7 @@ class ItemPesanan extends Connection
 		$this->connect();
 		$sql = "UPDATE item_pesanan 
 			        SET nama_item='$this->nama_item',
-					harga_jual='$this->harga_jual'
+					harga_jual='$this->harga_jual',
 					harga_modal='$this->harga_modal'
 					
 					WHERE id_item_pesanan = $this->id_item_pesanan";

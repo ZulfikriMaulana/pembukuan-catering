@@ -2,7 +2,6 @@
 require_once('./class/class.Transaksi.php');
 require_once('./class/class.Kategori.php');
 
-//$objPesanan = new Pesanan();
 $objTransaksi = new Transaksi();
 
 if (isset($_POST['btnSubmit'])) {
@@ -15,9 +14,16 @@ if (isset($_POST['btnSubmit'])) {
   $lokasi_file = $_FILES['foto_transaksi']['tmp_name'];
   $nama_file = $_FILES['foto_transaksi']['name'];
   $objTransaksi->foto_transaksi = $nama_file;
+  $iSuccessUpload = true;
 
   $folder = './bukti/';
-  $iSuccessUpload = move_uploaded_file($lokasi_file, $folder . $nama_file);
+  if ($nama_file != ""){
+    $iSuccessUpload = move_uploaded_file($lokasi_file, $folder . $nama_file);
+  }
+  else{
+    $nama_file = "";
+  }
+  
   if ($iSuccessUpload) {
     $objTransaksi->UbahTransaksi();
 
@@ -72,7 +78,7 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="form-group">
                   <label class="control-label col-sm-5" for="tanggal_transaksi">Tanggal Transaksi:</label>
                   <div class="col-sm-7">
-                    <input type="date" class="form-control" id="tanggal_transaksi" name="tanggal_transaksi" value="<?php echo $objTransaksi->tanggal_transaksi; ?>" required disabled>
+                    <input type="date" class="form-control" id="tanggal_transaksi" name="tanggal_transaksi" value="<?php echo $objTransaksi->tanggal_transaksi; ?>" required readonly>
                   </div>
                 </div>
               </div>
