@@ -394,7 +394,7 @@ class Transaksi extends Connection
 	{
 		$this->connect();
 		for ($bulan = 1; $bulan <= 12; $bulan++) {
-			$thn_ini = date('Y');
+			$thn_ini = date('m');
 			$pemasukan = mysqli_query($this->connection, "select sum(nominal_transaksi) as total_pemasukan from transaksi where jenis_transaksi='Pemasukan' and month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$thn_ini'");
 			$pem = mysqli_fetch_assoc($pemasukan);
 
@@ -414,14 +414,14 @@ class Transaksi extends Connection
 	{
 		$this->connect();
 		for ($bulan = 1; $bulan <= 12; $bulan++) {
-			$thn_ini = date('Y');
-			$pemasukan = mysqli_query($this->connection, "select sum(nominal_transaksi) as total_pemasukan from transaksi where jenis_transaksi='Pemasukan' and month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$thn_ini'");
-			$pem = mysqli_fetch_assoc($pemasukan);
+			$thn_ini = date('m');
+			$pengeluaran = mysqli_query($this->connection, "select sum(nominal_transaksi) as total_pengeluaran from transaksi where jenis_transaksi='Pengeluaran' and month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$thn_ini'");
+			$pem = mysqli_fetch_assoc($pengeluaran);
 
 			// $total = str_replace(",", "44", number_format($pem['total_pemasukan']));
-			$total = $pem['total_pemasukan'];
+			$total = $pem['total_pengeluaran'];
 			$data = "";
-			if ($pem['total_pemasukan'] == "") {
+			if ($pem['total_pengeluaran'] == "") {
 				$data .= "0,";
 			} else {
 				$data .= $total . ",";
@@ -455,13 +455,13 @@ class Transaksi extends Connection
 		$this->connect();
 		for ($bulan = 1; $bulan <= 12; $bulan++) {
 			$thn_ini = date('Y');
-			$pemasukan = mysqli_query($this->connection, "select sum(nominal_transaksi) as total_pemasukan from transaksi where jenis_transaksi='Pemasukan' and month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$thn_ini'");
-			$pem = mysqli_fetch_assoc($pemasukan);
+			$pengeluaran = mysqli_query($this->connection, "select sum(nominal_transaksi) as total_pengeluaran from transaksi where jenis_transaksi='Pengeluaran' and month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$thn_ini'");
+			$pem = mysqli_fetch_assoc($pengeluaran);
 
 			// $total = str_replace(",", "44", number_format($pem['total_pemasukan']));
-			$total = $pem['total_pemasukan'];
+			$total = $pem['total_pengeluaran'];
 			$data = "";
-			if ($pem['total_pemasukan'] == "") {
+			if ($pem['total_pengeluaran'] == "") {
 				$data .= "0,";
 			} else {
 				$data .= $total . ",";

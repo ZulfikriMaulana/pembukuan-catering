@@ -62,11 +62,11 @@
     <div class="col-lg-3 col-xs-6">
       <div class="small-box bg-blue">
         <div class="inner">
-          <?php 
+          <?php
           $data = $objTransaksi->LihatPemasukanBulanini()
           ?>
-          <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pemasukan']) . " ,-" 
-                                                        ?></h4>
+          <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pemasukan']) . " ,-"
+                                          ?></h4>
           <p>Pemasukan Bulan Ini</p>
         </div>
         <div class="icon">
@@ -78,11 +78,11 @@
     <div class="col-lg-3 col-xs-6">
       <div class="small-box bg-orange">
         <div class="inner">
-          <?php 
+          <?php
           $data = $objTransaksi->LihatPemasukanTahunini()
           ?>
-          <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pemasukan']) . " ,-" 
-                                                        ?></h4>
+          <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pemasukan']) . " ,-"
+                                          ?></h4>
           <p>Pemasukan Tahun Ini</p>
         </div>
         <div class="icon">
@@ -94,11 +94,11 @@
     <div class="col-lg-3 col-xs-6">
       <div class="small-box bg-black">
         <div class="inner">
-          <?php 
+          <?php
           $data = $objTransaksi->LihatPemasukanSeluruh()
           ?>
-          <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pemasukan']) . " ,-" 
-                                                        ?></h4>
+          <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pemasukan']) . " ,-"
+                                          ?></h4>
           <p>Seluruh Pemasukan</p>
         </div>
         <div class="icon">
@@ -112,7 +112,7 @@
     <div class="col-lg-3 col-xs-6">
       <div class="small-box bg-red">
         <div class="inner">
-          <?php 
+          <?php
           $data = $objTransaksi->LihatPengeluaranHariini()
           ?>
 
@@ -129,27 +129,27 @@
       <div class="small-box bg-red">
         <div class="inner">
           <?php
-            $data = $objTransaksi->LihatPengeluaranBulanini()
-            ?>
-
-            <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pengeluaran']) . " ,-" ?></h4>
-            <p>Pengeluaran Bulan Ini</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-stats-bars"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-xs-6">
-        <div class="small-box bg-red">
-          <div class="inner">
-            <?php 
-             $data = $objTransaksi->LihatPengeluaranTahunini()
+          $data = $objTransaksi->LihatPengeluaranBulanini()
           ?>
 
-          <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pengeluaran']) . " ,-" 
-                                                        ?></h4>
+          <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pengeluaran']) . " ,-" ?></h4>
+          <p>Pengeluaran Bulan Ini</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-stats-bars"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-xs-6">
+      <div class="small-box bg-red">
+        <div class="inner">
+          <?php
+          $data = $objTransaksi->LihatPengeluaranTahunini()
+          ?>
+
+          <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pengeluaran']) . " ,-"
+                                          ?></h4>
           <p>Pengeluaran Tahun Ini</p>
         </div>
         <div class="icon">
@@ -161,11 +161,11 @@
     <div class="col-lg-3 col-xs-6">
       <div class="small-box bg-black">
         <div class="inner">
-          <?php 
-           $data = $objTransaksi->LihatPengeluaranSeluruh()
+          <?php
+          $data = $objTransaksi->LihatPengeluaranSeluruh()
           ?>
-          <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pengeluaran']) . " ,-" 
-                                                        ?></h4>
+          <h4 style="font-weight: bolder"><?php echo "Rp. " . number_format($data['total_pengeluaran']) . " ,-"
+                                          ?></h4>
           <p>Seluruh Pengeluaran</p>
         </div>
         <div class="icon">
