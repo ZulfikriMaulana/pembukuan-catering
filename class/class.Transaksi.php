@@ -149,12 +149,19 @@ class Transaksi extends Connection
 	{
 		$this->connect();
 		if ($id_kategori == 'semua') {
-			$sql = "SELECT * FROM transaksi where month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$tahun'
-		order by id_transaksi";
+			$sql = "SELECT transaksi.*, kategori.nama_kategori 
+			FROM transaksi 
+			JOIN kategori on transaksi.id_kategori = kategori.id_kategori
+			where month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$tahun'
+			order by id_transaksi";
 		} else {
 			$bulan = $_POST['bulan'];
-			$sql = "SELECT * FROM transaksi where month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$tahun' 
-			and id_kategori = $id_kategori order by id_transaksi";
+			$sql = "SELECT transaksi.*, kategori.nama_kategori 
+			FROM transaksi 
+			JOIN kategori on transaksi.id_kategori = kategori.id_kategori
+			where month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$tahun'
+			and transaksi.id_kategori=$id_kategori
+			order by id_transaksi";
 		}
 
 		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
@@ -166,6 +173,7 @@ class Transaksi extends Connection
 				$objTransaksi->id_transaksi = $data['id_transaksi'];
 				$objTransaksi->id_pesanan = $data['id_pesanan'];
 				$objTransaksi->id_kategori = $data['id_kategori'];
+				$objTransaksi->nama_kategori = $data['nama_kategori'];
 				$objTransaksi->tanggal_transaksi = $data['tanggal_transaksi'];
 				$objTransaksi->jenis_transaksi = $data['jenis_transaksi'];
 				$objTransaksi->keterangan_transaksi = $data['keterangan_transaksi'];
@@ -182,11 +190,18 @@ class Transaksi extends Connection
 	{
 		$this->connect();
 		if ($id_kategori == 'semua') {
-			$sql = "SELECT * FROM transaksi WHERE year(tanggal_transaksi)='$tahun'
-		order by id_transaksi";
+			$sql = "SELECT transaksi.*, kategori.nama_kategori 
+			FROM transaksi 
+			JOIN kategori on transaksi.id_kategori = kategori.id_kategori
+			WHERE year(tanggal_transaksi)='$tahun'
+			order by id_transaksi";
 		} else {
-			$sql = "SELECT * FROM transaksi where year(tanggal_transaksi)='$tahun' 
-			and id_kategori = $id_kategori order by id_transaksi";
+			$sql = "SELECT transaksi.*, kategori.nama_kategori 
+			FROM transaksi 
+			JOIN kategori on transaksi.id_kategori = kategori.id_kategori
+			WHERE year(tanggal_transaksi)='$tahun'
+			and transaksi.id_kategori=$id_kategori
+			order by id_transaksi";
 		}
 
 		$result = mysqli_query($this->connection, $sql) or die(mysqli_error($this->connection));
@@ -198,6 +213,7 @@ class Transaksi extends Connection
 				$objTransaksi->id_transaksi = $data['id_transaksi'];
 				$objTransaksi->id_pesanan = $data['id_pesanan'];
 				$objTransaksi->id_kategori = $data['id_kategori'];
+				$objTransaksi->nama_kategori = $data['nama_kategori'];
 				$objTransaksi->tanggal_transaksi = $data['tanggal_transaksi'];
 				$objTransaksi->jenis_transaksi = $data['jenis_transaksi'];
 				$objTransaksi->keterangan_transaksi = $data['keterangan_transaksi'];

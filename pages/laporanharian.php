@@ -169,7 +169,6 @@
                       echo '<td>' . date('d-m-Y', strtotime($dataTransaksi->tanggal_transaksi)) . '</td>';
                       echo '<td>' . $dataTransaksi->nama_kategori . '</td>'; //tes ubah id_kategori ke nama_kategori
                       echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
-                      //echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
                       if ($dataTransaksi->jenis_transaksi == "Pemasukan")
                         echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
                       else

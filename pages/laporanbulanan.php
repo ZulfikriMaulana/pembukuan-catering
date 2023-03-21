@@ -188,7 +188,7 @@
                     echo '<tr>';
                     echo '<td>' . $no . '</td>';
                     echo '<td>' . date('d-m-Y', strtotime($dataTransaksi->tanggal_transaksi)) . '</td>';
-                    echo '<td>' . $dataTransaksi->id_kategori . '</td>';
+                    echo '<td>' . $dataTransaksi->nama_kategori . '</td>'; //ubah dari id_kategori
                     echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
                     if ($dataTransaksi->jenis_transaksi == "Pemasukan")
                       echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
