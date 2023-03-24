@@ -107,7 +107,10 @@ if (isset($_POST['btnSubmit'])) {
                       $objKategori = new Kategori();
                       $KategoriList = $objKategori->LihatSemuaKategori();
                       foreach ($KategoriList as $Kategori) {
-                        echo '<option value=' . $Kategori->id_kategori . '>' . $Kategori->nama_kategori . '</option>';
+                        if ($objKategori->id_kategori == $Kategori->id_kategori)
+                          echo '<option selected="true" value=' . $Kategori->id_kategori . '>' . $Kategori->nama_kategori . '</option>';
+                        else
+                          echo '<option value=' . $Kategori->id_kategori . '>' . $Kategori->nama_kategori . '</option>';
                       }
                       ?>
                     </select>
