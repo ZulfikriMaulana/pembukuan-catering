@@ -433,6 +433,7 @@ class Transaksi extends Connection
 	public function LihatGrafikPemasukanPertahun()
 	{
 		$this->connect();
+		$data = "";
 		for ($bulan = 1; $bulan <= 12; $bulan++) {
 			$thn_ini = date('Y');
 			$pemasukan = mysqli_query($this->connection, "select sum(nominal_transaksi) as total_pemasukan from transaksi where jenis_transaksi='Pemasukan' and month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$thn_ini'");
@@ -440,7 +441,6 @@ class Transaksi extends Connection
 
 			// $total = str_replace(",", "44", number_format($pem['total_pemasukan']));
 			$total = $pem['total_pemasukan'];
-			$data = "";
 			if ($pem['total_pemasukan'] == "") {
 				$data .= "0,";
 			} else {
@@ -453,6 +453,7 @@ class Transaksi extends Connection
 	public function LihatGrafikPengeluaranPertahun()
 	{
 		$this->connect();
+		$data = "";
 		for ($bulan = 1; $bulan <= 12; $bulan++) {
 			$thn_ini = date('Y');
 			$pengeluaran = mysqli_query($this->connection, "select sum(nominal_transaksi) as total_pengeluaran from transaksi where jenis_transaksi='Pengeluaran' and month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$thn_ini'");
@@ -460,7 +461,6 @@ class Transaksi extends Connection
 
 			// $total = str_replace(",", "44", number_format($pem['total_pemasukan']));
 			$total = $pem['total_pengeluaran'];
-			$data = "";
 			if ($pem['total_pengeluaran'] == "") {
 				$data .= "0,";
 			} else {

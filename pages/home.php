@@ -327,20 +327,10 @@
         strokeColor: "rgba(11, 246, 88, 0.61)",
         highlightFill: "rgba(220,220,220,0.75)",
         highlightStroke: "rgba(220,220,220,1)",
-        data: [10000000
-          <?php /*
-            $tahun = mysqli_query($koneksi, "select distinct year(transaksi_tanggal) as tahun from transaksi order by year(transaksi_tanggal) asc");
-            while ($t = mysqli_fetch_array($tahun)) {
-              $thn = $t['tahun'];
-              $pemasukan = mysqli_query($koneksi, "select sum(transaksi_nominal) as total_pemasukan from transaksi where transaksi_jenis='Pemasukan' and year(transaksi_tanggal)='$thn'");
-              $pem = mysqli_fetch_assoc($pemasukan);
-              $total = $pem['total_pemasukan'];
-              if ($pem['total_pemasukan'] == "") {
-                echo "0,";
-              } else {
-                echo $total . ",";
-              }
-            } */
+        data: [
+          <?php
+          $data = $objTransaksi->LihatGrafikPemasukanPertahun();
+          echo $data;
           ?>
         ]
       },
@@ -350,20 +340,10 @@
         strokeColor: "rgba(248, 5, 5, 0.8)",
         highlightFill: "rgba(151,187,205,0.75)",
         highlightStroke: "rgba(254, 29, 29, 0)",
-        data: [200000
-          <?php /*
-            $tahun = mysqli_query($koneksi, "select distinct year(transaksi_tanggal) as tahun from transaksi order by year(transaksi_tanggal) asc");
-            while ($t = mysqli_fetch_array($tahun)) {
-              $thn = $t['tahun'];
-              $pemasukan = mysqli_query($koneksi, "select sum(transaksi_nominal) as total_pengeluaran from transaksi where transaksi_jenis='Pengeluaran' and year(transaksi_tanggal)='$thn'");
-              $pem = mysqli_fetch_assoc($pemasukan);
-              $total = $pem['total_pengeluaran'];
-              if ($pem['total_pengeluaran'] == "") {
-                echo "0,";
-              } else {
-                echo $total . ",";
-              }
-            } */
+        data: [
+          <?php
+          $data = $objTransaksi->LihatGrafikPengeluaranPertahun();
+          echo $data;
           ?>
         ]
       }
