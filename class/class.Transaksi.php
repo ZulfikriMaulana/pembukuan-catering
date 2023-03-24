@@ -453,17 +453,16 @@ class Transaksi extends Connection
 	{
 		$this->connect();
 		$data = "";
-		for ($bulan = 1; $bulan <= 12; $bulan++) {
-			$thn_ini = date('Y');
-			$pengeluaran = mysqli_query($this->connection, "select sum(nominal_transaksi) as total_pengeluaran from transaksi where jenis_transaksi='Pengeluaran' and month(tanggal_transaksi)='$bulan' and year(tanggal_transaksi)='$thn_ini'");
-			$pem = mysqli_fetch_assoc($pengeluaran);
-
-			// $total = str_replace(",", "44", number_format($pem['total_pemasukan']));
+		$tahun = mysqli_query($this->connection, "select distinct year(tanggal_transaksi) as tahun from transaksi order by year(tanggal_transaksi) asc");
+		while ($t = mysqli_fetch_array($tahun)) {
+			$thn = $t['tahun'];
+			$pemasukan = mysqli_query($this->connection, "select sum(nominal_transaksi) as total_pengeluaran from transaksi where jenis_transaksi='Pengeluaran' and year(tanggal_transaksi)='$thn'");
+			$pem = mysqli_fetch_assoc($pemasukan);
 			$total = $pem['total_pengeluaran'];
 			if ($pem['total_pengeluaran'] == "") {
-				$data .= "0,";
+				echo "0,";
 			} else {
-				$data .= $total . ",";
+				echo $total . ",";
 			}
 		}
 		return $data;
