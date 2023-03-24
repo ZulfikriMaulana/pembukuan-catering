@@ -312,13 +312,10 @@
 
 
   var barChartData2 = {
-    labels: ["2023"
-      <?php /*
-        $tahun = mysqli_query($koneksi, "select distinct year(transaksi_tanggal) as tahun from transaksi order by year(transaksi_tanggal) asc");
-        while ($t = mysqli_fetch_array($tahun)) {
-        ?> "<?php echo $t['tahun']; ?>",
-        <?php
-        } */
+    labels: [
+      <?php
+      $tahun = $objTransaksi->LihatGrafikTahun();
+      echo $tahun;
       ?>
     ],
     datasets: [{
