@@ -312,7 +312,12 @@
 
 
   var barChartData2 = {
-    labels: ["2023"],
+    labels: [
+      <?php
+      $tahun = $objTransaksi->LihatGrafikTahun();
+      echo $tahun;
+      ?>
+    ],
     datasets: [{
         label: 'Pemasukan',
         fillColor: "rgba(51, 240, 113, 0.61)",
