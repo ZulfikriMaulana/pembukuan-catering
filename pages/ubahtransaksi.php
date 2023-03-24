@@ -90,8 +90,17 @@ if (isset($_POST['btnSubmit'])) {
                   <label class="control-label col-sm-5" for="jenis_transaksi">Jenis:</label>
                   <div class="col-sm-7">
                     <select class="form-control" id="jenis_transaksi" name="jenis_transaksi" value="<?php echo $objTransaksi->jenis_transaksi; ?>" required>
-                    <option value="Pemasukan">Pemasukan</option>
-                    <option value="Pengeluaran">Pengeluaran</option>
+                    <?php
+                    $arrayJenis = Array("Pemasukan", "Pengeluaran");
+                    foreach($arrayJenis as $selectedJenis)	{		
+                     if($objTransaksi->jenis_transaksi == $selectedJenis)
+			              echo '<option selected="true" value="'.$selectedJenis.'">'.$selectedJenis.'</option>';
+                      else
+                      echo '<option value="'.$selectedJenis.'">'.$selectedJenis.'</option>';
+                    }
+                    ?>
+                    <!-- <option value="Pemasukan">Pemasukan</option>
+                    <option value="Pengeluaran">Pengeluaran</option> -->
                     </select>
                   </div>
                 </div>
