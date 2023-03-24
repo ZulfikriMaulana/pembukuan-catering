@@ -320,7 +320,7 @@ class Transaksi extends Connection
 	public function LihatPengeluaranBulanini()
 	{
 		$this->connect();
-		$bulan = date('Y-m-d');
+		$bulan = date('m');
 		$sql = "SELECT sum(nominal_transaksi) as total_pengeluaran FROM transaksi WHERE jenis_transaksi='Pengeluaran' and month(tanggal_transaksi)='$bulan'";
 
 
