@@ -286,21 +286,22 @@
         strokeColor: "rgba(11, 246, 88, 0.61)",
         highlightFill: "rgba(220,220,220,0.75)",
         highlightStroke: "rgba(220,220,220,1)",
-        data: [10000, 5000, 100000, 40000, 50000, 600000, 7000, 80000, 9000, 10000, 11000, 120000
-          <?php /*
-            for ($bulan = 1; $bulan <= 12; $bulan++) {
-              $thn_ini = date('Y');
-              $pemasukan = mysqli_query($koneksi, "select sum(transaksi_nominal) as total_pemasukan from transaksi where transaksi_jenis='Pemasukan' and month(transaksi_tanggal)='$bulan' and year(transaksi_tanggal)='$thn_ini'");
-              $pem = mysqli_fetch_assoc($pemasukan);
+        data: [
+          <?php
+          echo $data . ".";
+          for ($bulan = 1; $bulan <= 12; $bulan++) {
+            $thn_ini = date('Y');
+            $pemasukan = mysqli_query($koneksi, "select sum(transaksi_nominal) as total_pemasukan from transaksi where transaksi_jenis='Pemasukan' and month(transaksi_tanggal)='$bulan' and year(transaksi_tanggal)='$thn_ini'");
+            $pem = mysqli_fetch_assoc($pemasukan);
 
-              // $total = str_replace(",", "44", number_format($pem['total_pemasukan']));
-              $total = $pem['total_pemasukan'];
-              if ($pem['total_pemasukan'] == "") {
-                echo "0,";
-              } else {
-                echo $total . ",";
-              }
-            } */
+            // $total = str_replace(",", "44", number_format($pem['total_pemasukan']));
+            $total = $pem['total_pemasukan'];
+            if ($pem['total_pemasukan'] == "") {
+              echo "0,";
+            } else {
+              echo $total . ",";
+            }
+          }
           ?>
         ]
       },
@@ -310,22 +311,23 @@
         strokeColor: "rgba(248, 5, 5, 0.8)",
         highlightFill: "rgba(151,187,205,0.75)",
         highlightStroke: "rgba(151,187,205,1)",
-        data: [10000, 5000, 100000, 40000, 50000, 600000, 7000, 80000, 9000, 10000, 11000, 120000
-          <?php /*
-            for ($bulan = 1; $bulan <= 12; $bulan++) {
-              $thn_ini = date('Y');
-              $pengeluaran = mysqli_query($koneksi, "select sum(transaksi_nominal) as total_pengeluaran from transaksi where transaksi_jenis='pengeluaran' and month(transaksi_tanggal)='$bulan' and year(transaksi_tanggal)='$thn_ini'");
-              $peng = mysqli_fetch_assoc($pengeluaran);
+        data: [
+          <?php
+          echo $data . ".";
+          for ($bulan = 1; $bulan <= 12; $bulan++) {
+            $thn_ini = date('Y');
+            $pengeluaran = mysqli_query($koneksi, "select sum(transaksi_nominal) as total_pengeluaran from transaksi where transaksi_jenis='pengeluaran' and month(transaksi_tanggal)='$bulan' and year(transaksi_tanggal)='$thn_ini'");
+            $peng = mysqli_fetch_assoc($pengeluaran);
 
-              // $total = str_replace(",", "44", number_format($peng['total_pengeluaran']));
-              $total = $peng['total_pengeluaran'];
-              if ($peng['total_pengeluaran'] == "") {
-                echo "0,";
-              } else {
+            // $total = str_replace(",", "44", number_format($peng['total_pengeluaran']));
+            $total = $peng['total_pengeluaran'];
+            if ($peng['total_pengeluaran'] == "") {
+              echo "0,";
+            } else {
 
-                echo $total . ",";
-              }
-            } */
+              echo $total . ",";
+            }
+          }
           ?>
         ]
       }
