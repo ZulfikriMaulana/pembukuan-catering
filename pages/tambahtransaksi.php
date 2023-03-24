@@ -14,10 +14,18 @@ if (isset($_POST['btnSubmit'])) {
   $objTransaksi->nominal_transaksi = $_POST['nominal_transaksi'];
   $lokasi_file = $_FILES['foto_transaksi']['tmp_name'];
   $nama_file = $_FILES['foto_transaksi']['name'];
-  $objTransaksi->foto_transaksi = $nama_file;
-
+  
   $folder = './bukti/';
-  $iSuccessUpload = move_uploaded_file($lokasi_file, $folder . $nama_file);
+  $iSuccessUpload = true;
+
+  if ($nama_file != ""){
+    $iSuccessUpload = move_uploaded_file($lokasi_file, $folder . $nama_file);
+  }
+  else{
+    $nama_file = "";
+  }
+
+  $objTransaksi->foto_transaksi = $nama_file;
   if ($iSuccessUpload) {
     $objTransaksi->TambahTransaksi();
 

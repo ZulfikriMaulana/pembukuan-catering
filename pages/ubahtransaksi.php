@@ -13,23 +13,25 @@ if (isset($_POST['btnSubmit'])) {
   $objTransaksi->nominal_transaksi = $_POST['nominal_transaksi'];
   $lokasi_file = $_FILES['foto_transaksi']['tmp_name'];
   $nama_file = $_FILES['foto_transaksi']['name'];
-  $objTransaksi->foto_transaksi = $nama_file;
+  
   $iSuccessUpload = true;
-
   $folder = './bukti/';
+
   if ($nama_file != ""){
     $iSuccessUpload = move_uploaded_file($lokasi_file, $folder . $nama_file);
   }
   else{
-    $nama_file = "";
+    $nama_file = $_POST['bukti'];
   }
+  
+  $objTransaksi->foto_transaksi = $nama_file;
   
   if ($iSuccessUpload) {
     $objTransaksi->UbahTransaksi();
 
-    echo "<script> alert('$objTransaksi->message'); </script>";
+    echo "<script> alert('$objTransaksi->message'); </script>";    
     if ($objTransaksi->hasil) {
-      echo '<script> window.location="dashboard.php?p=lihattransaksi </script>'; //ganti jadi lihat pesanan
+      echo '<script> window.location="dashboard.php?p=lihattransaksi" </script>'; //ganti jadi lihat pesanan
     }
   }
 } else if (isset($_GET['id_transaksi'])) {
@@ -136,6 +138,7 @@ if (isset($_POST['btnSubmit'])) {
                   <label class="control-label col-sm-5" for="foto_transaksi">Upload Bukti bayar:</label>
                   <div class="col-sm-7">
                     <input type="file" class="form-control" id="foto_transaksi" name="foto_transaksi" value="<?php echo $objTransaksi->foto_transaksi; ?>">
+                    <input type="hidden" class="form-control" id="bukti" name="bukti" value="<?php echo $objTransaksi->foto_transaksi; ?>">
                   </div>
                 </div>
               </div>
