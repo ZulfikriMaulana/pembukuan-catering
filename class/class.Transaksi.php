@@ -460,9 +460,9 @@ class Transaksi extends Connection
 			$pem = mysqli_fetch_assoc($pemasukan);
 			$total = $pem['total_pengeluaran'];
 			if ($pem['total_pengeluaran'] == "") {
-				echo "0,";
+				$data .= "0,";
 			} else {
-				echo $total . ",";
+				$data .= $total . ",";
 			}
 		}
 		return $data;
@@ -474,7 +474,7 @@ class Transaksi extends Connection
 		$data = "";
 		$tahun = mysqli_query($this->connection, "select distinct year(tanggal_transaksi) as tahun from transaksi order by year(tanggal_transaksi) asc");
 		while ($t = mysqli_fetch_array($tahun)) {
-			$data = $t['tahun'];
+			$data .= $t['tahun'] . ",";
 		}
 		return $data;
 	}
