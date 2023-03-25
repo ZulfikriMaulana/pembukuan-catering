@@ -134,6 +134,9 @@
                                                       ?>&tanggal_sampai=<?php //echo $tgl_sampai 
                                                                         ?>&kategori=<?php //echo $kategori 
                                                                                     ?>" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> &nbsp PRINT</a>
+              
+              <!---------------------BAGIAN TABEL-------------------------------->
+
               <div class="table-responsive">
                 <table class="table table-bordered table-striped">
                   <thead>
