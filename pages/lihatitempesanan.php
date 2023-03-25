@@ -44,8 +44,8 @@
 									echo '<tr>';
 									echo '<td>' . $no . '</td>';
 									echo '<td>' . $dataItemPesanan->nama_item . '</td>';
-									echo '<td>' . $dataItemPesanan->harga_jual . '</td>';
-                                    echo '<td>' . $dataItemPesanan->harga_modal . '</td>';
+									echo '<td>' . "Rp. " . number_format($dataItemPesanan->harga_jual) . ",-" . '</td>';
+									echo '<td>' . "Rp. " . number_format($dataItemPesanan->harga_modal) . ",-" . '</td>';
 									echo '<td><a class="btn btn-warning btn-sm"  href="dashboard.php?p=ubahitempesanan&id_item_pesanan=' . $dataItemPesanan->id_item_pesanan . '">Ubah</a>
 											  <a class="btn btn-danger btn-sm"  href="dashboard.php?p=hapusitempesanan&id_item_pesanan=' . $dataItemPesanan->id_item_pesanan . '" 
 											onclick="return confirm(\'Apakah anda yakin ingin menghapus?\')">Hapus</a>							  

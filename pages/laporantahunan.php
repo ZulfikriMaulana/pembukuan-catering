@@ -180,15 +180,13 @@
                     echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
                     //echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
                     if ($dataTransaksi->jenis_transaksi == "Pemasukan")
-                      echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
+                    echo '<td>' . "Rp. " . number_format($dataTransaksi->nominal_transaksi) . ",-" . '</td>';
                     else
                       echo '<td>' . ' - ' . '</td>';
                     if ($dataTransaksi->jenis_transaksi == "Pengeluaran")
-                      echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
+                    echo '<td>' . "Rp. " . number_format($dataTransaksi->nominal_transaksi) . ",-" . '</td>';
                     else
                       echo '<td>' . ' - ' . '</td>';
-                    //echo '<td>' . $dataTransaksi->pemasukan . '</td>';//edit lagi menyesuaikan backend
-                    //echo '<td>' . $dataTransaksi->pengeluaran . '</td>';//edit lagi menyesuaikan backend / perbaiki lagi href untuk tombol bukti
                     echo '</tr>';
 
                     $no++;

@@ -191,11 +191,11 @@
                     echo '<td>' . $dataTransaksi->nama_kategori . '</td>'; //ubah dari id_kategori
                     echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
                     if ($dataTransaksi->jenis_transaksi == "Pemasukan")
-                      echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
+                    echo '<td>' . "Rp. " . number_format($dataTransaksi->nominal_transaksi) . ",-" . '</td>';
                     else
                       echo '<td>' . ' - ' . '</td>';
                     if ($dataTransaksi->jenis_transaksi == "Pengeluaran")
-                      echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
+                    echo '<td>' . "Rp. " . number_format($dataTransaksi->nominal_transaksi) . ",-" . '</td>';
                     else
                       echo '<td>' . ' - ' . '</td>';
                     //echo '<td>' . $dataTransaksi->pemasukan . '</td>';//edit lagi menyesuaikan backend
