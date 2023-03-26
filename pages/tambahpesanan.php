@@ -115,12 +115,13 @@ if (isset($_POST['btnSubmit'])) {
             </div>
           </div>
         </div>
+
         <div class="col-md-5"><!--COL Kanan-->
           <div class="row"><!--ROW 1-->
               <div class="form-group"> 
                 <label class="control-label col-sm-5" for="tanggal_pesanan">Tanggal Pesanan:</label>
                 <div class="col-sm-7">
-                  <input type="date" class="form-control" id="tanggal_pesanan" name="tanggal_pesanan" required>
+                  <input type="date" class="form-control" id="tanggal_pesanan" name="tanggal_pesanan" value="<?php echo date("Y-m-d"); ?>" required>
               </div>
             </div>
           </div>
@@ -136,8 +137,7 @@ if (isset($_POST['btnSubmit'])) {
                   <?php
                       $objItemPesanan = new ItemPesanan();
                       $ItemPesananList = $objItemPesanan->LihatSemuaItemPesanan();
-                      foreach ($ItemPesananList as $ItemPesanan){ 								
-                        /*($objPesanan->id_item_pesanan == $ItemPesanan->id_item_pesanan)*/				
+                      foreach ($ItemPesananList as $ItemPesanan){ 										
                           echo '<option value='.$ItemPesanan->id_item_pesanan.' data-harga='.$ItemPesanan->harga_jual.' >'.$ItemPesanan->nama_item.' - '.$ItemPesanan->harga_jual.'</option>';
                        }
                       ?>	
