@@ -54,7 +54,7 @@
 									echo '<td>' . $dataPesanan->nama_instansi . '</td>';
 									echo '<td>' . $dataPesanan->nama_item . '</td>';
 									echo '<td>' . $dataPesanan->jumlah_pesanan . '</td>';
-									echo '<td>' . "Rp. " . number_format($dataPesanan->subtotal_pesanan) . '</td>';
+									echo '<td>' . "Rp " . number_format($dataPesanan->subtotal_pesanan, 0, ',','.') . '</td>';
 									echo '<td>' . "Rp. " . number_format($dataPesanan->pajak_pesanan) . '</td>';
 									echo '<td>' . "Rp. " . number_format($dataPesanan->total_pesanan) . '</td>';
 									echo '<td>' . $dataPesanan->status . '</td>';
