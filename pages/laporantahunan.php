@@ -180,11 +180,11 @@
                     echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
                     //echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
                     if ($dataTransaksi->jenis_transaksi == "Pemasukan")
-                    echo '<td>' . "Rp. " . number_format($dataTransaksi->nominal_transaksi, 0, ',','.') . '</td>';
+                    echo '<td>' . "Rp " . number_format($dataTransaksi->nominal_transaksi, 0, ',','.') . '</td>';
                     else
                       echo '<td>' . ' - ' . '</td>';
                     if ($dataTransaksi->jenis_transaksi == "Pengeluaran")
-                    echo '<td>' . "Rp. " . number_format($dataTransaksi->nominal_transaksi, 0, ',','.') . '</td>';
+                    echo '<td>' . "Rp " . number_format($dataTransaksi->nominal_transaksi, 0, ',','.') . '</td>';
                     else
                       echo '<td>' . ' - ' . '</td>';
                     echo '</tr>';
@@ -194,14 +194,14 @@
                   ?>
                   <tr>
                     <th colspan="4" class="text-right">TOTAL</th>
-                    <td class="text-center text-bold text-success"><?php echo "Rp. " . number_format($total_pemasukan) . " ,-";
+                    <td class="text-center text-bold text-success"><?php echo "Rp " . number_format($total_pemasukan) . " ,-";
                                                                     ?></td>
-                    <td class="text-center text-bold text-danger"><?php echo "Rp. " . number_format($total_pengeluaran) . " ,-";
+                    <td class="text-center text-bold text-danger"><?php echo "Rp " . number_format($total_pengeluaran) . " ,-";
                                                                   ?></td>
                   </tr>
                   <tr>
                     <th colspan="4" class="text-right">SALDO</th>
-                    <td colspan="2" class="text-center text-bold text-white bg-primary"><?php echo "Rp. " . number_format($total_pemasukan - $total_pengeluaran) . " ,-";
+                    <td colspan="2" class="text-center text-bold text-white bg-primary"><?php echo "Rp " . number_format($total_pemasukan - $total_pengeluaran) . " ,-";
                                                                                         ?></td>
                   </tr>
                 </tbody>
