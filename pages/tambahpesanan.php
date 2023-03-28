@@ -72,7 +72,8 @@ if (isset($_POST['btnSubmit'])) {
                       $PelangganList = $objPelanggan->LihatSemuaPelanggan();
                       foreach ($PelangganList as $Pelanggan){ 										
                           echo '<option value='.$Pelanggan->id_pelanggan.' data-alamat="'.$Pelanggan->alamat. '" >'.$Pelanggan->nama_instansi.'</option>';
-                       }
+                          //echo '<option value='.$Pelanggan->id_pelanggan.' data-alamat="'.$Pelanggan->alamat. '" >'.' nama-cp="'.$Pelanggan->nama_cp. '" >'.' no-hp="'.$Pelanggan->no_hp. '" >'.$Pelanggan->nama_instansi.'</option>'; backup
+                        }
                       ?>
                   </select>
                 </div>

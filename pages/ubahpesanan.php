@@ -137,9 +137,11 @@ if (isset($_POST['btnSubmit'])) {
                       $ItemPesananList = $objItemPesanan->LihatSemuaItemPesanan();
                       foreach ($ItemPesananList as $ItemPesanan) {
                         if ($objPesanan->id_item_pesanan == $ItemPesanan->id_item_pesanan)
-                          echo '<option selected="true" value=' . $ItemPesanan->id_item_pesanan . '>' . $ItemPesanan->nama_item . '</option>';
+                          echo '<option selected="true" value='.$ItemPesanan->id_item_pesanan.' data-harga='.$ItemPesanan->harga_jual.' >'.$ItemPesanan->nama_item.' - '.$ItemPesanan->harga_jual.'</option>';
+                          //echo '<option selected="true" value=' . $ItemPesanan->id_item_pesanan . '>' . $ItemPesanan->nama_item . '</option>'; backup
                         else
-                          echo '<option value=' . $ItemPesanan->id_item_pesanan . '>' . $ItemPesanan->nama_item . '</option>';
+                          echo '<option value='.$ItemPesanan->id_item_pesanan.' data-harga='.$ItemPesanan->harga_jual.' >'.$ItemPesanan->nama_item.' - '.$ItemPesanan->harga_jual.'</option>';
+                          //echo '<option value=' . $ItemPesanan->id_item_pesanan . '>' . $ItemPesanan->nama_item . '</option>'; backup
                       }
                       ?>
                     </select>
@@ -213,16 +215,22 @@ if (isset($_POST['btnSubmit'])) {
 
 <script>
   function hitung() {
-    var id_item_pesanan = document.getElementById("id_item_pesanan").value;
+    var id_item_pesanan = document.getElementById("id_item_pesanan");	    
+    var harga = id_item_pesanan.options[id_item_pesanan.selectedIndex].getAttribute("data-harga");    
     var jumlah_pesanan = document.getElementById("jumlah_pesanan").value;
     var subtotal = 0;
-    if (id_item_pesanan == 1) {
-      subtotal = 15000 * jumlah_pesanan
-    } else if (id_item_pesanan == 2) {
-      subtotal = 25000 * jumlah_pesanan
-    } else if (id_item_pesanan == 3) {
-      subtotal = 50000 * jumlah_pesanan
-    }
+    subtotal = harga * jumlah_pesanan;
+
+    // var id_item_pesanan = document.getElementById("id_item_pesanan").value;
+    // var jumlah_pesanan = document.getElementById("jumlah_pesanan").value;
+    // var subtotal = 0;
+    // if (id_item_pesanan == 1) {
+    //   subtotal = 15000 * jumlah_pesanan
+    // } else if (id_item_pesanan == 2) {
+    //   subtotal = 25000 * jumlah_pesanan
+    // } else if (id_item_pesanan == 3) {
+    //   subtotal = 50000 * jumlah_pesanan
+    // }
     var besar_pajak = 10; //document.getElementById("besar_pajak").value;
     var pajak = besar_pajak / 100 * subtotal;
 
