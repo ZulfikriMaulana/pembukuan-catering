@@ -71,7 +71,7 @@ if (isset($_POST['btnSubmit'])) {
                       $objPelanggan = new Pelanggan();
                       $PelangganList = $objPelanggan->LihatSemuaPelanggan();
                       foreach ($PelangganList as $Pelanggan){ 										
-                          echo '<option value='.$Pelanggan->id_pelanggan.'>'.$Pelanggan->nama_instansi.'</option>';
+                          echo '<option value='.$Pelanggan->id_pelanggan.' data-alamat="'.$Pelanggan->alamat. '" >'.$Pelanggan->nama_instansi.'</option>';
                        }
                       ?>
                   </select>
