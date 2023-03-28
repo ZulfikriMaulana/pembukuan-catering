@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2023 at 03:27 PM
+-- Generation Time: Mar 27, 2023 at 10:57 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -81,7 +81,7 @@ CREATE TABLE `pelanggan` (
   `nama_instansi` text NOT NULL,
   `alamat` text NOT NULL,
   `nama_cp` text NOT NULL,
-  `no_hp` varchar(255) NOT NULL
+  `no_hp` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -107,7 +107,7 @@ CREATE TABLE `pesanan` (
   `id_pelanggan` int(11) NOT NULL,
   `alamat_pelanggan` text NOT NULL,
   `nama_pelanggan` text NOT NULL,
-  `no_hp` varchar(12) NOT NULL,
+  `no_hp` varchar(16) NOT NULL,
   `id_item_pesanan` int(11) NOT NULL,
   `jumlah_pesanan` int(11) NOT NULL,
   `catatan` text DEFAULT NULL,

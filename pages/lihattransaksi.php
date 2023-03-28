@@ -53,11 +53,11 @@
 									echo '<td>' . $dataTransaksi->keterangan_transaksi . '</td>';
 									//echo '<td>' . $dataTransaksi->jenis_transaksi . '</td>';
 									if($dataTransaksi->jenis_transaksi == "Pemasukan")
-										echo '<td>' . "Rp. " . number_format($dataTransaksi->nominal_transaksi) . ",-" . '</td>';
+										echo '<td>' . "Rp. " . number_format($dataTransaksi->nominal_transaksi, 0, ',','.') . '</td>';
 									else
 										echo '<td>' . ' - ' . '</td>';
 									if($dataTransaksi->jenis_transaksi == "Pengeluaran")
-										echo '<td>' . "Rp. " . number_format($dataTransaksi->nominal_transaksi) . ",-" . '</td>';
+										echo '<td>' . "Rp. " . number_format($dataTransaksi->nominal_transaksi, 0, ',','.') . '</td>';
 										//echo '<td>' . $dataTransaksi->nominal_transaksi . '</td>';
 									else
 										echo '<td>' . ' - ' . '</td>';

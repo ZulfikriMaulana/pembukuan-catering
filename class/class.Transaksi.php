@@ -277,7 +277,7 @@ class Transaksi extends Connection
 	public function LihatPemasukanHariini()
 	{
 		$this->connect();
-		$tanggal = date('Y-m-d');
+		$tanggal = date('d-m-Y');
 		$sql = "SELECT sum(nominal_transaksi) as total_pemasukan FROM transaksi WHERE jenis_transaksi='Pemasukan' and tanggal_transaksi='$tanggal'";
 
 
@@ -291,7 +291,7 @@ class Transaksi extends Connection
 	public function LihatPengeluaranHariini()
 	{
 		$this->connect();
-		$tanggal = date('Y-m-d');
+		$tanggal = date('d-m-Y');
 		$sql = "SELECT sum(nominal_transaksi) as total_pengeluaran FROM transaksi WHERE jenis_transaksi='Pengeluaran' and tanggal_transaksi='$tanggal'";
 
 

@@ -55,8 +55,8 @@
 									echo '<td>' . $dataPesanan->nama_item . '</td>';
 									echo '<td>' . $dataPesanan->jumlah_pesanan . '</td>';
 									echo '<td>' . "Rp " . number_format($dataPesanan->subtotal_pesanan, 0, ',','.') . '</td>';
-									echo '<td>' . "Rp. " . number_format($dataPesanan->pajak_pesanan) . '</td>';
-									echo '<td>' . "Rp. " . number_format($dataPesanan->total_pesanan) . '</td>';
+									echo '<td>' . "Rp. " . number_format($dataPesanan->pajak_pesanan, 0, ',','.') . '</td>';
+									echo '<td>' . "Rp. " . number_format($dataPesanan->total_pesanan, 0, ',','.') . '</td>';
 									echo '<td>' . $dataPesanan->status . '</td>';
 									echo '<td><a class="btn btn-success btn-sm"  href="dashboard.php?p=bayarpesanan&id_pesanan=' . $dataPesanan->id_pesanan . '">Bayar</a> 
 									<a class="btn btn-warning btn-sm"  href="dashboard.php?p=ubahpesanan&id_pesanan=' . $dataPesanan->id_pesanan . '">Ubah</a> |
