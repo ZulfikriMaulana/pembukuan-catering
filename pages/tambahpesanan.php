@@ -66,13 +66,14 @@ if (isset($_POST['btnSubmit'])) {
             <div class="form-group"> 
               <label class="control-label col-sm-5" for="id_pelanggan">Pelanggan:</label>
                 <div class="col-sm-7">
-                  <select class="form-control" id="id_pelanggan" name="id_pelanggan">
+                  <select class="form-control" id="id_pelanggan" name="id_pelanggan" onchange="muncul()">
+                  <option value="">Pilih Pelanggan</option>
                   <?php
                       $objPelanggan = new Pelanggan();
                       $PelangganList = $objPelanggan->LihatSemuaPelanggan();
                       foreach ($PelangganList as $Pelanggan){ 										
-                          echo '<option value='.$Pelanggan->id_pelanggan.' data-alamat="'.$Pelanggan->alamat. '" >'.$Pelanggan->nama_instansi.'</option>';
-                          //echo '<option value='.$Pelanggan->id_pelanggan.' data-alamat="'.$Pelanggan->alamat. '" >'.' nama-cp="'.$Pelanggan->nama_cp. '" >'.' no-hp="'.$Pelanggan->no_hp. '" >'.$Pelanggan->nama_instansi.'</option>'; backup
+                          //echo '<option value='.$Pelanggan->id_pelanggan.' data-alamat="'.$Pelanggan->alamat. '" >'.$Pelanggan->nama_instansi.'</option>';
+                          echo '<option value='.$Pelanggan->id_pelanggan.' data-alamat="'.$Pelanggan->alamat.'" data-namacp="'.$Pelanggan->nama_cp.'" data-nohp="'.$Pelanggan->no_hp. '" >'.$Pelanggan->nama_instansi.'</option>';
                         }
                       ?>
                   </select>
@@ -132,8 +133,8 @@ if (isset($_POST['btnSubmit'])) {
               <label class="control-label col-sm-5" for="id_item_pesanan">Jenis Pesanan:</label>
                 <div class="col-sm-7">
                   <select class="form-control" id="id_item_pesanan" name="id_item_pesanan" onchange="hitung()">
-                  <!--<option value="1">Snack Box</option>
-                  <option value="2">Nasi Box</option>
+                  <option value="">Pilih Item Pesanan</option>
+                    <!--<option value="2">Nasi Box</option>
                   <option value="3">Prasmanan</option>-->
                   <?php
                       $objItemPesanan = new ItemPesanan();
@@ -212,12 +213,15 @@ if (isset($_POST['btnSubmit'])) {
 </section>
 
 <script>
-// function kategori() {
-//       var id_pelanggan = document.getElementById("id_pelanggan");
-//       var alamat = id_pelanggan.options[id_pelanggan.selectedIndex].getAttribute("data-alamat");    
-
-// 	    document.getElementById("alamat_pelanggan").value = alamat;
-// 	}
+function muncul() {
+      var id_pelanggan = document.getElementById("id_pelanggan");
+      var alamat = id_pelanggan.options[id_pelanggan.selectedIndex].getAttribute("data-alamat");
+      var nama = id_pelanggan.options[id_pelanggan.selectedIndex].getAttribute("data-namacp");
+      var nohp = id_pelanggan.options[id_pelanggan.selectedIndex].getAttribute("data-nohp");    
+      document.getElementById("alamat_pelanggan").value = alamat;
+      document.getElementById("nama_pelanggan").value = nama;
+      document.getElementById("no_hp").value = nohp;
+ 	}
 
 function hitung() {
       var id_item_pesanan = document.getElementById("id_item_pesanan");	    

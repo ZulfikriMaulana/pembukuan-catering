@@ -95,7 +95,7 @@
 
       <div class="box box-info">
         <div class="box-header">
-          <h3 class="box-title">Laporan Pemasukan & Pegeluaran</h3>
+          <h3 class="box-title">Laporan Pemasukan & Pengeluaran</h3>
         </div>
         <div class="box-body">
 
@@ -135,14 +135,14 @@
               </div>
             </div>
 
-            <a href="laporan_pdf.php?tanggal_dari=<?php //echo $tgl_dari 
+            <!-- <a href="laporan_pdf.php?tanggal_dari=<?php //echo $tgl_dari 
                                                   ?>&tanggal_sampai=<?php //echo $tgl_sampai 
                                                                     ?>&kategori=<?php //echo $kategori 
                                                                                 ?>" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-file-pdf-o"></i> &nbsp CETAK PDF</a>
             <a href="laporan_print.php?tanggal_dari=<?php //echo $tgl_dari 
                                                     ?>&tanggal_sampai=<?php //echo $tgl_sampai 
                                                                       ?>&kategori=<?php //echo $kategori 
-                                                                                  ?>" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> &nbsp PRINT</a>
+                                                                                  ?>" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> &nbsp PRINT</a> -->
             <div class="table-responsive">
               <table class="table table-bordered table-striped">
                 <thead>
