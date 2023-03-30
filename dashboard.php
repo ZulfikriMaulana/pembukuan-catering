@@ -49,7 +49,7 @@ require "inc.koneksi.php";
   <div class="wrapper">
 
     <header class="main-header">
-      <a href="index.php" class="logo">
+      <a href="dashboard.php?p=home" class="logo">
         <span class="logo-mini"><b><i class="fa fa-money"></i></b> </span>
         <span class="logo-lg"><b>Keuangan</b>Catering</span>
       </a>

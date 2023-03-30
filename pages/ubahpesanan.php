@@ -71,9 +71,9 @@ if (isset($_POST['btnSubmit'])) {
                       $PelangganList = $objPelanggan->LihatSemuaPelanggan();
                       foreach ($PelangganList as $Pelanggan) {
                         if ($objPesanan->id_pelanggan == $Pelanggan->id_pelanggan)
-                          echo '<option selected="true" value=' . $Pelanggan->id_pelanggan . '>' . $Pelanggan->nama_instansi . '</option>';
+                          echo '<option selected="true" value='.$Pelanggan->id_pelanggan.' data-alamat="'.$Pelanggan->alamat.'" data-namacp="'.$Pelanggan->nama_cp.'" data-nohp="'.$Pelanggan->no_hp. '" >'.$Pelanggan->nama_instansi.'</option>';
                         else
-                          echo '<option value=' . $Pelanggan->id_pelanggan . '>' . $Pelanggan->nama_instansi . '</option>';
+                        echo '<option value='.$Pelanggan->id_pelanggan.' data-alamat="'.$Pelanggan->alamat.'" data-namacp="'.$Pelanggan->nama_cp.'" data-nohp="'.$Pelanggan->no_hp. '" >'.$Pelanggan->nama_instansi.'</option>';
                       }
                       ?>
                     </select>
@@ -214,6 +214,16 @@ if (isset($_POST['btnSubmit'])) {
 </section>
 
 <script>
+  function muncul() {
+      var id_pelanggan = document.getElementById("id_pelanggan");
+      var alamat = id_pelanggan.options[id_pelanggan.selectedIndex].getAttribute("data-alamat");
+      var nama = id_pelanggan.options[id_pelanggan.selectedIndex].getAttribute("data-namacp");
+      var nohp = id_pelanggan.options[id_pelanggan.selectedIndex].getAttribute("data-nohp");    
+      document.getElementById("alamat_pelanggan").value = alamat;
+      document.getElementById("nama_pelanggan").value = nama;
+      document.getElementById("no_hp").value = nohp;
+ 	}
+  
   function hitung() {
     var id_item_pesanan = document.getElementById("id_item_pesanan");	    
     var harga = id_item_pesanan.options[id_item_pesanan.selectedIndex].getAttribute("data-harga");    

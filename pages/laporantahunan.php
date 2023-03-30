@@ -49,7 +49,7 @@
                 <div class="form-group">
                   <label>Tahun :</label>
                   <select id="tahun" name="tahun" class="form-control" required>
-                    <option>- Pilih Tahun -</option>
+                    <option value="">- Pilih Tahun -</option>
                     <?php
                     for ($i = date("Y"); $i >= date("Y") - 10; $i -= 1) {
                       echo "<option value='$i'> $i </option>";
