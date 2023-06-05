@@ -1,5 +1,6 @@
 <?php
 
+
 class Kategori extends Connection
 {
 	private $id_kategori = 0;
@@ -59,6 +60,7 @@ class Kategori extends Connection
 			$this->nama_kategori = $data['nama_kategori'];
 			$this->jenis = $data['jenis'];
 		}
+		return true;
 	}
 
 	public function HapusKategori()
@@ -70,6 +72,7 @@ class Kategori extends Connection
 			$this->message = 'Kategori berhasil dihapus!';
 		else
 			$this->message = 'Kategori gagal dihapus!';
+		return true;
 	}
 
 	public function UbahKategori() //set satu saja
@@ -87,6 +90,7 @@ class Kategori extends Connection
 			$this->message = 'Kategori berhasil diubah!';
 		else
 			$this->message = 'Kategori gagal diubah!';
+		return true;
 	}
 
 	public function TambahKategori()
@@ -102,5 +106,7 @@ class Kategori extends Connection
 			$this->message = 'Kategori berhasil ditambahkan!';
 		else
 			$this->message = 'Kategori gagal ditambahkan!';
+
+		return true;
 	}
 }

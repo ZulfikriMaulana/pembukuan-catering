@@ -14,9 +14,9 @@ class Connection{
 	
 	function connect()
 	{
-	    $conn = mysqli_connect($this->host,$this->struser, $this->strpassword);
+	    $conn = mysqli_connect($this->host,$this->struser,
+		$this->strpassword);
 		mysqli_select_db($conn, $this->strdbname);
 		$this->connection = $conn;	
 	}
 }
-?> 

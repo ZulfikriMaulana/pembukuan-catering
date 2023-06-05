@@ -47,6 +47,7 @@ class Transaksi extends Connection
 			$this->message = 'Transaksi berhasil ditambahkan!';
 		else
 			$this->message = 'Transaksi gagal ditambahkan!';
+		return true;
 	}
 
 	public function UbahTransaksi() //set satu saja
@@ -70,6 +71,7 @@ class Transaksi extends Connection
 			$this->message = 'Data berhasil diubah!';
 		else
 			$this->message = 'Data gagal diubah!';
+		return true;
 	}
 
 	public function HapusTransaksi()
@@ -81,6 +83,7 @@ class Transaksi extends Connection
 			$this->message = 'Transaksi berhasil dihapus!';
 		else
 			$this->message = 'Transaksi gagal dihapus!';
+		return true;
 	}
 
 	public function LihatSatuTransaksi()
@@ -103,6 +106,7 @@ class Transaksi extends Connection
 			$this->foto_transaksi = $data['foto_transaksi'];
 			$this->nominal_transaksi = $data['nominal_transaksi'];
 		}
+		return true;
 	}
 
 	public function LihatLaporanHarian($tgl_dari, $tgl_sampai, $id_kategori)
@@ -287,6 +291,7 @@ class Transaksi extends Connection
 		$data = mysqli_fetch_assoc($resultOne);
 
 		return $data;
+		return true;
 	}
 	public function LihatPengeluaranHariini()
 	{
@@ -301,6 +306,7 @@ class Transaksi extends Connection
 		$data = mysqli_fetch_assoc($resultOne);
 
 		return $data;
+		return true;
 	}
 
 	public function LihatPemasukanBulanini()
@@ -316,6 +322,7 @@ class Transaksi extends Connection
 		$data = mysqli_fetch_assoc($resultOne);
 
 		return $data;
+		return true;
 	}
 	public function LihatPengeluaranBulanini()
 	{
@@ -330,6 +337,7 @@ class Transaksi extends Connection
 		$data = mysqli_fetch_assoc($resultOne);
 
 		return $data;
+		return true;
 	}
 
 	public function LihatPemasukanTahunini()
@@ -345,6 +353,7 @@ class Transaksi extends Connection
 		$data = mysqli_fetch_assoc($resultOne);
 
 		return $data;
+		return true;
 	}
 	public function LihatPengeluaranTahunini()
 	{
@@ -359,6 +368,7 @@ class Transaksi extends Connection
 		$data = mysqli_fetch_assoc($resultOne);
 
 		return $data;
+		return true;
 	}
 
 	public function LihatPemasukanSeluruh()
@@ -374,6 +384,7 @@ class Transaksi extends Connection
 		$data = mysqli_fetch_assoc($resultOne);
 
 		return $data;
+		return true;
 	}
 	public function LihatPengeluaranSeluruh()
 	{
@@ -388,6 +399,7 @@ class Transaksi extends Connection
 		$data = mysqli_fetch_assoc($resultOne);
 
 		return $data;
+		return true;
 	}
 
 	public function LihatGrafikPemasukanPerbulan()
@@ -408,6 +420,7 @@ class Transaksi extends Connection
 			}
 		}
 		return $data;
+		return true;
 	}
 
 	public function LihatGrafikPengeluaranPerbulan()
@@ -428,6 +441,7 @@ class Transaksi extends Connection
 			}
 		}
 		return $data;
+		return true;
 	}
 
 	public function LihatGrafikPemasukanPertahun()
@@ -447,6 +461,7 @@ class Transaksi extends Connection
 			}
 		}
 		return $data;
+		return true;
 	}
 
 	public function LihatGrafikPengeluaranPertahun()
@@ -466,6 +481,7 @@ class Transaksi extends Connection
 			}
 		}
 		return $data;
+		return true;
 	}
 
 	public function LihatGrafikTahun()
@@ -477,5 +493,6 @@ class Transaksi extends Connection
 			$data .= $t['tahun'] . ",";
 		}
 		return $data;
+		return true;
 	}
 }

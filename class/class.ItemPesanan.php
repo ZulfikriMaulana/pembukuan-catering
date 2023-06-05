@@ -66,6 +66,7 @@ class ItemPesanan extends Connection
 			$this->nama_item = $data['nama_item'];
 			$this->harga_jual = $data['harga_jual'];
 			$this->harga_modal = $data['harga_modal'];
+			return true;
 		}
 	}
 
@@ -82,6 +83,7 @@ class ItemPesanan extends Connection
 			$this->message = 'Item Pesanan berhasil ditambahkan!';
 		else
 			$this->message = 'Item Pesanan gagal ditambahkan!';
+		return true;
 	}
 
 	public function UbahItemPesanan() //set satu saja
@@ -100,6 +102,7 @@ class ItemPesanan extends Connection
 			$this->message = 'Item Pesanan berhasil diubah!';
 		else
 			$this->message = 'Item Pesanan gagal diubah!';
+		return true;
 	}
 
 	public function HapusItemPesanan()
@@ -111,5 +114,6 @@ class ItemPesanan extends Connection
 			$this->message = 'Item Pesanan berhasil dihapus!';
 		else
 			$this->message = 'Item Pesanan gagal dihapus!';
+		return true;
 	}
 }

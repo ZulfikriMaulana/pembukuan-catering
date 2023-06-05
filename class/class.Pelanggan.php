@@ -41,6 +41,7 @@ class Pelanggan extends Connection
 			$this->message = 'Data berhasil ditambahkan!';
 		else
 			$this->message = 'Data gagal ditambahkan!';
+		return true;
 	}
 
 	public function UbahPelanggan()
@@ -59,6 +60,7 @@ class Pelanggan extends Connection
 			$this->message = 'Data berhasil diubah!';
 		else
 			$this->message = 'Data gagal diubah!';
+		return true;
 	}
 
 
@@ -71,6 +73,7 @@ class Pelanggan extends Connection
 			$this->message = 'Data berhasil dihapus!';
 		else
 			$this->message = 'Data gagal dihapus!';
+		return true;
 	}
 
 	public function LihatSatuPelanggan() //belum
@@ -90,6 +93,7 @@ class Pelanggan extends Connection
 			$this->nama_cp = $data['nama_cp'];
 			$this->no_hp = $data['no_hp'];
 		}
+		return true;
 	}
 
 	public function LihatSemuaPelanggan() //Belum
