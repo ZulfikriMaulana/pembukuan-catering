@@ -27,8 +27,9 @@ class KategoriTest extends TestCase
         // Kita pakai class yang mau kita test.
         $obj = new Kategori();
 
+        $obj->id_kategori = 5;
         $obj->nama_kategori = 'TestLagi';
-        $obj->jenis = 'Pemasukan';
+        $obj->jenis = 'Pengeluaran';
 
         $this->assertEquals(true, $obj->UbahKategori());
     }
@@ -39,9 +40,7 @@ class KategoriTest extends TestCase
         // Kita pakai class yang mau kita test.
         $obj = new Kategori();
 
-        $obj->nama_kategori = 'TestLagi';
-        $obj->jenis = 'Pengeluaran';
-
+        $obj->id_kategori = 5;
         $this->assertEquals(true, $obj->HapusKategori());
     }
 
@@ -51,21 +50,15 @@ class KategoriTest extends TestCase
         // Kita pakai class yang mau kita test.
         $obj = new Kategori();
 
-        $obj->nama_kategori = 'TestLagi';
-        $obj->jenis = 'Pengeluaran';
+        $obj->id_kategori = 1;
 
         $this->assertEquals(true, $obj->LihatSatuKategori());
     }
 
     /** @test */
-    public function LihatSemuaKategori()
+    public function TesLihatSemuaKategori()
     {
-        // Kita pakai class yang mau kita test.
         $obj = new Kategori();
-
-        $obj->nama_kategori = 'TestLagi';
-        $obj->jenis = 'Pengeluaran';
-
-        $this->assertEquals(true, $obj->LihatSemuaKategori());
+        $this->assertIsArray($obj->LihatSemuaKategori());
     }
 }

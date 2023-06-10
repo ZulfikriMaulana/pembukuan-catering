@@ -41,9 +41,7 @@ class ItemPesananTest extends TestCase
         // Kita pakai class yang mau kita test.
         $obj = new ItemPesanan();
 
-        $obj->nama_item = 'TestTambahItem';
-        $obj->harga_jual = '10000';
-        $obj->harga_modal = '5000';
+        $obj->id_item_pesanan = 5;
 
         $this->assertEquals(true, $obj->HapusItemPesanan());
     }
@@ -54,9 +52,7 @@ class ItemPesananTest extends TestCase
         // Kita pakai class yang mau kita test.
         $obj = new ItemPesanan();
 
-        $obj->nama_item = 'TestTambahItem';
-        $obj->harga_jual = '10000';
-        $obj->harga_modal = '5000';
+        $obj->id_item_pesanan = 1;
 
         $this->assertEquals(true, $obj->LihatSatuItemPesanan());
     }

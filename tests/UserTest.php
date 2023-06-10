@@ -45,11 +45,7 @@ class UserTest extends TestCase
         // Kita pakai class yang mau kita test.
         $obj = new User();
 
-        $obj->nama = 'Alya';
-        $obj->email = 'AlyaGmail';
-        $obj->password = 'qweasd';
-        $obj->id_role = '3';
-        $obj->userid = '3';
+        $obj->userid = 5;
 
         $this->assertEquals(true, $obj->HapusUser());
     }
@@ -60,13 +56,9 @@ class UserTest extends TestCase
         // Kita pakai class yang mau kita test.
         $obj = new User();
 
-        $obj->nama = 'Alya';
-        $obj->email = 'AlyaGmail';
-        $obj->password = 'qweasd';
-        $obj->id_role = '3';
-        $obj->userid = '3';
+        $inputemail = 'AlyaGmail';
 
-        $this->assertEquals(true, $obj->ValidateEmail);
+        $this->assertEquals(true, $obj->ValidateEmail($inputemail));
     }
 
     /** @test */
@@ -75,11 +67,7 @@ class UserTest extends TestCase
         // Kita pakai class yang mau kita test.
         $obj = new User();
 
-        $obj->nama = 'Alya';
-        $obj->email = 'AlyaGmail';
-        $obj->password = 'qweasd';
-        $obj->id_role = '3';
-        $obj->userid = '3';
+        $obj->userid = 1;
 
         $this->assertEquals(true, $obj->LihatSatuUser());
     }

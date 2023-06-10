@@ -42,7 +42,7 @@ class User extends Connection
 			$this->message = 'Data berhasil ditambahkan!';
 		else
 			$this->message = 'Data gagal ditambahkan!';
-		return true;
+		return $this->hasil;
 	}
 
 	public function UbahUser()
@@ -61,7 +61,7 @@ class User extends Connection
 			$this->message = 'Data berhasil diubah!';
 		else
 			$this->message = 'Data gagal diubah!';
-		return true;
+		return $this->hasil;
 	}
 
 
@@ -74,7 +74,7 @@ class User extends Connection
 			$this->message = 'Data berhasil dihapus!';
 		else
 			$this->message = 'Data gagal dihapus!';
-		return true;
+		return $this->hasil;
 	}
 
 	public function ValidateEmail($inputemail)
@@ -93,7 +93,7 @@ class User extends Connection
 			$this->id_role = $data['id_role'];
 			$this->nama_role = $data['nama_role'];
 		}
-		return true;
+		return $this->hasil;
 	}
 
 
@@ -115,7 +115,7 @@ class User extends Connection
 			$this->nama_role = $data['nama_role'];
 			$this->id_role = $data['id_role'];
 		}
-		return true;
+		return $this->hasil;
 	}
 
 	public function LihatSemuaUser()

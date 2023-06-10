@@ -43,10 +43,7 @@ class PelangganTest extends TestCase
         // Kita pakai class yang mau kita test.
         $obj = new Pelanggan();
 
-        $obj->nama_instansi = 'Pelayanan';
-        $obj->alamat = 'Margonda';
-        $obj->nama_cp = 'Alya';
-        $obj->no_hp = '0821';
+        $obj->id_pelanggan = 5;
 
         $this->assertEquals(true, $obj->HapusPelanggan());
     }
@@ -57,10 +54,7 @@ class PelangganTest extends TestCase
         // Kita pakai class yang mau kita test.
         $obj = new Pelanggan();
 
-        $obj->nama_instansi = 'Pelayanan';
-        $obj->alamat = 'Margonda';
-        $obj->nama_cp = 'Alya';
-        $obj->no_hp = '0821';
+        $obj->id_pelanggan = 1;
 
         $this->assertEquals(true, $obj->LihatSatuPelanggan());
     }

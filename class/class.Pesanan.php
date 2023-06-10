@@ -74,7 +74,7 @@ class Pesanan extends Connection
 			$this->message = 'Data berhasil diubah!';
 		else
 			$this->message = 'Data gagal diubah!';
-		return true;
+		return $this->hasil;
 	}
 
 
@@ -87,7 +87,7 @@ class Pesanan extends Connection
 			$this->message = 'Data berhasil dihapus!';
 		else
 			$this->message = 'Data gagal dihapus!';
-		return true;
+		return $this->hasil;
 	}
 
 	public function LihatSatuPesanan()
@@ -115,7 +115,7 @@ class Pesanan extends Connection
 			$this->total_pesanan = $data['total_pesanan'];
 			$this->status = $data['status'];
 		}
-		return true;
+		return $this->hasil;
 	}
 
 	public function LihatSemuaPesanan()

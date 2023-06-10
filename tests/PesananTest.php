@@ -57,17 +57,7 @@ class PesananTest extends TestCase
         // Kita pakai class yang mau kita test.
         $obj = new Pesanan();
 
-        $obj->tanggal_pesanan = '12-12-2002';
-        $obj->id_pelanggan = '1';
-        $obj->alamat_pelanggan = 'Depok';
-        $obj->nama_pelanggan = 'Alya';
-        $obj->no_hp = '0821';
-        $obj->id_item_pesanan = '2';
-        $obj->jumlah_pesanan = '20';
-        $obj->catatan = 'HOHO';
-        $obj->subtotal_pesanan = '1234';
-        $obj->pajak_pesanan = '12';
-        $obj->total_pesanan = '12345';
+        $obj->id_pesanan = 5;
 
         $this->assertEquals(true, $obj->HapusPesanan());
     }
@@ -78,17 +68,7 @@ class PesananTest extends TestCase
         // Kita pakai class yang mau kita test.
         $obj = new Pesanan();
 
-        $obj->tanggal_pesanan = '12-12-2002';
-        $obj->id_pelanggan = '1';
-        $obj->alamat_pelanggan = 'Depok';
-        $obj->nama_pelanggan = 'Alya';
-        $obj->no_hp = '0821';
-        $obj->id_item_pesanan = '2';
-        $obj->jumlah_pesanan = '20';
-        $obj->catatan = 'HOHO';
-        $obj->subtotal_pesanan = '1234';
-        $obj->pajak_pesanan = '12';
-        $obj->total_pesanan = '12345';
+        $obj->id_pesanan = 1;
 
         $this->assertEquals(true, $obj->LihatSatuPesanan());
     }

@@ -291,7 +291,6 @@ class Transaksi extends Connection
 		$data = mysqli_fetch_assoc($resultOne);
 
 		return $data;
-		return true;
 	}
 	public function LihatPengeluaranHariini()
 	{
@@ -306,7 +305,6 @@ class Transaksi extends Connection
 		$data = mysqli_fetch_assoc($resultOne);
 
 		return $data;
-		return true;
 	}
 
 	public function LihatPemasukanBulanini()
@@ -322,7 +320,6 @@ class Transaksi extends Connection
 		$data = mysqli_fetch_assoc($resultOne);
 
 		return $data;
-		return true;
 	}
 	public function LihatPengeluaranBulanini()
 	{
@@ -337,7 +334,6 @@ class Transaksi extends Connection
 		$data = mysqli_fetch_assoc($resultOne);
 
 		return $data;
-		return true;
 	}
 
 	public function LihatPemasukanTahunini()
@@ -353,7 +349,6 @@ class Transaksi extends Connection
 		$data = mysqli_fetch_assoc($resultOne);
 
 		return $data;
-		return true;
 	}
 	public function LihatPengeluaranTahunini()
 	{
@@ -368,7 +363,6 @@ class Transaksi extends Connection
 		$data = mysqli_fetch_assoc($resultOne);
 
 		return $data;
-		return true;
 	}
 
 	public function LihatPemasukanSeluruh()
@@ -384,7 +378,6 @@ class Transaksi extends Connection
 		$data = mysqli_fetch_assoc($resultOne);
 
 		return $data;
-		return true;
 	}
 	public function LihatPengeluaranSeluruh()
 	{
@@ -399,7 +392,6 @@ class Transaksi extends Connection
 		$data = mysqli_fetch_assoc($resultOne);
 
 		return $data;
-		return true;
 	}
 
 	public function LihatGrafikPemasukanPerbulan()
@@ -420,7 +412,6 @@ class Transaksi extends Connection
 			}
 		}
 		return $data;
-		return true;
 	}
 
 	public function LihatGrafikPengeluaranPerbulan()
@@ -441,7 +432,6 @@ class Transaksi extends Connection
 			}
 		}
 		return $data;
-		return true;
 	}
 
 	public function LihatGrafikPemasukanPertahun()
@@ -461,7 +451,6 @@ class Transaksi extends Connection
 			}
 		}
 		return $data;
-		return true;
 	}
 
 	public function LihatGrafikPengeluaranPertahun()
@@ -481,7 +470,6 @@ class Transaksi extends Connection
 			}
 		}
 		return $data;
-		return true;
 	}
 
 	public function LihatGrafikTahun()
@@ -493,6 +481,5 @@ class Transaksi extends Connection
 			$data .= $t['tahun'] . ",";
 		}
 		return $data;
-		return true;
 	}
 }
