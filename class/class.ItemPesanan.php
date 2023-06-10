@@ -48,7 +48,7 @@ class ItemPesanan extends Connection
 				$i++;
 			}
 		}
-		return $arrResult;
+		return true;
 	}
 
 	public function LihatSatuItemPesanan()
