@@ -93,7 +93,7 @@ class User extends Connection
 			$this->id_role = $data['id_role'];
 			$this->nama_role = $data['nama_role'];
 		}
-		return $this->hasil;
+		return $this->connection;
 	}
 
 

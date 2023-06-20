@@ -30,7 +30,7 @@ class ItemPesananTest extends TestCase
 
         $obj->nama_item = 'TestTambahItem';
         $obj->harga_jual = '10000';
-        $obj->harga_modal = '5000';
+        $obj->harga_modal = '6000';
 
         $this->assertEquals(true, $obj->UbahItemPesanan());
     }
